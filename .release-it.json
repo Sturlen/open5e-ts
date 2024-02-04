@@ -1,5 +1,5 @@
 {
     "hooks": {
-        "after:bump": "pnpm run build"
+        "after:bump": ["pnpm run build"]
     }
 }
