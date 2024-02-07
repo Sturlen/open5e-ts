@@ -108,6 +108,10 @@ export const MonsterSchema = z.object({
     img: z.string().optional(),
 })
 
+const MonsterEndpointSchema = z.object({
+    results: z.array(MonsterSchema),
+})
+
 export interface Monster extends z.infer<typeof MonsterSchema> {}
 
 const fetchFn = async (url: string | URL, options = {}): Promise<unknown> => {
@@ -120,14 +124,62 @@ const fetchFn = async (url: string | URL, options = {}): Promise<unknown> => {
     ).json()
 }
 
+const document_slugs = [
+    "o5e",
+    "wotc-srd",
+    "tob",
+    "cc",
+    "tob2",
+    "dmag",
+    "menagerie",
+    "tob3",
+    "a5e",
+    "kp",
+    "dmag-e",
+    "warlock",
+    "vom",
+    "toh",
+] as const
+type DocumentSlug = (typeof document_slugs)[number] & {}
+
+type MonsterFindManyOptions = {
+    /** Source Document */
+    document__slug?: string
+}
+
+const generateFetchUrl = (
+    baseUrl: string | URL,
+    options: MonsterFindManyOptions
+) => {
+    const url = new URL(baseUrl)
+    const params = url.searchParams
+
+    Object.entries(options).forEach(([key, value]) => {
+        if (value) {
+            params.append(key, value)
+        }
+    })
+    return url
+}
+
 export function MonsterEndpoint(baseUrl: string) {
     return {
         findOne: async (slug: string): Promise<Monster> => {
             const pathname = `/monsters/${slug}`
             const url = new URL(baseUrl)
             url.pathname = pathname
-            const data = await fetchFn(url)
-            return MonsterSchema.parse(data)
+            const res = await fetchFn(url)
+            return MonsterSchema.parse(res)
+        },
+        findMany: async (
+            options: MonsterFindManyOptions = {}
+        ): Promise<Monster[]> => {
+            const pathname = `/monsters/`
+            const url = new URL(baseUrl)
+            url.pathname = pathname
+            const full_url = generateFetchUrl(url, options)
+            const res = await fetchFn(full_url)
+            return MonsterEndpointSchema.parse(res).results
         },
     }
 }
