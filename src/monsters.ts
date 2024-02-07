@@ -108,18 +108,25 @@ export const MonsterSchema = z.object({
     img: z.string().optional(),
 })
 
-export type Monster = z.infer<typeof MonsterSchema>
+export interface Monster extends z.infer<typeof MonsterSchema> {}
 
-export function MonsterEndpoint() {
+const fetchFn = async (url: string | URL, options = {}): Promise<unknown> => {
+    return (
+        await fetch(url, {
+            headers: { Accept: "application/json", SDK: "@sturlen/Open5e" },
+            redirect: "follow",
+            referrer: "https://open5e.spetland.no",
+        })
+    ).json()
+}
+
+export function MonsterEndpoint(baseUrl: string) {
     return {
         findOne: async (slug: string): Promise<Monster> => {
-            const response = await fetch(
-                `https://api.open5e.com/monsters/${slug}`
-            )
-            if (!response.ok) {
-                throw new Error("Monster not found")
-            }
-            const data = await response.json()
+            const pathname = `/monsters/${slug}`
+            const url = new URL(baseUrl)
+            url.pathname = pathname
+            const data = await fetchFn(url)
             return MonsterSchema.parse(data)
         },
     }

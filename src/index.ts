@@ -1,9 +1,9 @@
 import { MonsterEndpoint } from "./monsters"
 
-console.log("Hello, world!")
+const DEFAULT_BASE_URL = "https://api.open5e.com"
 
-function Open5eAPI() {
-    const monsters = MonsterEndpoint()
+function Open5eAPI(baseUrl = DEFAULT_BASE_URL) {
+    const monsters = MonsterEndpoint(baseUrl)
 
     return { monsters }
 }
