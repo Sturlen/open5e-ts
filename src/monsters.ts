@@ -142,25 +142,35 @@ const document_slugs = [
 ] as const
 
 type MonsterFindManyOptions = {
-    /** Source Document */
-    document__slug?: string
-    /** Number of items to fetch */
+    /** Limit query to one or more sources. By default all sources are used. */
+    document__slug?: string | string[]
+    /** Max number of items to fetch. */
     limit?: number
 }
 
 const ResponseLimitSchema = z.number().int().min(1).max(5000).default(50)
 
-const generateFetchUrl = (
+type GenerateFetchUrl = (
     baseUrl: string | URL,
     options: MonsterFindManyOptions
+) => URL
+
+const generateFetchUrl: GenerateFetchUrl = (
+    baseUrl,
+    { document__slug, limit }
 ) => {
     const url = new URL(baseUrl)
     const params = url.searchParams
 
-    params.append("limit", ResponseLimitSchema.parse(options.limit).toString())
+    params.append("limit", ResponseLimitSchema.parse(limit).toString())
 
-    if (options.document__slug) {
-        params.append("document__slug", options.document__slug)
+    if (document__slug) {
+        params.append(
+            "document__slug__in",
+            Array.isArray(document__slug)
+                ? document__slug.join(",")
+                : document__slug
+        )
     }
     return url
 }
@@ -181,6 +191,7 @@ export function MonsterEndpoint(baseUrl: string) {
             const url = new URL(baseUrl)
             url.pathname = pathname
             const full_url = generateFetchUrl(url, options)
+            console.log(full_url)
             const res = await fetchFn(full_url)
             return MonsterEndpointSchema.parse(res).results
         },
