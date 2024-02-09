@@ -24,3 +24,19 @@ test("Filter monsters by document slug", async () => {
         expect(mon.document__slug).toBe("cc")
     }
 })
+
+test("Return one monster when limit is one", async () => {
+    const api = Open5eAPI()
+    const mons = await api.monsters.findMany({ limit: 1 })
+
+    expect(mons.length).toBe(1)
+})
+
+test("Return twenty monsters when limit is twenty", async () => {
+    const api = Open5eAPI()
+    const mons = await api.monsters.findMany({
+        limit: 20,
+    })
+
+    expect(mons.length).toBe(20)
+})

@@ -140,12 +140,15 @@ const document_slugs = [
     "vom",
     "toh",
 ] as const
-type DocumentSlug = (typeof document_slugs)[number] & {}
 
 type MonsterFindManyOptions = {
     /** Source Document */
     document__slug?: string
+    /** Number of items to fetch */
+    limit?: number
 }
+
+const ResponseLimitSchema = z.number().int().min(1).max(5000).default(50)
 
 const generateFetchUrl = (
     baseUrl: string | URL,
@@ -154,11 +157,11 @@ const generateFetchUrl = (
     const url = new URL(baseUrl)
     const params = url.searchParams
 
-    Object.entries(options).forEach(([key, value]) => {
-        if (value) {
-            params.append(key, value)
-        }
-    })
+    params.append("limit", ResponseLimitSchema.parse(options.limit).toString())
+
+    if (options.document__slug) {
+        params.append("document__slug", options.document__slug)
+    }
     return url
 }
 
