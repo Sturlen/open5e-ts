@@ -5,5 +5,5 @@ export default defineConfig({
     dts: true,
     clean: true,
     format: ["esm", "cjs"],
-    entry: ["src/index.ts"],
+    entry: ["src/index.ts", "src/monsters.ts"],
 })

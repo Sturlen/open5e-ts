@@ -8,6 +8,11 @@
             "types": "./dist/index.d.ts",
             "require": "./dist/index.js",
             "import": "./dist/index.mjs"
+        },
+        "./monsters": {
+            "types": "./dist/monsters.d.ts",
+            "require": "./dist/monsters.js",
+            "import": "./dist/monsters.mjs"
         }
     },
     "typesVersions": {
