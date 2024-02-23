@@ -1,8 +1,35 @@
-import { expect, test } from "vitest"
+import { expect, test, beforeAll, afterAll } from "vitest"
 import Open5eAPI from "./src"
-import exp from "constants"
+import fetchMock from "fetch-mock"
 
-// TODO: Test againtst a mock, instead of the real API
+import aboleth from "./fixtures/aboleth.json"
+import cc from "./fixtures/cc-limit-50.json"
+import tob2andtob3 from "./fixtures/tob-and-tob3.json"
+import findOne from "./fixtures/findOne.json"
+import findTwenty from "./fixtures/find20.json"
+import findFifty from "./fixtures/find50.json"
+
+beforeAll(() => {
+    fetchMock
+        .get("https://api.open5e.com/monsters/aboleth", aboleth)
+        .get(
+            "https://api.open5e.com/monsters/?limit=50&document__slug__in=cc",
+            cc
+        )
+        .get(
+            "https://api.open5e.com/monsters/?limit=50&document__slug__in=tob2%2Ctob3",
+            tob2andtob3
+        )
+        .get("https://api.open5e.com/monsters/?limit=1", findOne)
+        .get("https://api.open5e.com/monsters/?limit=20", findTwenty)
+        .get("https://api.open5e.com/monsters/?limit=50", findFifty)
+        .mock()
+        .catch({ status: 400 })
+})
+
+afterAll(() => {
+    fetchMock.restore()
+})
 
 test("Find a monster by it's slug", async () => {
     const api = Open5eAPI()
