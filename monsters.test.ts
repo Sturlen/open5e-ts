@@ -27,7 +27,7 @@ beforeAll(() => {
         )
         .get(`${MONSTER_ENDPOINT}?limit=50&document__slug__in=cc`, cc)
         .get(
-            `${MONSTER_ENDPOINT}?limit=50&document__slug__in=tob2%2Ctob3`,
+            `${MONSTER_ENDPOINT}?limit=800&document__slug__in=tob2%2Ctob3`,
             tob2andtob3
         )
         .get(`${MONSTER_ENDPOINT}?limit=1`, findOne)
@@ -84,9 +84,10 @@ describe("findMany", () => {
         }
     })
 
-    it.todo("Can filter by multiple document slugs", async () => {
+    it("Can filter by multiple document slugs", async () => {
         const api = Open5eAPI(ENDPOINT)
         const mons = await api.monsters.findMany({
+            limit: 800,
             document__slug: ["tob2", "tob3"],
         })
         expect(mons.length).toBeGreaterThan(0)
@@ -97,8 +98,6 @@ describe("findMany", () => {
         const number_of_b_monsters = mons.filter(
             (mon) => mon.document__slug === "tob3"
         ).length
-
-        // TODO: Find a better way to actually verify that both documents are included
 
         expect(number_of_a_monsters).toBeGreaterThan(0)
         expect(number_of_b_monsters).toBeGreaterThan(0)
