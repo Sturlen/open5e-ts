@@ -33,6 +33,7 @@ beforeAll(() => {
         .get(`${MONSTER_ENDPOINT}?limit=1`, findOne)
         .get(`${MONSTER_ENDPOINT}?limit=20`, findTwenty)
         .get(`${MONSTER_ENDPOINT}?limit=50`, findFifty)
+        .get(`${MONSTER_ENDPOINT}`, findFifty)
         .mock()
         .catch({ status: 400 })
 })
@@ -53,6 +54,13 @@ describe("findOne", () => {
         const api = Open5eAPI(ENDPOINT)
         expect(() => api.monsters.findOne("not-a-monster")).rejects.toThrow(
             "Monster with slug 'not-a-monster' was not found."
+        )
+    })
+
+    it("Throws if slug is empty", async () => {
+        const api = Open5eAPI(ENDPOINT)
+        expect(() => api.monsters.findOne("")).rejects.toThrow(
+            "Slug is required."
         )
     })
 })
