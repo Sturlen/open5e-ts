@@ -1,4 +1,4 @@
-import { expect, test, beforeAll, afterAll, describe } from "vitest"
+import { expect, it, beforeAll, afterAll, describe } from "vitest"
 import Open5eAPI from "./src"
 import fetchMock from "fetch-mock"
 
@@ -8,6 +8,7 @@ import tob2andtob3 from "./fixtures/tob-and-tob3.json"
 import findOne from "./fixtures/findOne.json"
 import findTwenty from "./fixtures/find20.json"
 import findFifty from "./fixtures/find50.json"
+import empty from "./fixtures/empty.json"
 
 const MONSTER_PATH = "/monsters/"
 const ENDPOINT = "https://api.example.com"
@@ -16,6 +17,14 @@ const MONSTER_ENDPOINT = `${ENDPOINT}${MONSTER_PATH}`
 beforeAll(() => {
     fetchMock
         .get(`${MONSTER_ENDPOINT}aboleth`, aboleth)
+        .get(`${MONSTER_ENDPOINT}not-a-monster`, {
+            status: 404,
+            body: "Not Found",
+        })
+        .get(
+            `${MONSTER_ENDPOINT}?limit=50&document__slug__in=not-a-document`,
+            empty
+        )
         .get(`${MONSTER_ENDPOINT}?limit=50&document__slug__in=cc`, cc)
         .get(
             `${MONSTER_ENDPOINT}?limit=50&document__slug__in=tob2%2Ctob3`,
@@ -33,31 +42,39 @@ afterAll(() => {
 })
 
 describe("findOne", () => {
-    test("Find a monster by it's slug", async () => {
+    it("Gets a monster by it's slug", async () => {
         const api = Open5eAPI(ENDPOINT)
         const mon = await api.monsters.findOne("aboleth")
 
         expect(mon.name).toBe("Aboleth")
     })
 
-    test("throw when monster is not found", async () => {
+    it("Throws if a monster is not found", async () => {
         const api = Open5eAPI(ENDPOINT)
         expect(() => api.monsters.findOne("not-a-monster")).rejects.toThrow(
-            "Unexpected end of JSON input"
+            "Monster with slug 'not-a-monster' was not found."
         )
-        // TODO: Improve error message
     })
 })
 
 describe("findMany", () => {
-    test("Fetch many monsters", async () => {
+    it("Fetches 50 monsters by default", async () => {
         const api = Open5eAPI(ENDPOINT)
         const mons = await api.monsters.findMany()
 
-        expect(mons.length).greaterThan(0)
+        expect(mons.length).toBe(50)
     })
 
-    test("Filter monsters by document slug", async () => {
+    it("If no monsters are found, return an empty list", async () => {
+        const api = Open5eAPI(ENDPOINT)
+        const mons = await api.monsters.findMany({
+            document__slug: "not-a-document",
+        })
+
+        expect(mons.length).toBe(0)
+    })
+
+    it("Can filter by a document slug", async () => {
         const api = Open5eAPI(ENDPOINT)
         const mons = await api.monsters.findMany({ document__slug: "cc" })
 
@@ -67,36 +84,36 @@ describe("findMany", () => {
         }
     })
 
-    test("Filter monsters by multiple document slugs", async () => {
+    it.todo("Can filter by multiple document slugs", async () => {
         const api = Open5eAPI(ENDPOINT)
         const mons = await api.monsters.findMany({
             document__slug: ["tob2", "tob3"],
         })
         expect(mons.length).toBeGreaterThan(0)
         const number_of_monsters = mons.length
-        const number_of_filtered_monsters = mons.filter(
-            (mon) =>
-                mon.document__slug === "tob2" || mon.document__slug === "tob3"
+        const number_of_a_monsters = mons.filter(
+            (mon) => mon.document__slug === "tob2"
+        ).length
+        const number_of_b_monsters = mons.filter(
+            (mon) => mon.document__slug === "tob3"
         ).length
 
         // TODO: Find a better way to actually verify that both documents are included
 
-        expect(number_of_monsters).toBe(number_of_filtered_monsters)
+        expect(number_of_a_monsters).toBeGreaterThan(0)
+        expect(number_of_b_monsters).toBeGreaterThan(0)
+
+        expect(number_of_monsters).toBe(
+            number_of_a_monsters + number_of_b_monsters
+        )
     })
 
-    test("Return one monster when limit is one", async () => {
+    it("Can limit how many monsters are returned", async () => {
         const api = Open5eAPI(ENDPOINT)
-        const mons = await api.monsters.findMany({ limit: 1 })
+        const one = await api.monsters.findMany({ limit: 1 })
+        const twenty = await api.monsters.findMany({ limit: 20 })
 
-        expect(mons.length).toBe(1)
-    })
-
-    test("Return twenty monsters when limit is twenty", async () => {
-        const api = Open5eAPI(ENDPOINT)
-        const mons = await api.monsters.findMany({
-            limit: 20,
-        })
-
-        expect(mons.length).toBe(20)
+        expect(one.length).toBe(1)
+        expect(twenty.length).toBe(20)
     })
 })

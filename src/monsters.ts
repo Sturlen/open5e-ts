@@ -114,16 +114,6 @@ const MonsterEndpointSchema = z.object({
 
 export interface Monster extends z.infer<typeof MonsterSchema> {}
 
-const fetchFn = async (url: string | URL, options = {}): Promise<unknown> => {
-    return (
-        await fetch(url, {
-            headers: { Accept: "application/json", SDK: "@sturlen/Open5e" },
-            redirect: "follow",
-            referrer: "https://open5e.spetland.no",
-        })
-    ).json()
-}
-
 const document_slugs = [
     "o5e",
     "wotc-srd",
@@ -175,14 +165,29 @@ const generateFetchUrl: GenerateFetchUrl = (
     return url
 }
 
+const FETCH_OPTIONS: RequestInit = {
+    headers: { Accept: "application/json", SDK: "@sturlen/Open5e" },
+    redirect: "follow",
+} as const
+
 export function MonsterEndpoint(baseUrl: string) {
     return {
         findOne: async (slug: string): Promise<Monster> => {
             const pathname = `/monsters/${slug}`
             const url = new URL(baseUrl)
             url.pathname = pathname
-            const res = await fetchFn(url)
-            return MonsterSchema.parse(res)
+            const res = await fetch(url, FETCH_OPTIONS)
+
+            if (!res.ok && res.status === 404) {
+                throw new Error(`Monster with slug '${slug}' was not found.`)
+            }
+            if (!res.ok) {
+                throw new Error(`Failed to fetch '${slug}' Code: ${res.status}`)
+            }
+
+            const res_json = await res.json()
+
+            return MonsterSchema.parse(res_json)
         },
         findMany: async (
             options: MonsterFindManyOptions = {}
@@ -191,9 +196,10 @@ export function MonsterEndpoint(baseUrl: string) {
             const url = new URL(baseUrl)
             url.pathname = pathname
             const full_url = generateFetchUrl(url, options)
-            console.log(full_url)
-            const res = await fetchFn(full_url)
-            return MonsterEndpointSchema.parse(res).results
+
+            const res = await fetch(full_url, FETCH_OPTIONS)
+            const res_json = await res.json()
+            return MonsterEndpointSchema.parse(res_json).results
         },
     }
 }
