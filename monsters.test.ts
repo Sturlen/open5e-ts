@@ -8,6 +8,7 @@ import tob2andtob3 from "./fixtures/tob-and-tob3.json"
 import findOne from "./fixtures/findOne.json"
 import findTwenty from "./fixtures/find20.json"
 import findFifty from "./fixtures/find50.json"
+import findDragons from "./fixtures/find-dragons.json"
 import empty from "./fixtures/empty.json"
 
 const MONSTER_PATH = "/monsters/"
@@ -30,6 +31,7 @@ beforeAll(() => {
             `${MONSTER_ENDPOINT}?limit=800&document__slug__in=tob2%2Ctob3`,
             tob2andtob3
         )
+        .get(`${MONSTER_ENDPOINT}?limit=50&search=dragon`, findDragons)
         .get(`${MONSTER_ENDPOINT}?limit=1`, findOne)
         .get(`${MONSTER_ENDPOINT}?limit=20`, findTwenty)
         .get(`${MONSTER_ENDPOINT}?limit=50`, findFifty)
@@ -122,5 +124,12 @@ describe("findMany", () => {
 
         expect(one.length).toBe(1)
         expect(twenty.length).toBe(20)
+    })
+
+    it("Can filter by a string. This can be in the name as well as other fields", async () => {
+        const api = Open5eAPI(ENDPOINT)
+        const monsters = await api.monsters.findMany({ search: "dragon" })
+
+        expect(monsters[0].name).toBe("Adult Black Dragon")
     })
 })
