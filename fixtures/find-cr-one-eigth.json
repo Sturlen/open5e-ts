@@ -1,0 +1,4084 @@
+{
+	"count": 57,
+	"next": null,
+	"previous": null,
+	"results": [
+		{
+			"slug": "bandit",
+			"desc": "**Bandits** rove in gangs and are sometimes led by thugs, veterans, or spellcasters. Not all bandits are evil. Oppression, drought, disease, or famine can often drive otherwise honest folk to a life of banditry. \n**Pirates** are bandits of the high seas. They might be freebooters interested only in treasure and murder, or they might be privateers sanctioned by the crown to attack and plunder an enemy nation's vessels.",
+			"name": "Bandit",
+			"size": "Medium",
+			"type": "Humanoid",
+			"subtype": "any race",
+			"group": "NPCs",
+			"alignment": "any non-lawful alignment",
+			"armor_class": 12,
+			"armor_desc": "leather armor",
+			"hit_points": 11,
+			"hit_dice": "2d8+2",
+			"speed": {
+				"walk": 30
+			},
+			"strength": 11,
+			"dexterity": 12,
+			"constitution": 12,
+			"intelligence": 10,
+			"wisdom": 10,
+			"charisma": 10,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "passive Perception 10",
+			"languages": "any one language (usually Common)",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Scimitar",
+					"desc": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) slashing damage.",
+					"attack_bonus": 3,
+					"damage_dice": "1d6",
+					"damage_bonus": 1
+				},
+				{
+					"name": "Light Crossbow",
+					"desc": "Ranged Weapon Attack: +3 to hit, range 80/320 ft., one target. Hit: 5 (1d8 + 1) piercing damage.",
+					"attack_bonus": 3,
+					"damage_dice": "1d8",
+					"damage_bonus": 1
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": null,
+			"spell_list": [],
+			"page_no": 396,
+			"environments": [
+				"Hill",
+				"Desert",
+				"Mountains",
+				"Coastal",
+				"Tundra",
+				"Grassland",
+				"Ruin",
+				"Laboratory",
+				"Swamp",
+				"Settlement",
+				"Urban",
+				"Sewer",
+				"Forest",
+				"Arctic",
+				"Jungle",
+				"Hills",
+				"Caverns"
+			],
+			"img_main": null,
+			"document__slug": "wotc-srd",
+			"document__title": "5e Core Rules",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "http://dnd.wizards.com/articles/features/systems-reference-document-srd"
+		},
+		{
+			"slug": "blood-hawk",
+			"desc": "Taking its name from its crimson feathers and aggressive nature, the **blood hawk** fearlessly attacks almost any animal, stabbing it with its daggerlike beak. Blood hawks flock together in large numbers, attacking as a pack to take down prey.",
+			"name": "Blood Hawk",
+			"size": "Small",
+			"type": "Beast",
+			"subtype": "",
+			"group": "Miscellaneous Creatures",
+			"alignment": "unaligned",
+			"armor_class": 12,
+			"armor_desc": null,
+			"hit_points": 7,
+			"hit_dice": "2d6",
+			"speed": {
+				"walk": 10,
+				"fly": 60
+			},
+			"strength": 6,
+			"dexterity": 14,
+			"constitution": 10,
+			"intelligence": 3,
+			"wisdom": 14,
+			"charisma": 5,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": 4,
+			"skills": {
+				"perception": 4
+			},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "passive Perception 14",
+			"languages": "",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Beak",
+					"desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing damage.",
+					"attack_bonus": 4,
+					"damage_dice": "1d4",
+					"damage_bonus": 2
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Keen Sight",
+					"desc": "The hawk has advantage on Wisdom (Perception) checks that rely on sight."
+				},
+				{
+					"name": "Pack Tactics",
+					"desc": "The hawk has advantage on an attack roll against a creature if at least one of the hawk's allies is within 5 ft. of the creature and the ally isn't incapacitated."
+				}
+			],
+			"spell_list": [],
+			"page_no": 368,
+			"environments": [
+				"Hill",
+				"Grassland",
+				"Coastal",
+				"Mountain",
+				"Forest",
+				"Desert",
+				"Arctic"
+			],
+			"img_main": null,
+			"document__slug": "wotc-srd",
+			"document__title": "5e Core Rules",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "http://dnd.wizards.com/articles/features/systems-reference-document-srd"
+		},
+		{
+			"slug": "camel",
+			"desc": "",
+			"name": "Camel",
+			"size": "Large",
+			"type": "Beast",
+			"subtype": "",
+			"group": "Miscellaneous Creatures",
+			"alignment": "unaligned",
+			"armor_class": 9,
+			"armor_desc": null,
+			"hit_points": 15,
+			"hit_dice": "2d10+4",
+			"speed": {
+				"walk": 50
+			},
+			"strength": 16,
+			"dexterity": 8,
+			"constitution": 14,
+			"intelligence": 2,
+			"wisdom": 8,
+			"charisma": 5,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "passive Perception 9",
+			"languages": "",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Bite",
+					"desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 2 (1d4) bludgeoning damage.",
+					"attack_bonus": 5,
+					"damage_dice": "1d4"
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": null,
+			"spell_list": [],
+			"page_no": 369,
+			"environments": [
+				"Desert",
+				"Settlement"
+			],
+			"img_main": null,
+			"document__slug": "wotc-srd",
+			"document__title": "5e Core Rules",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "http://dnd.wizards.com/articles/features/systems-reference-document-srd"
+		},
+		{
+			"slug": "cultist",
+			"desc": "**Cultists** swear allegiance to dark powers such as elemental princes, demon lords, or archdevils. Most conceal their loyalties to avoid being ostracized, imprisoned, or executed for their beliefs. Unlike evil acolytes, cultists often show signs of insanity in their beliefs and practices.",
+			"name": "Cultist",
+			"size": "Medium",
+			"type": "Humanoid",
+			"subtype": "any race",
+			"group": "NPCs",
+			"alignment": "any non-good alignment",
+			"armor_class": 12,
+			"armor_desc": "leather armor",
+			"hit_points": 9,
+			"hit_dice": "2d8",
+			"speed": {
+				"walk": 30
+			},
+			"strength": 11,
+			"dexterity": 12,
+			"constitution": 10,
+			"intelligence": 10,
+			"wisdom": 11,
+			"charisma": 10,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {
+				"deception": 2,
+				"religion": 2
+			},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "passive Perception 10",
+			"languages": "any one language (usually Common)",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Scimitar",
+					"desc": "Melee Weapon Attack: +3 to hit, reach 5 ft., one creature. Hit: 4 (1d6 + 1) slashing damage.",
+					"attack_bonus": 3,
+					"damage_dice": "1d6",
+					"damage_bonus": 1
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Dark Devotion",
+					"desc": "The cultist has advantage on saving throws against being charmed or frightened."
+				}
+			],
+			"spell_list": [],
+			"page_no": 398,
+			"environments": [
+				"Temple",
+				"Desert",
+				"Urban",
+				"Sewer",
+				"Forest",
+				"Ruin",
+				"Jungle",
+				"Hills",
+				"Settlement"
+			],
+			"img_main": null,
+			"document__slug": "wotc-srd",
+			"document__title": "5e Core Rules",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "http://dnd.wizards.com/articles/features/systems-reference-document-srd"
+		},
+		{
+			"slug": "flying-snake",
+			"desc": "A **flying snake** is a brightly colored, winged serpent found in remote jungles. Tribespeople and cultists sometimes domesticate flying snakes to serve as messengers that deliver scrolls wrapped in their coils.",
+			"name": "Flying Snake",
+			"size": "Tiny",
+			"type": "Beast",
+			"subtype": "",
+			"group": "Miscellaneous Creatures",
+			"alignment": "unaligned",
+			"armor_class": 14,
+			"armor_desc": null,
+			"hit_points": 5,
+			"hit_dice": "2d4",
+			"speed": {
+				"walk": 30,
+				"fly": 60,
+				"swim": 30
+			},
+			"strength": 4,
+			"dexterity": 18,
+			"constitution": 11,
+			"intelligence": 2,
+			"wisdom": 12,
+			"charisma": 5,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "blindsight 10 ft., passive Perception 11",
+			"languages": "",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Bite",
+					"desc": "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 1 piercing damage plus 7 (3d4) poison damage.",
+					"attack_bonus": 6,
+					"damage_bonus": 1
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Flyby",
+					"desc": "The snake doesn't provoke opportunity attacks when it flies out of an enemy's reach."
+				}
+			],
+			"spell_list": [],
+			"page_no": 372,
+			"environments": [
+				"Urban",
+				"Desert",
+				"Grassland",
+				"Forest",
+				"Jungle",
+				"Swamp",
+				"Feywild"
+			],
+			"img_main": null,
+			"document__slug": "wotc-srd",
+			"document__title": "5e Core Rules",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "http://dnd.wizards.com/articles/features/systems-reference-document-srd"
+		},
+		{
+			"slug": "giant-crab",
+			"desc": "",
+			"name": "Giant Crab",
+			"size": "Medium",
+			"type": "Beast",
+			"subtype": "",
+			"group": "Miscellaneous Creatures",
+			"alignment": "unaligned",
+			"armor_class": 15,
+			"armor_desc": "natural armor",
+			"hit_points": 13,
+			"hit_dice": "3d8",
+			"speed": {
+				"walk": 30,
+				"swim": 30
+			},
+			"strength": 13,
+			"dexterity": 15,
+			"constitution": 11,
+			"intelligence": 1,
+			"wisdom": 9,
+			"charisma": 3,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {
+				"stealth": 4
+			},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "blindsight 30 ft., passive Perception 9",
+			"languages": "",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Claw",
+					"desc": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) bludgeoning damage, and the target is grappled (escape DC 11). The crab has two claws, each of which can grapple only one target.",
+					"attack_bonus": 3,
+					"damage_dice": "1d6",
+					"damage_bonus": 1
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Amphibious",
+					"desc": "The crab can breathe air and water."
+				}
+			],
+			"spell_list": [],
+			"page_no": 374,
+			"environments": [
+				"Desert",
+				"Coastal",
+				"Water"
+			],
+			"img_main": null,
+			"document__slug": "wotc-srd",
+			"document__title": "5e Core Rules",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "http://dnd.wizards.com/articles/features/systems-reference-document-srd"
+		},
+		{
+			"slug": "giant-rat",
+			"desc": "",
+			"name": "Giant Rat",
+			"size": "Small",
+			"type": "Beast",
+			"subtype": "",
+			"group": "Miscellaneous Creatures",
+			"alignment": "unaligned",
+			"armor_class": 12,
+			"armor_desc": null,
+			"hit_points": 7,
+			"hit_dice": "2d6",
+			"speed": {
+				"walk": 30
+			},
+			"strength": 7,
+			"dexterity": 15,
+			"constitution": 11,
+			"intelligence": 2,
+			"wisdom": 10,
+			"charisma": 4,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "darkvision 60 ft., passive Perception 10",
+			"languages": "",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Bite",
+					"desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing damage.",
+					"attack_bonus": 4,
+					"damage_dice": "1d4",
+					"damage_bonus": 2
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Keen Smell",
+					"desc": "The rat has advantage on Wisdom (Perception) checks that rely on smell."
+				},
+				{
+					"name": "Pack Tactics",
+					"desc": "The rat has advantage on an attack roll against a creature if at least one of the rat's allies is within 5 ft. of the creature and the ally isn't incapacitated."
+				}
+			],
+			"spell_list": [],
+			"page_no": 378,
+			"environments": [
+				"Underdark",
+				"Urban",
+				"Sewer",
+				"Forest",
+				"Ruin",
+				"Swamp",
+				"Caverns",
+				"Settlement"
+			],
+			"img_main": null,
+			"document__slug": "wotc-srd",
+			"document__title": "5e Core Rules",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "http://dnd.wizards.com/articles/features/systems-reference-document-srd"
+		},
+		{
+			"slug": "giant-rat-diseased",
+			"desc": "",
+			"name": "Giant Rat (Diseased)",
+			"size": "Small",
+			"type": "Beast",
+			"subtype": "",
+			"group": null,
+			"alignment": "unaligned",
+			"armor_class": 12,
+			"armor_desc": null,
+			"hit_points": 7,
+			"hit_dice": "2d6",
+			"speed": {
+				"walk": 30
+			},
+			"strength": 7,
+			"dexterity": 15,
+			"constitution": 11,
+			"intelligence": 2,
+			"wisdom": 10,
+			"charisma": 4,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "darkvision 60 ft., passive Perception 10",
+			"languages": "",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Bite",
+					"desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing damage. If the target is a creature, it must succeed on a DC 10 Constitution saving throw or contract a disease. Until the disease is cured, the target can't regain hit points except by magical means, and the target's hit point maximum decreases by 3 (1d6) every 24 hours. If the target's hit point maximum drops to 0 as a result of this disease, the target dies.",
+					"attack_bonus": 4,
+					"damage_dice": "1d4",
+					"damage_bonus": 2
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": null,
+			"spell_list": [],
+			"page_no": 378,
+			"environments": [
+				"Sewer",
+				"Swamp",
+				"Caverns",
+				"Forest",
+				"Ruin",
+				"Settlement"
+			],
+			"img_main": null,
+			"document__slug": "wotc-srd",
+			"document__title": "5e Core Rules",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "http://dnd.wizards.com/articles/features/systems-reference-document-srd"
+		},
+		{
+			"slug": "giant-weasel",
+			"desc": "",
+			"name": "Giant Weasel",
+			"size": "Medium",
+			"type": "Beast",
+			"subtype": "",
+			"group": "Miscellaneous Creatures",
+			"alignment": "unaligned",
+			"armor_class": 13,
+			"armor_desc": null,
+			"hit_points": 9,
+			"hit_dice": "2d8",
+			"speed": {
+				"walk": 40
+			},
+			"strength": 11,
+			"dexterity": 16,
+			"constitution": 10,
+			"intelligence": 4,
+			"wisdom": 12,
+			"charisma": 5,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": 3,
+			"skills": {
+				"perception": 3,
+				"stealth": 5
+			},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "darkvision 60 ft., passive Perception 13",
+			"languages": "",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Bite",
+					"desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 5 (1d4 + 3) piercing damage.",
+					"attack_bonus": 5,
+					"damage_dice": "1d4",
+					"damage_bonus": 3
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Keen Hearing and Smell",
+					"desc": "The weasel has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+				}
+			],
+			"spell_list": [],
+			"page_no": 381,
+			"environments": [
+				"Hill",
+				"Feywild",
+				"Grassland",
+				"Forest"
+			],
+			"img_main": null,
+			"document__slug": "wotc-srd",
+			"document__title": "5e Core Rules",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "http://dnd.wizards.com/articles/features/systems-reference-document-srd"
+		},
+		{
+			"slug": "guard",
+			"desc": "**Guards** include members of a city watch, sentries in a citadel or fortified town, and the bodyguards of merchants and nobles.",
+			"name": "Guard",
+			"size": "Medium",
+			"type": "Humanoid",
+			"subtype": "any race",
+			"group": "NPCs",
+			"alignment": "any alignment",
+			"armor_class": 16,
+			"armor_desc": "chain shirt, shield",
+			"hit_points": 11,
+			"hit_dice": "2d8+2",
+			"speed": {
+				"walk": 30
+			},
+			"strength": 13,
+			"dexterity": 12,
+			"constitution": 12,
+			"intelligence": 10,
+			"wisdom": 11,
+			"charisma": 10,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": 2,
+			"skills": {
+				"perception": 2
+			},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "passive Perception 12",
+			"languages": "any one language (usually Common)",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Spear",
+					"desc": "Melee or Ranged Weapon Attack: +3 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (1d6 + 1) piercing damage, or 5 (1d8 + 1) piercing damage if used with two hands to make a melee attack.",
+					"attack_bonus": 3,
+					"damage_dice": "1d6",
+					"damage_bonus": 1
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": null,
+			"spell_list": [],
+			"page_no": 399,
+			"environments": [
+				"Hill",
+				"Desert",
+				"Urban",
+				"Mountains",
+				"Coastal",
+				"Grassland",
+				"Forest",
+				"Hills",
+				"Mountain",
+				"Settlement"
+			],
+			"img_main": null,
+			"document__slug": "wotc-srd",
+			"document__title": "5e Core Rules",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "http://dnd.wizards.com/articles/features/systems-reference-document-srd"
+		},
+		{
+			"slug": "kobold",
+			"desc": "",
+			"name": "Kobold",
+			"size": "Small",
+			"type": "Humanoid",
+			"subtype": "kobold",
+			"group": null,
+			"alignment": "lawful evil",
+			"armor_class": 12,
+			"armor_desc": null,
+			"hit_points": 5,
+			"hit_dice": "2d6-2",
+			"speed": {
+				"walk": 30
+			},
+			"strength": 7,
+			"dexterity": 15,
+			"constitution": 9,
+			"intelligence": 8,
+			"wisdom": 7,
+			"charisma": 8,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "darkvision 60 ft., passive Perception 8",
+			"languages": "Common, Draconic",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Dagger",
+					"desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing damage.",
+					"attack_bonus": 4,
+					"damage_dice": "1d4",
+					"damage_bonus": 2
+				},
+				{
+					"name": "Sling",
+					"desc": "Ranged Weapon Attack: +4 to hit, range 30/120 ft., one target. Hit: 4 (1d4 + 2) bludgeoning damage.",
+					"attack_bonus": 4,
+					"damage_dice": "1d4",
+					"damage_bonus": 2
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Sunlight Sensitivity",
+					"desc": "While in sunlight, the kobold has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+				},
+				{
+					"name": "Pack Tactics",
+					"desc": "The kobold has advantage on an attack roll against a creature if at least one of the kobold's allies is within 5 ft. of the creature and the ally isn't incapacitated."
+				}
+			],
+			"spell_list": [],
+			"page_no": 324,
+			"environments": [
+				"Hill",
+				"Underdark",
+				"Mountains",
+				"Coastal",
+				"Tundra",
+				"Grassland",
+				"Ruin",
+				"Swamp",
+				"Mountain",
+				"Desert",
+				"Settlement",
+				"Urban",
+				"Forest",
+				"Arctic",
+				"Jungle",
+				"Hills",
+				"Caverns",
+				"Plane Of Earth"
+			],
+			"img_main": null,
+			"document__slug": "wotc-srd",
+			"document__title": "5e Core Rules",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "http://dnd.wizards.com/articles/features/systems-reference-document-srd"
+		},
+		{
+			"slug": "mastiff",
+			"desc": "**Mastiffs** are impressive hounds prized by humanoids for their loyalty and keen senses. Mastiffs can be trained as guard dogs, hunting dogs, and war dogs. Halflings and other Small humanoids ride them as mounts.",
+			"name": "Mastiff",
+			"size": "Medium",
+			"type": "Beast",
+			"subtype": "",
+			"group": "Miscellaneous Creatures",
+			"alignment": "unaligned",
+			"armor_class": 12,
+			"armor_desc": null,
+			"hit_points": 5,
+			"hit_dice": "1d8+1",
+			"speed": {
+				"walk": 40
+			},
+			"strength": 13,
+			"dexterity": 14,
+			"constitution": 12,
+			"intelligence": 3,
+			"wisdom": 12,
+			"charisma": 7,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": 3,
+			"skills": {
+				"perception": 3
+			},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "passive Perception 13",
+			"languages": "",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Bite",
+					"desc": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) piercing damage. If the target is a creature, it must succeed on a DC 11 Strength saving throw or be knocked prone.",
+					"attack_bonus": 3,
+					"damage_dice": "1d6",
+					"damage_bonus": 1
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Keen Hearing and Smell",
+					"desc": "The mastiff has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+				}
+			],
+			"spell_list": [],
+			"page_no": 384,
+			"environments": [
+				"Hill",
+				"Forest",
+				"Settlement",
+				"Urban"
+			],
+			"img_main": null,
+			"document__slug": "wotc-srd",
+			"document__title": "5e Core Rules",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "http://dnd.wizards.com/articles/features/systems-reference-document-srd"
+		},
+		{
+			"slug": "merfolk",
+			"desc": "",
+			"name": "Merfolk",
+			"size": "Medium",
+			"type": "Humanoid",
+			"subtype": "merfolk",
+			"group": null,
+			"alignment": "neutral",
+			"armor_class": 11,
+			"armor_desc": null,
+			"hit_points": 11,
+			"hit_dice": "2d8+2",
+			"speed": {
+				"walk": 10,
+				"swim": 40
+			},
+			"strength": 10,
+			"dexterity": 13,
+			"constitution": 12,
+			"intelligence": 11,
+			"wisdom": 11,
+			"charisma": 12,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": 2,
+			"skills": {
+				"perception": 2
+			},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "passive Perception 12",
+			"languages": "Aquan, Common",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Spear",
+					"desc": "Melee or Ranged Weapon Attack: +2 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 3 (1d6) piercing damage, or 4 (1d8) piercing damage if used with two hands to make a melee attack.",
+					"attack_bonus": 2,
+					"damage_dice": "1d6"
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Amphibious",
+					"desc": "The merfolk can breathe air and water."
+				}
+			],
+			"spell_list": [],
+			"page_no": 332,
+			"environments": [
+				"Underwater",
+				"Desert",
+				"Coastal",
+				"Water"
+			],
+			"img_main": null,
+			"document__slug": "wotc-srd",
+			"document__title": "5e Core Rules",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "http://dnd.wizards.com/articles/features/systems-reference-document-srd"
+		},
+		{
+			"slug": "mule",
+			"desc": "",
+			"name": "Mule",
+			"size": "Medium",
+			"type": "Beast",
+			"subtype": "",
+			"group": "Miscellaneous Creatures",
+			"alignment": "unaligned",
+			"armor_class": 10,
+			"armor_desc": null,
+			"hit_points": 11,
+			"hit_dice": "2d8+2",
+			"speed": {
+				"walk": 40
+			},
+			"strength": 14,
+			"dexterity": 10,
+			"constitution": 13,
+			"intelligence": 2,
+			"wisdom": 10,
+			"charisma": 5,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "passive Perception 10",
+			"languages": "",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Hooves",
+					"desc": "Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) bludgeoning damage.",
+					"attack_bonus": 4,
+					"damage_dice": "1d4",
+					"damage_bonus": 2
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Beast of Burden",
+					"desc": "The mule is considered to be a Large animal for the purpose of determining its carrying capacity."
+				},
+				{
+					"name": "Sure-Footed",
+					"desc": "The mule has advantage on Strength and Dexterity saving throws made against effects that would knock it prone."
+				}
+			],
+			"spell_list": [],
+			"page_no": 384,
+			"environments": [
+				"Hill",
+				"Grassland",
+				"Settlement",
+				"Urban"
+			],
+			"img_main": null,
+			"document__slug": "wotc-srd",
+			"document__title": "5e Core Rules",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "http://dnd.wizards.com/articles/features/systems-reference-document-srd"
+		},
+		{
+			"slug": "noble",
+			"desc": "**Nobles** wield great authority and influence as members of the upper class, possessing wealth and connections that can make them as powerful as monarchs and generals. A noble often travels in the company of guards, as well as servants who are commoners.\nThe noble's statistics can also be used to represent **courtiers** who aren't of noble birth.",
+			"name": "Noble",
+			"size": "Medium",
+			"type": "Humanoid",
+			"subtype": "any race",
+			"group": "NPCs",
+			"alignment": "any alignment",
+			"armor_class": 15,
+			"armor_desc": "breastplate",
+			"hit_points": 9,
+			"hit_dice": "2d8",
+			"speed": {
+				"walk": 30
+			},
+			"strength": 11,
+			"dexterity": 12,
+			"constitution": 11,
+			"intelligence": 12,
+			"wisdom": 14,
+			"charisma": 16,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {
+				"deception": 5,
+				"insight": 4,
+				"persuasion": 5
+			},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "passive Perception 12",
+			"languages": "any two languages",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Rapier",
+					"desc": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 5 (1d8 + 1) piercing damage.",
+					"attack_bonus": 3,
+					"damage_dice": "1d8",
+					"damage_bonus": 1
+				}
+			],
+			"bonus_actions": null,
+			"reactions": [
+				{
+					"name": "Parry",
+					"desc": "The noble adds 2 to its AC against one melee attack that would hit it. To do so, the noble must see the attacker and be wielding a melee weapon."
+				}
+			],
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": null,
+			"spell_list": [],
+			"page_no": 401,
+			"environments": [
+				"Urban",
+				"Grassland",
+				"Hills",
+				"Settlement"
+			],
+			"img_main": null,
+			"document__slug": "wotc-srd",
+			"document__title": "5e Core Rules",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "http://dnd.wizards.com/articles/features/systems-reference-document-srd"
+		},
+		{
+			"slug": "poisonous-snake",
+			"desc": "",
+			"name": "Poisonous Snake",
+			"size": "Tiny",
+			"type": "Beast",
+			"subtype": "",
+			"group": "Miscellaneous Creatures",
+			"alignment": "unaligned",
+			"armor_class": 13,
+			"armor_desc": null,
+			"hit_points": 2,
+			"hit_dice": "1d4",
+			"speed": {
+				"walk": 30,
+				"swim": 30
+			},
+			"strength": 2,
+			"dexterity": 16,
+			"constitution": 11,
+			"intelligence": 1,
+			"wisdom": 10,
+			"charisma": 3,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "blindsight 10 ft., passive Perception 10",
+			"languages": "",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Bite",
+					"desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 1 piercing damage, and the target must make a DC 10 Constitution saving throw, taking 5 (2d4) poison damage on a failed save, or half as much damage on a successful one.",
+					"attack_bonus": 5,
+					"damage_bonus": 1
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": null,
+			"spell_list": [],
+			"page_no": 386,
+			"environments": [
+				"Hill",
+				"Desert",
+				"Grassland",
+				"Mountains",
+				"Coastal",
+				"Ruin",
+				"Swamp",
+				"Water",
+				"Sewer",
+				"Forest",
+				"Tomb",
+				"Jungle",
+				"Hills",
+				"Caverns"
+			],
+			"img_main": null,
+			"document__slug": "wotc-srd",
+			"document__title": "5e Core Rules",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "http://dnd.wizards.com/articles/features/systems-reference-document-srd"
+		},
+		{
+			"slug": "pony",
+			"desc": "",
+			"name": "Pony",
+			"size": "Medium",
+			"type": "Beast",
+			"subtype": "",
+			"group": "Miscellaneous Creatures",
+			"alignment": "unaligned",
+			"armor_class": 10,
+			"armor_desc": null,
+			"hit_points": 11,
+			"hit_dice": "2d8+2",
+			"speed": {
+				"walk": 40
+			},
+			"strength": 15,
+			"dexterity": 10,
+			"constitution": 13,
+			"intelligence": 2,
+			"wisdom": 11,
+			"charisma": 7,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "passive Perception 10",
+			"languages": "",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Hooves",
+					"desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (2d4 + 2) bludgeoning damage.",
+					"attack_bonus": 4,
+					"damage_dice": "2d4",
+					"damage_bonus": 2
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": null,
+			"spell_list": [],
+			"page_no": 386,
+			"environments": [
+				"Urban",
+				"Settlement",
+				"Mountains"
+			],
+			"img_main": null,
+			"document__slug": "wotc-srd",
+			"document__title": "5e Core Rules",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "http://dnd.wizards.com/articles/features/systems-reference-document-srd"
+		},
+		{
+			"slug": "stirge",
+			"desc": "",
+			"name": "Stirge",
+			"size": "Tiny",
+			"type": "Beast",
+			"subtype": "",
+			"group": null,
+			"alignment": "unaligned",
+			"armor_class": 14,
+			"armor_desc": "natural armor",
+			"hit_points": 2,
+			"hit_dice": "1d4",
+			"speed": {
+				"walk": 10,
+				"fly": 40
+			},
+			"strength": 4,
+			"dexterity": 16,
+			"constitution": 11,
+			"intelligence": 2,
+			"wisdom": 8,
+			"charisma": 6,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "darkvision 60 ft., passive Perception 9",
+			"languages": "",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Blood Drain",
+					"desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one creature. Hit: 5 (1d4 + 3) piercing damage, and the stirge attaches to the target. While attached, the stirge doesn't attack. Instead, at the start of each of the stirge's turns, the target loses 5 (1d4 + 3) hit points due to blood loss.\nThe stirge can detach itself by spending 5 feet of its movement. It does so after it drains 10 hit points of blood from the target or the target dies. A creature, including the target, can use its action to detach the stirge.",
+					"attack_bonus": 5,
+					"damage_dice": "1d4",
+					"damage_bonus": 3
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": null,
+			"spell_list": [],
+			"page_no": 349,
+			"environments": [
+				"Hill",
+				"Desert",
+				"Underdark",
+				"Urban",
+				"Grassland",
+				"Coastal",
+				"Forest",
+				"Swamp",
+				"Jungle",
+				"Hills",
+				"Mountain",
+				"Caverns"
+			],
+			"img_main": null,
+			"document__slug": "wotc-srd",
+			"document__title": "5e Core Rules",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "http://dnd.wizards.com/articles/features/systems-reference-document-srd"
+		},
+		{
+			"slug": "tribal-warrior",
+			"desc": "**Tribal warriors** live beyond civilization, most often subsisting on fishing and hunting. Each tribe acts in accordance with the wishes of its chief, who is the greatest or oldest warrior of the tribe or a tribe member blessed by the gods.",
+			"name": "Tribal Warrior",
+			"size": "Medium",
+			"type": "Humanoid",
+			"subtype": "any race",
+			"group": "NPCs",
+			"alignment": "any alignment",
+			"armor_class": 12,
+			"armor_desc": "hide armor",
+			"hit_points": 11,
+			"hit_dice": "2d8+2",
+			"speed": {
+				"walk": 30
+			},
+			"strength": 13,
+			"dexterity": 11,
+			"constitution": 12,
+			"intelligence": 8,
+			"wisdom": 11,
+			"charisma": 8,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "passive Perception 10",
+			"languages": "any one language",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Spear",
+					"desc": "Melee or Ranged Weapon Attack: +3 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (1d6 + 1) piercing damage, or 5 (1d8 + 1) piercing damage if used with two hands to make a melee attack.",
+					"attack_bonus": 3,
+					"damage_dice": "1d6",
+					"damage_bonus": 1
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Pack Tactics",
+					"desc": "The warrior has advantage on an attack roll against a creature if at least one of the warrior's allies is within 5 ft. of the creature and the ally isn't incapacitated."
+				}
+			],
+			"spell_list": [],
+			"page_no": 402,
+			"environments": [
+				"Hill",
+				"Underdark",
+				"Grassland",
+				"Coastal",
+				"Forest",
+				"Arctic",
+				"Swamp",
+				"Jungle",
+				"Mountain",
+				"Desert"
+			],
+			"img_main": null,
+			"document__slug": "wotc-srd",
+			"document__title": "5e Core Rules",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "http://dnd.wizards.com/articles/features/systems-reference-document-srd"
+		},
+		{
+			"slug": "cikavak",
+			"desc": "_The cikavak is a remarkably ugly magical bird—a supernatural creature conjured through a lengthy ritual. A dark gray comb flops atop their heads and shapeless wattles dangle from their throats. They seem unimposing._  \n**Dagger Beaks.** Cikavaks use their elongated, dull-gray beaks to draw up nectar and other fluids—or to stab with the force of a dagger. Although it requires great effort to call up these homely birds, the magic is surprisingly common, known among peasants and townsfolk as well as mages. Once summoned, they remain faithful to their masters until death. While cikavaks don’t speak, they comprehend the Common tongue and can speak with animals to help their master. They often magically silence the cries of more melodious birds.  \n**Potion Pouches.** Cikavaks possess another odd ability: when fully distended, their ventral pouches hold up to half a gallon of almost any liquid. These resilient pouches take little or no damage from their contents, holding potions without ingesting them or even carrying acid without injury.  \nThieves make use of this ability, directing the birds to siphon up liquids and thus steal honey from neighbors’ beehives, as well as milk, beer, and wine. The most audacious thieves send their birds into magicians’ towers, alchemists’ shops, or the local apothecary to seize mercury, phlogiston, and more exotic substances. They carry these stolen fluids back to their owner in their pouches. While normally strong flyers, when laden with liquids, their flight is clumsy at best.  \n**Folk Conjuration.** To call a cikavak with folk magic rituals, a character must gather an egg from a black hen as well as 30 gp worth of herbs and colored chalks. Cast at sunset, the folk ritual requires half an hour and requires a successful DC 15 Intelligence (Arcana) check to succeed. (The material components can be used multiple times, until the ritual succeeds). The hen’s egg must then be carried and kept warm for 40 days. During this time, the ritual caster must not bathe or be subject to any spell effects. Usable only by non-casters, the ritual’s feeble magic is immediately dispelled if the cikavak’s master uses any other sort of spell or spell-like ability.",
+			"name": "Cikavak",
+			"size": "Tiny",
+			"type": "Fey",
+			"subtype": "",
+			"group": null,
+			"alignment": "neutral",
+			"armor_class": 12,
+			"armor_desc": "",
+			"hit_points": 17,
+			"hit_dice": "7d4",
+			"speed": {
+				"walk": 10,
+				"fly": 40
+			},
+			"strength": 4,
+			"dexterity": 15,
+			"constitution": 10,
+			"intelligence": 12,
+			"wisdom": 12,
+			"charisma": 4,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": 5,
+			"skills": {
+				"perception": 5,
+				"stealth": 9
+			},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "acid, fire, poison",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "darkvision 60 ft., passive Perception 15",
+			"languages": "understands Common; telepathy (touch)",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Bite",
+					"desc": "Melee Weapon Attack: +4 to hit, range 5 ft., one target. Hit: 7 (1d4 + 2) piercing damage.",
+					"attack_bonus": 4,
+					"damage_dice": "1d4"
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Innate Spellcasting",
+					"desc": "the cikavak's innate spellcasting ability is Wisdom (spell save DC 11). It can innately cast the following spells, requiring no material components:\n\nat will: speak with animals\n\n1/day: silence"
+				}
+			],
+			"spell_list": [],
+			"page_no": 58,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "tob",
+			"document__title": "Tome of Beasts",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://koboldpress.com/kpstore/product/tome-of-beasts-for-5th-edition-print/"
+		},
+		{
+			"slug": "shroud",
+			"desc": "_Shrouds appear much like they did in life, only translucent and immaterial. Their voices are weak._  \n**Bitter Spirits.** Shrouds are transitional creatures: remnants of wicked people who died but refuse to rest in peace, yet have not grown strong enough to become shadows. They are aggressive enemies of all living creatures and the light that nurtures life. Shrouds blend naturally into darkness, but they stand out starkly in bright light.  \n**Thin Outlines.** Shrouds look like flickering shadowy outlines of the people they were before they died, retaining the same height and body type.  \n**Repetitive Speech.** Shrouds cannot converse, but they occasionally can be heard cruelly whispering a name, term, or phrase over and over again: something that must have had meaning to them in life.  \n**Undead Nature.** A shroud doesn’t require air, food, drink, or sleep.",
+			"name": "Shroud",
+			"size": "Medium",
+			"type": "Undead",
+			"subtype": "",
+			"group": null,
+			"alignment": "neutral evil",
+			"armor_class": 13,
+			"armor_desc": "natural armor",
+			"hit_points": 9,
+			"hit_dice": "2d8",
+			"speed": {
+				"hover": true,
+				"walk": 0,
+				"fly": 30
+			},
+			"strength": 4,
+			"dexterity": 13,
+			"constitution": 10,
+			"intelligence": 2,
+			"wisdom": 10,
+			"charisma": 8,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {
+				"stealth": 3
+			},
+			"damage_vulnerabilities": "radiant",
+			"damage_resistances": "acid, cold, fire, lightning, thunder; bludgeoning, piercing, and slashing from nonmagical attacks not made with silvered weapons",
+			"damage_immunities": "necrotic, poison",
+			"condition_immunities": "exhaustion, frightened, grappled, paralyzed, petrified, poisoned, prone, restrained",
+			"senses": "darkvision 60 ft., passive Perception 10",
+			"languages": "Common",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Strength Drain",
+					"desc": "Melee Weapon Attack: +3 to hit, reach 5 ft., one creature. Hit: 3 (1d4 + 1) necrotic damage, and the target's Strength score is reduced by one-half that amount. The target dies if this reduces its Strength to 0. Otherwise, the reduction lasts until the target finishes a short or long rest. If a non-evil humanoid dies from this attack, a new shadow rises from the corpse 1d4 hours later.",
+					"attack_bonus": 3,
+					"damage_dice": "1d4"
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Amorphous",
+					"desc": "The shroud can move through a space as narrow as 1 inch wide without squeezing."
+				},
+				{
+					"name": "Shadow Evolution",
+					"desc": "Shrouds instantly become shadows once they cause a total of 12 damage. Any damage they've suffered is subtracted from the shadow's total hit points or abilities."
+				},
+				{
+					"name": "Shroud Stealth",
+					"desc": "When in dim light or darkness, the shroud can take the Hide action as a bonus action."
+				},
+				{
+					"name": "Sunlight Weakness",
+					"desc": "While in sunlight, the shroud has disadvantage on attack rolls, ability checks, and saving throws."
+				}
+			],
+			"spell_list": [],
+			"page_no": 348,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "tob",
+			"document__title": "Tome of Beasts",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://koboldpress.com/kpstore/product/tome-of-beasts-for-5th-edition-print/"
+		},
+		{
+			"slug": "stryx",
+			"desc": "_Stryx are the result of mad experiments deep within the plane of Shadows. They resemble owls and can pass as normal birds as long as they don’t speak or open their mouths. The stryx have a larger mouth hidden behind their beaks, filled with gleaming human teeth. Stryx range in color from pale gray to sooty black, with gleaming eyes._  \n**Strange Alchemy.** The stryx are unnatural beings that came about through terrible manipulation of normal owls and kidnapped humans.  \n**The Shadow’s Eyes.** Stryx thrive in the plane of Shadow and on the Material Plane equally, and they enjoy attaching themselves to powerful beings as spies, servants, and translators. Their purposes are muddied, however, because they constantly relay what they learn to their mad creator.",
+			"name": "Stryx",
+			"size": "Tiny",
+			"type": "Monstrosity",
+			"subtype": "",
+			"group": null,
+			"alignment": "neutral",
+			"armor_class": 13,
+			"armor_desc": "",
+			"hit_points": 10,
+			"hit_dice": "4d4",
+			"speed": {
+				"walk": 10,
+				"fly": 60
+			},
+			"strength": 3,
+			"dexterity": 17,
+			"constitution": 11,
+			"intelligence": 8,
+			"wisdom": 15,
+			"charisma": 6,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": 4,
+			"skills": {
+				"perception": 4,
+				"stealth": 5
+			},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "darkvision 120 ft., passive Perception 14",
+			"languages": "Common, Elvish",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Talons",
+					"desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 1 slashing damage.",
+					"attack_bonus": 5,
+					"damage_dice": "1"
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "False Appearance",
+					"desc": "Until a stryx speaks or opens its mouth, it is indistinguishable from a normal owl."
+				},
+				{
+					"name": "Flyby",
+					"desc": "The stryx doesn't provoke opportunity attacks when it flies out of an enemy's reach."
+				},
+				{
+					"name": "Innate Spellcasting",
+					"desc": "the stryx's innate spellcasting ability is Wisdom. It can cast the following spell, requiring no components:\n\n3/day: comprehend languages"
+				},
+				{
+					"name": "Keen Hearing and Sight",
+					"desc": "The stryx has advantage on Wisdom (Perception) checks that rely on hearing or sight."
+				}
+			],
+			"spell_list": [],
+			"page_no": 369,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "tob",
+			"document__title": "Tome of Beasts",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://koboldpress.com/kpstore/product/tome-of-beasts-for-5th-edition-print/"
+		},
+		{
+			"slug": "wharfling",
+			"desc": "_Hairless, ugly, and usually dripping water, the wharfling is a nocturnal raider and fond of stealing from fishmongers and jewelers alike._  \n**Waterborne Packs.** Wharflings have large, webbed hands and feet and oversized mouths. An adept fish catcher, wharflings establish dens near the shores of oceans, lakes, and rivers, and they often move in family groups of 3 or more.  \n**Thieving Gits.** Those who have been bitten by a wharfling rightly fear their needle-like teeth, but most coastal communities hate the animal more for its propensity for theft. Their lairs are invariably filled with stolen metal trinkets.",
+			"name": "Wharfling",
+			"size": "Tiny",
+			"type": "Beast",
+			"subtype": "",
+			"group": null,
+			"alignment": "unaligned",
+			"armor_class": 13,
+			"armor_desc": "",
+			"hit_points": 6,
+			"hit_dice": "4d4 - 4",
+			"speed": {
+				"walk": 30,
+				"climb": 30,
+				"swim": 20
+			},
+			"strength": 4,
+			"dexterity": 16,
+			"constitution": 8,
+			"intelligence": 2,
+			"wisdom": 12,
+			"charisma": 8,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": 3,
+			"skills": {
+				"perception": 3
+			},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "darkvision 60 ft., passive Perception 13",
+			"languages": "-",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Bite",
+					"desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 5 (1d4 + 3) piercing damage, and the target is grappled (escape DC 10). Until this grapple ends, the wharfling can't use its bite on another target. While the target is grappled, the wharfling's bite attack hits it automatically.",
+					"attack_bonus": 5,
+					"damage_dice": "1d4+3"
+				},
+				{
+					"name": "Pilfer",
+					"desc": "A wharfling that has an opponent grappled at the start of its turn can make a Dexterity (Sleight of Hand) check as a bonus action. The DC for this check equals 10 plus the grappled target's Dexterity modifier. If the check is successful, the wharfling steals some small metallic object from the target, and the theft is unnoticed if the same result equals or exceeds the target's passive Perception. A wharfling flees with its treasure."
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": null,
+			"spell_list": [],
+			"page_no": 407,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "tob",
+			"document__title": "Tome of Beasts",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://koboldpress.com/kpstore/product/tome-of-beasts-for-5th-edition-print/"
+		},
+		{
+			"slug": "bookkeeper",
+			"desc": "",
+			"name": "Bookkeeper",
+			"size": "Tiny",
+			"type": "Construct",
+			"subtype": "",
+			"group": null,
+			"alignment": "unaligned",
+			"armor_class": 12,
+			"armor_desc": null,
+			"hit_points": 5,
+			"hit_dice": "2d4",
+			"speed": {
+				"fly": 30,
+				"walk": 20
+			},
+			"strength": 8,
+			"dexterity": 14,
+			"constitution": 10,
+			"intelligence": 6,
+			"wisdom": 8,
+			"charisma": 3,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": 1,
+			"skills": {
+				"perception": 1,
+				"stealth": 4
+			},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "bludgeoning, piercing, and slashing from nonmagical attacks",
+			"damage_immunities": "either cold or fire (designated at the time of the bookkeeper's creation), poison, psychic",
+			"condition_immunities": "charmed, exhaustion, frightened, paralyzed, petrified, poisoned",
+			"senses": "blindsight 60 ft. (blind beyond this radius), passive Perception 11",
+			"languages": "understands the languages of its creator but can't speak",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"attack_bonus": 4,
+					"damage_dice": "1d6",
+					"desc": "Ranged Weapon Attack: +4 to hit, range 20 ft., one target. Hit: 3 (1d6) poison damage and the target must succeed on a DC 13 Dexterity saving throw or be blinded until the end of its next turn.",
+					"name": "Ink Splash"
+				},
+				{
+					"desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 1 piercing damage plus 1 poison damage.",
+					"name": "Bite"
+				},
+				{
+					"desc": "While inside its book, the bookkeeper magically turns its book invisible until it attacks, or until its concentration ends (as if concentrating on a spell). The bookkeeper is also invisible while inside the invisible book",
+					"name": "Elusive Pages"
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"desc": "As a bonus action while within 30 feet of its book, the bookkeeper can hop inside its book. While inside its book, the bookkeeper has a flying speed of 30 feet and is indistinguishable from ink on a page.",
+					"name": "Between the Lines"
+				},
+				{
+					"desc": "A bookkeeper makes all attacks, saving throws, and skill checks with advantage when its creator is within 60 feet of its book. The bookkeeper's hp maximum is reduced by 1 for every minute it is further than 60 feet from its book. When its hp maximum reaches 0, it dies. If its creator dies, the bookkeeper can be convinced to pass ownership of the book to a new creature if the creature succeeds on a DC 13 Charisma check. The new owner becomes the bookkeeper's new “creator” and inherits the bookkeeper along with the book.",
+					"name": "Book Bound"
+				},
+				{
+					"desc": "When the bookkeeper dies, the book it is bound to is also destroyed.",
+					"name": "Disintegrate"
+				}
+			],
+			"spell_list": [],
+			"page_no": 55,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "cc",
+			"document__title": "Creature Codex",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://koboldpress.com/kpstore/product/creature-codex-for-5th-edition-dnd/"
+		},
+		{
+			"slug": "clockwork-servant",
+			"desc": "",
+			"name": "Clockwork Servant",
+			"size": "Medium",
+			"type": "Construct",
+			"subtype": "",
+			"group": null,
+			"alignment": "unaligned",
+			"armor_class": 11,
+			"armor_desc": null,
+			"hit_points": 22,
+			"hit_dice": "4d8+4",
+			"speed": {
+				"walk": 25
+			},
+			"strength": 14,
+			"dexterity": 12,
+			"constitution": 13,
+			"intelligence": 8,
+			"wisdom": 12,
+			"charisma": 7,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": 5,
+			"skills": {
+				"investigation": 3,
+				"perception": 5
+			},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "poison, psychic",
+			"condition_immunities": "charmed, exhaustion, frightened, paralyzed, petrified, poisoned",
+			"senses": "darkvision 60 ft., passive Perception 15",
+			"languages": "Common",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"attack_bonus": 4,
+					"damage_dice": "1d6+2",
+					"desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) bludgeoning damage.",
+					"name": "Slam"
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"desc": "The servant can cast the mending and prestidigitation cantrips at will without requiring spell components.",
+					"name": "Domestic Retainer"
+				},
+				{
+					"desc": "The servant is immune to any spell or effect that would alter its form.",
+					"name": "Immutable Form"
+				},
+				{
+					"desc": "The servant has advantage on saving throws against spells and other magical effects.",
+					"name": "Magic Resistance"
+				}
+			],
+			"spell_list": [],
+			"page_no": 65,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "cc",
+			"document__title": "Creature Codex",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://koboldpress.com/kpstore/product/creature-codex-for-5th-edition-dnd/"
+		},
+		{
+			"slug": "giant-moth",
+			"desc": "",
+			"name": "Giant Moth",
+			"size": "Small",
+			"type": "Beast",
+			"subtype": "",
+			"group": null,
+			"alignment": "unaligned",
+			"armor_class": 11,
+			"armor_desc": null,
+			"hit_points": 7,
+			"hit_dice": "2d6",
+			"speed": {
+				"fly": 30,
+				"walk": 25
+			},
+			"strength": 10,
+			"dexterity": 12,
+			"constitution": 10,
+			"intelligence": 3,
+			"wisdom": 10,
+			"charisma": 7,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": 2,
+			"skills": {
+				"perception": 2,
+				"stealth": 3
+			},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "darkvision 60 ft., passive Perception 12",
+			"languages": "-",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"attack_bonus": 3,
+					"damage_dice": "1d6+1",
+					"desc": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) piercing damage.",
+					"name": "Proboscis"
+				},
+				{
+					"desc": "A 10-foot radius cloud of fine powder disperses from the giant moth. Each creature in that area must succeed on a DC 10 Constitution saving throw or be blinded until the end of its next turn.",
+					"name": "Powdery Wings (1/Day)"
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"desc": "The giant moth has advantage on Wisdom (Perception) checks that rely on smell.",
+					"name": "Antennae"
+				}
+			],
+			"spell_list": [],
+			"page_no": 178,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "cc",
+			"document__title": "Creature Codex",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://koboldpress.com/kpstore/product/creature-codex-for-5th-edition-dnd/"
+		},
+		{
+			"slug": "leonino",
+			"desc": "",
+			"name": "Leonino",
+			"size": "Tiny",
+			"type": "Beast",
+			"subtype": "",
+			"group": null,
+			"alignment": "unaligned",
+			"armor_class": 13,
+			"armor_desc": null,
+			"hit_points": 13,
+			"hit_dice": "3d4+6",
+			"speed": {
+				"fly": 40,
+				"walk": 30
+			},
+			"strength": 10,
+			"dexterity": 16,
+			"constitution": 14,
+			"intelligence": 8,
+			"wisdom": 8,
+			"charisma": 12,
+			"strength_save": null,
+			"dexterity_save": 5,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": 1,
+			"charisma_save": null,
+			"perception": 1,
+			"skills": {
+				"perception": 1,
+				"persuasion": 3,
+				"stealth": 5
+			},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "darkvision 30 ft., passive Perception 11",
+			"languages": "Elvish",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"attack_bonus": 5,
+					"damage_dice": "1d4+3",
+					"desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 5 (1d4 + 3) slashing damage. If this is the first time the leonino has hit the target within the past 24 hours, the target must succeed on a DC 10 Wisdom saving throw or be charmed by the leonino for 1 hour.",
+					"name": "Bite"
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"desc": "The leonino doesn't provoke opportunity attacks when it flies out of an enemy's reach.",
+					"name": "Flyby"
+				},
+				{
+					"desc": "If the leonino is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, the leonino instead takes no damage if it succeeds on the saving throw, and only half damage if it fails.",
+					"name": "Evasion"
+				},
+				{
+					"desc": "The flight of a leonine is especially silent and difficult to notice in forests and urban settings. It has advantage on Dexterity (Stealth) checks made while flying in these areas.",
+					"name": "Silent Wings"
+				}
+			],
+			"spell_list": [],
+			"page_no": 250,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "cc",
+			"document__title": "Creature Codex",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://koboldpress.com/kpstore/product/creature-codex-for-5th-edition-dnd/"
+		},
+		{
+			"slug": "compsognathus",
+			"desc": "The curious bipedal lizard lets out a musical chirp. More chirps respond from within the nearby grass, becoming a sinister chorus._  \nOpen Game License",
+			"name": "Compsognathus",
+			"size": "Tiny",
+			"type": "Beast",
+			"subtype": "",
+			"group": null,
+			"alignment": "unaligned",
+			"armor_class": 12,
+			"armor_desc": null,
+			"hit_points": 10,
+			"hit_dice": "3d4+3",
+			"speed": {
+				"walk": 30
+			},
+			"strength": 6,
+			"dexterity": 14,
+			"constitution": 12,
+			"intelligence": 4,
+			"wisdom": 10,
+			"charisma": 5,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": 2,
+			"skills": {
+				"perception": 2,
+				"stealth": 6
+			},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "passive Perception 12",
+			"languages": "—",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Bite",
+					"desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing damage.",
+					"attack_bonus": 4,
+					"damage_dice": "1d4+2"
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Grasslands Camouflage",
+					"desc": "The compsognathus has advantage on Dexterity (Stealth) checks made to hide in tall grass."
+				},
+				{
+					"name": "Pack Tactics",
+					"desc": "The compsognathus has advantage on attack rolls against a creature if at least one of the compsognathus’ allies is within 5 feet of the creature and the ally isn’t incapacitated."
+				}
+			],
+			"spell_list": [],
+			"page_no": 108,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "tob2",
+			"document__title": "Tome of Beasts 2",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://koboldpress.com/kpstore/product/tome-of-beasts-2-for-5th-edition/"
+		},
+		{
+			"slug": "fennec-fox",
+			"desc": "Fennec foxes are tiny canids which make their homes in the shallow parts of the Underworld and the deserts of the Southlands. Their huge semi-erect ears and wide eyes give them a disarmingly friendly appearance.",
+			"name": "Fennec Fox",
+			"size": "Tiny",
+			"type": "Beast",
+			"subtype": "",
+			"group": null,
+			"alignment": "unaligned",
+			"armor_class": 11,
+			"armor_desc": null,
+			"hit_points": 7,
+			"hit_dice": "2d4+2",
+			"speed": {
+				"burrow": 5,
+				"walk": 40
+			},
+			"strength": 6,
+			"dexterity": 12,
+			"constitution": 12,
+			"intelligence": 2,
+			"wisdom": 14,
+			"charisma": 10,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {
+				"stealth": 3
+			},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "darkvision 60 ft., passive Perception 12",
+			"languages": "—",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Bite",
+					"desc": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) piercing damage.",
+					"attack_bonus": 3,
+					"damage_dice": "1d4+1"
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Keen Hearing and Sight",
+					"desc": "The fennec fox has advantage on Wisdom (Perception) checks that rely on hearing or sight."
+				}
+			],
+			"spell_list": [],
+			"page_no": 0,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "tob2",
+			"document__title": "Tome of Beasts 2",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://koboldpress.com/kpstore/product/tome-of-beasts-2-for-5th-edition/"
+		},
+		{
+			"slug": "gorao-ka",
+			"desc": "The wizened, doll-sized woman sits beside a small shrine of bonsai branches. She smiles and reaches into a full pouch, removing a gold coin. She passes the coin with an encouraging nod to the desperate-looking man kneeling before her._  \n**Small Gods of Substance.** Gorao-ka represent small fortunes of both a physical and spiritual nature. Their shrines can be erected anywhere, but they are commonly found in settlements and widely-traveled areas. Larger settlements have multiple shrines, sometimes one or more per neighborhood, each of which is associated with a different gorao-ka.  \n**Gentle and Benevolent.** Gorao-ka have a kind look for every person that crosses their path. Each of them has a burning desire to assist people, and they grieve on the occasions that they can’t. The laws governing their kind forbid them from extending aid to someone that hasn’t made an offering at their shrine, though a gorao-ka accepts almost anything in tribute.  \n**Thieves’ Bane.** Despite their generous natures, gorao-ka have no pity for those who steal from them. Fools who steal from gorao-ka swiftly discover their money inexplicably vanished, and can end up destitute if they don’t make reparations.  \n**Immortal Spirit Nature.** The kami doesn’t require food, drink, or sleep.",
+			"name": "Gorao-Ka",
+			"size": "Tiny",
+			"type": "Fey",
+			"subtype": "kami",
+			"group": null,
+			"alignment": "neutral good",
+			"armor_class": 13,
+			"armor_desc": "copper coat",
+			"hit_points": 17,
+			"hit_dice": "5d4+5",
+			"speed": {
+				"walk": 20
+			},
+			"strength": 13,
+			"dexterity": 11,
+			"constitution": 13,
+			"intelligence": 15,
+			"wisdom": 17,
+			"charisma": 15,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "passive Perception 13",
+			"languages": "Common, Sylvan",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Sack of Coins",
+					"desc": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) bludgeoning damage.",
+					"attack_bonus": 3,
+					"damage_dice": "1d4+1"
+				},
+				{
+					"name": "Find a Penny (Recharge 5-6)",
+					"desc": "The gorao-ka throws a copper piece into a space within 5 feet of it. A creature that is not hostile to the gorao-ka that picks up the copper piece is blessed with good luck. At any point within the next 1 hour, the creature can roll a d6 and add the number rolled to one attack roll, ability check, or saving throw.\n\nAlternatively, the bearer of the coin can pass it to another creature of its choice. At any point within the next 8 hours, the new bearer of the coin can roll 2d6 and add the higher result to one attack roll, ability check, or saving throw."
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Fool’s Gold",
+					"desc": "If a creature steals one of the gorao-ka’s money pouches, it loses 1d20 gp each time it finishes a long rest. A creature that steals more than one money pouch deducts an extra 1d20 gp for each additional stolen pouch. This effect ends when the thief freely gives double the amount of money it stole to another creature or organization. A gorao-ka carries 1d10 pouches, each containing 1d20 gp. If the gorao-ka is killed, all the gold in its pouches turns into worthless stones after 1 minute."
+				},
+				{
+					"name": "Silver Fountain",
+					"desc": "When the gorao-ka is reduced to 0 hp, it explodes in a spray of silver pieces. Each creature within 5 feet of the gorao-ka that participated in killing it, such as by attacking it or casting a spell on it, must make a DC 12 Dexterity saving throw or take 7 (2d6) bludgeoning damage. The silver pieces disappear after 1 minute."
+				}
+			],
+			"spell_list": [],
+			"page_no": 221,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "tob2",
+			"document__title": "Tome of Beasts 2",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://koboldpress.com/kpstore/product/tome-of-beasts-2-for-5th-edition/"
+		},
+		{
+			"slug": "ice-bogie",
+			"desc": "A gaggle of mischievous, rime-covered humanoids, one of which is standing on the shoulders of another, paint hoarfrost patterns on a window._  \nWherever the temperature drops below freezing, mobs of ice bogies may appear to unleash their wintry mischief. Enigmatic creatures of ice: the hows and whys of their random arrivals remain a mystery. A group might plague a remote village for an entire winter or pester a yeti for a single afternoon. Whenever frost forms in suspicious places or patterns, ice bogies are likely to blame.  \n**Japes and Vandalism.** Whether pilfering innocuous items, laying slicks of frost across doorways, or freezing a goat’s eyelids shut while it sleeps, the creatures find delight in pranks and making nuisances of themselves. Capricious and gleeful, they are equal opportunists—seeing little difference between humanoids, beasts, or monstrosities. They find pleasure lurking on the edges of civilization, gathering to play their tricks on unsuspecting pioneers before melting back into the frigid wilds without a trace.  \n**Vicious Reprisals.** While ice bogies are known to occasionally help lost travelers or return stolen prizes the next day, they have a dangerous side. When provoked, they swarm their opponents in a series of darting attacks from all sides and are known to pelt their enemies with shards of ice plucked from their own bodies in a flurry of hail.",
+			"name": "Ice Bogie",
+			"size": "Small",
+			"type": "Fey",
+			"subtype": "",
+			"group": null,
+			"alignment": "chaotic neutral",
+			"armor_class": 12,
+			"armor_desc": null,
+			"hit_points": 10,
+			"hit_dice": "3d6",
+			"speed": {
+				"walk": 25
+			},
+			"strength": 7,
+			"dexterity": 14,
+			"constitution": 10,
+			"intelligence": 8,
+			"wisdom": 7,
+			"charisma": 12,
+			"strength_save": null,
+			"dexterity_save": 4,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {
+				"stealth": 4
+			},
+			"damage_vulnerabilities": "fire",
+			"damage_resistances": "",
+			"damage_immunities": "cold, poison",
+			"condition_immunities": "charmed, petrified, poisoned, unconscious",
+			"senses": "darkvision 30 ft., passive Perception 8",
+			"languages": "Primordial",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Icicle Fist",
+					"desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 1 bludgeoning damage plus 2 (1d4) cold damage."
+				},
+				{
+					"name": "Spiteful Hail",
+					"desc": "Ranged Weapon Attack: +4 to hit, range 30/120 ft., one target. Hit: 2 (1d4) cold damage, and the target’s speed is reduced by 10 until the end of its next turn.",
+					"attack_bonus": 4,
+					"damage_dice": "1d4"
+				}
+			],
+			"bonus_actions": null,
+			"reactions": [
+				{
+					"name": "Frosty Aid (1/Day)",
+					"desc": "Whenever an allied ice bogie within 30 feet is reduced to 0 hp, this ice bogie can choose to reduce its hp by 3 (1d6), and the ally regains hp equal to the amount of hp this ice bogie lost."
+				}
+			],
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Nimble Escape",
+					"desc": "The bogie can take the Disengage or Hide action as a bonus action on each of its turns."
+				},
+				{
+					"name": "Pack Tactics",
+					"desc": "The bogie has advantage on attack rolls against a creature if at least one of the bogie’s allies is within 5 feet of the creature and the ally isn’t incapacitated."
+				}
+			],
+			"spell_list": [],
+			"page_no": 209,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "tob2",
+			"document__title": "Tome of Beasts 2",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://koboldpress.com/kpstore/product/tome-of-beasts-2-for-5th-edition/"
+		},
+		{
+			"slug": "lymarien",
+			"desc": "A tiny bird swoops through the air and alights on a nearby branch. It has the body of a tiny hawk, the colorful wings of a butterfly, and the head of an elf with large, luminous eyes._  \n**Miniscule Fey.** Dwelling in pastoral woods and rich farmland, the lymarien is one of the smallest fey in existence. Barely larger than a wasp, a lymarien is frequently mistaken for a butterfly and often ignored by larger creatures. They are sometimes preyed upon by birds like owls and crows, or attacked by evil fey like Open Game License",
+			"name": "Lymarien",
+			"size": "Tiny",
+			"type": "Fey",
+			"subtype": "",
+			"group": null,
+			"alignment": "neutral good",
+			"armor_class": 13,
+			"armor_desc": null,
+			"hit_points": 5,
+			"hit_dice": "2d4",
+			"speed": {
+				"walk": 5,
+				"fly": 50
+			},
+			"strength": 1,
+			"dexterity": 17,
+			"constitution": 10,
+			"intelligence": 7,
+			"wisdom": 13,
+			"charisma": 11,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": 3,
+			"skills": {
+				"perception": 3,
+				"stealth": 5
+			},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "darkvision 60 ft., passive Perception 13",
+			"languages": "Sylvan",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Claw",
+					"desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 5 (1d4 + 3) slashing damage.",
+					"attack_bonus": 5,
+					"damage_dice": "1d4+3"
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Distracting Swoop",
+					"desc": "If the lymarien moves at least 20 feet straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 11 Wisdom saving throw or be distracted until the end of its next turn. A distracted creature has disadvantage on its next attack roll or ability check."
+				},
+				{
+					"name": "Speak with Beasts",
+					"desc": "The lymarien can communicate with beasts as if they shared a language."
+				}
+			],
+			"spell_list": [],
+			"page_no": 248,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "tob2",
+			"document__title": "Tome of Beasts 2",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://koboldpress.com/kpstore/product/tome-of-beasts-2-for-5th-edition/"
+		},
+		{
+			"slug": "pixies-umbrella",
+			"desc": "A Dozens of flat, purple-capped mushrooms float and spin through the air._  \nHuge colonies of pixie’s umbrellas inhabit the Underworld. When they sense danger, they fill their caps to gain height then release the air, using the flattened caps to slow their descent.  \n**Migrating Fungus.** Their ability to float allows pixie’s umbrellas to make homes on hard-to-reach surfaces, frustrating those who enjoy the mushrooms’ bitter flesh. The ground beneath wall- and cliff-dwelling pixie’s umbrellas is sometimes littered with the skeletal remains of starving travelers who fell in their desperate attempts to gather food.  \n**Dizzying Drifters.** Witnessing the migration of a colony of pixie’s umbrellas can be fascinating to those who enjoy watching large numbers of the mushrooms float from cavern to cavern. Intelligent Underworld hunters sometimes use the migration of pixie’s umbrellas to mask their approach, counting on the display to distract their prey.",
+			"name": "Pixie’s Umbrella",
+			"size": "Small",
+			"type": "Plant",
+			"subtype": "",
+			"group": null,
+			"alignment": "unaligned",
+			"armor_class": 7,
+			"armor_desc": null,
+			"hit_points": 10,
+			"hit_dice": "4d4",
+			"speed": {
+				"walk": 5
+			},
+			"strength": 1,
+			"dexterity": 5,
+			"constitution": 10,
+			"intelligence": 1,
+			"wisdom": 5,
+			"charisma": 1,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "blinded, deafened, frightened",
+			"senses": "blindsight 30 ft. (blind beyond this radius), passive Perception 7",
+			"languages": "—",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Twirl",
+					"desc": "The pixie’s umbrella twirls, spinning its spores at nearby creatures. Each creature within 5 feet of the pixie’s umbrella must make a DC 10 Constitution saving throw, taking 5 (2d4) poison damage on a failed save, or half as much damage on a successful one. If the saving throw fails by 5 or more, the target is also poisoned until the end of its next turn."
+				}
+			],
+			"bonus_actions": null,
+			"reactions": [
+				{
+					"name": "Float",
+					"desc": "When a pixie’s umbrella senses motion within 30 feet of it, it fills its cap with air and flies 20 feet away from the motion without provoking opportunity attacks."
+				}
+			],
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "False Appearance",
+					"desc": "While the pixie’s umbrella remains motionless, it is indistinguishable from an ordinary fungus."
+				}
+			],
+			"spell_list": [],
+			"page_no": 158,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "tob2",
+			"document__title": "Tome of Beasts 2",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://koboldpress.com/kpstore/product/tome-of-beasts-2-for-5th-edition/"
+		},
+		{
+			"slug": "wicked-skull",
+			"desc": "This skull chatters eerily, gently rocking as it comes to life. It calls out a warning in a hauntingly musical voice._  \n**Origins Unknown.** The origin of these shape-changing monstrosities is unknown, but they have come to be named “wicked skulls” after the form they favor most. Some scholars suggest that they took inspiration from the undead horrors known as Open Game License",
+			"name": "Wicked Skull",
+			"size": "Tiny",
+			"type": "Monstrosity",
+			"subtype": "shapechanger",
+			"group": null,
+			"alignment": "chaotic neutral",
+			"armor_class": 13,
+			"armor_desc": null,
+			"hit_points": 7,
+			"hit_dice": "2d4+2",
+			"speed": {
+				"walk": 30
+			},
+			"strength": 6,
+			"dexterity": 16,
+			"constitution": 13,
+			"intelligence": 11,
+			"wisdom": 12,
+			"charisma": 14,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {
+				"deception": 4,
+				"insight": 3,
+				"persuasion": 4,
+				"stealth": 5
+			},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "darkvision 120 ft., passive Perception 11",
+			"languages": "Common",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Pseudopod",
+					"desc": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 5 (1d4 + 3) bludgeoning damage.",
+					"attack_bonus": 5,
+					"damage_dice": "1d4+3"
+				},
+				{
+					"name": "Petty Mockery",
+					"desc": "The wicked skull unleashes a string of insults laced with subtle enchantments at a creature it can see within 60 feet. If the target can hear the wicked skull (though it does not have to understand it), the target must succeed on a DC 11 Wisdom saving throw or have disadvantage on the next attack roll it makes before the end of its next turn."
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "False Appearance (Object Form Only)",
+					"desc": "While the wicked skull remains motionless, it is indistinguishable from an ordinary object."
+				},
+				{
+					"name": "Jokester",
+					"desc": "The wicked skull has advantage on a Charisma (Deception) or Charisma (Persuasion) check if it includes mockery or a joke or riddle as part of the check."
+				},
+				{
+					"name": "Shapechanger",
+					"desc": "The wicked skull can use its action to polymorph into a Tiny object or back into its true, amorphous form. Its statistics are the same in each form. Any equipment it is wearing or carrying isn’t transformed. It reverts to its true form if it dies."
+				}
+			],
+			"spell_list": [],
+			"page_no": 368,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "tob2",
+			"document__title": "Tome of Beasts 2",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://koboldpress.com/kpstore/product/tome-of-beasts-2-for-5th-edition/"
+		},
+		{
+			"slug": "bandit-a5e",
+			"desc": "",
+			"name": "Bandit",
+			"size": "Medium",
+			"type": "Humanoid",
+			"subtype": "",
+			"group": null,
+			"alignment": "",
+			"armor_class": 12,
+			"armor_desc": "",
+			"hit_points": 9,
+			"hit_dice": "2d8",
+			"speed": {
+				"walk": 30
+			},
+			"strength": 12,
+			"dexterity": 10,
+			"constitution": 10,
+			"intelligence": 10,
+			"wisdom": 10,
+			"charisma": 10,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "passive Perception 10",
+			"languages": "any one",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Scimitar",
+					"desc": "Melee Weapon Attack: +3 to hit  reach 5 ft.  one target. Hit: 4 (1d6 + 1) slashing damage."
+				},
+				{
+					"name": "Light Crossbow",
+					"desc": "Ranged Weapon Attack: +2 to hit  range 80/320 ft.  one target. Hit: 4 (1d8) piercing damage."
+				},
+				{
+					"name": "Bandits are outlaws who live by violence",
+					"desc": "Most are highway robbers  though a few are principled exiles or freedom fighters."
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": null,
+			"spell_list": [],
+			"page_no": 470,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "menagerie",
+			"document__title": "Level Up Advanced 5e Monstrous Menagerie",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://www.levelup5e.com"
+		},
+		{
+			"slug": "blood-hawk-a5e",
+			"desc": "",
+			"name": "Blood Hawk",
+			"size": "Small",
+			"type": "Beast",
+			"subtype": "",
+			"group": null,
+			"alignment": "",
+			"armor_class": 11,
+			"armor_desc": "",
+			"hit_points": 7,
+			"hit_dice": "2d6",
+			"speed": {
+				"walk": 10,
+				"fly": 60
+			},
+			"strength": 6,
+			"dexterity": 12,
+			"constitution": 10,
+			"intelligence": 2,
+			"wisdom": 14,
+			"charisma": 4,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "passive Perception 12",
+			"languages": "",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Beak",
+					"desc": "Melee Weapon Attack: +3 to hit  reach 5 ft.  one target. Hit: 3 (1d4+1) piercing damage."
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Keen Sight",
+					"desc": "The hawk has advantage on Perception checks that rely on sight."
+				},
+				{
+					"name": "Pack Tactics",
+					"desc": "The hawk has advantage on attack rolls against a creature if at least one of the hawks allies is within 5 feet of the creature and not incapacitated."
+				}
+			],
+			"spell_list": [],
+			"page_no": 440,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "menagerie",
+			"document__title": "Level Up Advanced 5e Monstrous Menagerie",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://www.levelup5e.com"
+		},
+		{
+			"slug": "camel-a5e",
+			"desc": "",
+			"name": "Camel",
+			"size": "Medium",
+			"type": "Beast",
+			"subtype": "",
+			"group": null,
+			"alignment": "",
+			"armor_class": 10,
+			"armor_desc": "",
+			"hit_points": 15,
+			"hit_dice": "2d10+4",
+			"speed": {
+				"walk": 50
+			},
+			"strength": 16,
+			"dexterity": 10,
+			"constitution": 14,
+			"intelligence": 2,
+			"wisdom": 8,
+			"charisma": 4,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "passive Perception 9",
+			"languages": "",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Bite",
+					"desc": "Melee Weapon Attack: +2 to hit  reach 5 ft.  one target. Hit: 2 (1d4) bludgeoning damage."
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": null,
+			"spell_list": [],
+			"page_no": 441,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "menagerie",
+			"document__title": "Level Up Advanced 5e Monstrous Menagerie",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://www.levelup5e.com"
+		},
+		{
+			"slug": "cultist-a5e",
+			"desc": "",
+			"name": "Cultist",
+			"size": "Medium",
+			"type": "Humanoid",
+			"subtype": "",
+			"group": null,
+			"alignment": "",
+			"armor_class": 12,
+			"armor_desc": "",
+			"hit_points": 9,
+			"hit_dice": "2d8",
+			"speed": {
+				"walk": 30
+			},
+			"strength": 10,
+			"dexterity": 14,
+			"constitution": 10,
+			"intelligence": 10,
+			"wisdom": 10,
+			"charisma": 10,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "passive Perception 10",
+			"languages": "any one",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Dagger",
+					"desc": "Melee or Ranged Weapon Attack: +4 to hit  reach 5 ft. or range 20/60 ft.  one target. Hit: 4 (1d4 + 2) piercing damage."
+				},
+				{
+					"name": "Cultists worship forbidden gods, devils, demons, and other sinister beings",
+					"desc": "Many cultists work to summon the object of their devotion to the world so it might grant them power and destroy their enemies."
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Fanatic",
+					"desc": "The cultist has advantage on saving throws against being charmed or frightened by creatures not in their cult."
+				}
+			],
+			"spell_list": [],
+			"page_no": 472,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "menagerie",
+			"document__title": "Level Up Advanced 5e Monstrous Menagerie",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://www.levelup5e.com"
+		},
+		{
+			"slug": "diseased-giant-rat-a5e",
+			"desc": "",
+			"name": "Diseased Giant Rat",
+			"size": "Small",
+			"type": "Beast",
+			"subtype": "",
+			"group": null,
+			"alignment": "",
+			"armor_class": 12,
+			"armor_desc": "",
+			"hit_points": 7,
+			"hit_dice": "2d6",
+			"speed": {
+				"walk": 30
+			},
+			"strength": 6,
+			"dexterity": 14,
+			"constitution": 10,
+			"intelligence": 2,
+			"wisdom": 10,
+			"charisma": 4,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "darkvision 60 ft., passive Perception 10",
+			"languages": "",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Bite",
+					"desc": "Melee Weapon Attack: +4 to hit  reach 5 ft.  one target. Hit: 4 (1d4+2) piercing damage. Giant rats who dwell in sewers and filth can carry debilitating disease. A creature bitten by a diseased giant rat makes a DC 10 Constitution saving throw or it becomes infected with sewer plague."
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Keen Smell",
+					"desc": "The rat has advantage on Perception checks that rely on smell."
+				},
+				{
+					"name": "Pack Tactics",
+					"desc": "The giant rat has advantage on attack rolls against a creature if at least one of the rats allies is within 5 feet of the creature and not incapacitated."
+				}
+			],
+			"spell_list": [],
+			"page_no": 449,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "menagerie",
+			"document__title": "Level Up Advanced 5e Monstrous Menagerie",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://www.levelup5e.com"
+		},
+		{
+			"slug": "flumph-a5e",
+			"desc": "",
+			"name": "Flumph",
+			"size": "Small",
+			"type": "Aberration",
+			"subtype": "",
+			"group": null,
+			"alignment": "",
+			"armor_class": 12,
+			"armor_desc": "",
+			"hit_points": 7,
+			"hit_dice": "2d6",
+			"speed": {
+				"walk": 5,
+				"fly": 30,
+				"swim": 30
+			},
+			"strength": 6,
+			"dexterity": 14,
+			"constitution": 10,
+			"intelligence": 14,
+			"wisdom": 14,
+			"charisma": 10,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "psychic",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "darkvision 60 ft., passive Perception 12",
+			"languages": "understands Common and Undercommon but can't speak, telepathy 60 ft.",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Tendrils",
+					"desc": "Melee Weapon Attack: +4 to hit  reach 5 ft.  one target. Hit: 1 piercing damage plus 3 (1d6) acid damage."
+				},
+				{
+					"name": "Stench Spray (1/Day)",
+					"desc": "Each creature in a 15-foot cone makes a DC 10 Dexterity saving throw. On a failure  the creature exudes a horrible stench for 1 hour. While a creature exudes this stench  it and any creature within 5 feet of it are poisoned. A creature can remove the stench on itself by bathing during a rest."
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Amphibious",
+					"desc": "The flumph can breathe air and water."
+				},
+				{
+					"name": "Flumph Light",
+					"desc": "As a bonus action, the flumph can cast dim light for 30 feet, or extinguish its glow. The flumph can change the color of the light it casts at will."
+				},
+				{
+					"name": "Telepathic Spy",
+					"desc": "The flumph can perceive any telepathic messages sent or received within 60 feet, and can't be surprised by creatures with telepathy. The flumph is also immune to divination and to any effect that would sense its emotions or read its thoughts, except for the Telepathic Spy feature of another flumph."
+				},
+				{
+					"name": "Tippable",
+					"desc": "If a flumph is knocked prone, it lands upside down and is incapacitated. At the end of each of its turns, it can make a DC 10 Dexterity saving throw, flipping itself over and ending the incapacitated condition on a success."
+				}
+			],
+			"spell_list": [],
+			"page_no": 207,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "menagerie",
+			"document__title": "Level Up Advanced 5e Monstrous Menagerie",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://www.levelup5e.com"
+		},
+		{
+			"slug": "flying-snake-a5e",
+			"desc": "",
+			"name": "Flying Snake",
+			"size": "Tiny",
+			"type": "Beast",
+			"subtype": "",
+			"group": null,
+			"alignment": "",
+			"armor_class": 13,
+			"armor_desc": "",
+			"hit_points": 7,
+			"hit_dice": "2d4+2",
+			"speed": {
+				"walk": 30,
+				"fly": 60,
+				"swim": 30
+			},
+			"strength": 4,
+			"dexterity": 16,
+			"constitution": 12,
+			"intelligence": 2,
+			"wisdom": 12,
+			"charisma": 4,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "blindsight 10 ft., passive Perception 11",
+			"languages": "",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Bite",
+					"desc": "Melee Weapon Attack: +5 to hit  reach 5 ft.  one target. Hit: 1 piercing damage plus 3 (1d6) poison damage."
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Flyby",
+					"desc": "The snake doesnt provoke opportunity attacks when it flies out of a creatures reach."
+				}
+			],
+			"spell_list": [],
+			"page_no": 444,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "menagerie",
+			"document__title": "Level Up Advanced 5e Monstrous Menagerie",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://www.levelup5e.com"
+		},
+		{
+			"slug": "giant-crab-a5e",
+			"desc": "",
+			"name": "Giant Crab",
+			"size": "Medium",
+			"type": "Beast",
+			"subtype": "",
+			"group": null,
+			"alignment": "",
+			"armor_class": 15,
+			"armor_desc": "",
+			"hit_points": 9,
+			"hit_dice": "2d8",
+			"speed": {
+				"walk": 30,
+				"swim": 30
+			},
+			"strength": 12,
+			"dexterity": 14,
+			"constitution": 10,
+			"intelligence": 1,
+			"wisdom": 8,
+			"charisma": 4,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "blindsight 30 ft., passive Perception 9",
+			"languages": "",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Claw",
+					"desc": "Melee Weapon Attack: +3 to hit  reach 5 ft.  one target. Hit: 4 (1d6+1) bludgeoning damage and the target is grappled (escape DC 11). The crab has two claws and can grapple one creature with each."
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Amphibious",
+					"desc": "The crab can breathe air and water."
+				}
+			],
+			"spell_list": [],
+			"page_no": 446,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "menagerie",
+			"document__title": "Level Up Advanced 5e Monstrous Menagerie",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://www.levelup5e.com"
+		},
+		{
+			"slug": "giant-rat-a5e",
+			"desc": "",
+			"name": "Giant Rat",
+			"size": "Small",
+			"type": "Beast",
+			"subtype": "",
+			"group": null,
+			"alignment": "",
+			"armor_class": 12,
+			"armor_desc": "",
+			"hit_points": 7,
+			"hit_dice": "2d6",
+			"speed": {
+				"walk": 30
+			},
+			"strength": 6,
+			"dexterity": 14,
+			"constitution": 10,
+			"intelligence": 2,
+			"wisdom": 10,
+			"charisma": 4,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "darkvision 60 ft., passive Perception 10",
+			"languages": "",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Bite",
+					"desc": "Melee Weapon Attack: +4 to hit  reach 5 ft.  one target. Hit: 4 (1d4+2) piercing damage."
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Keen Smell",
+					"desc": "The rat has advantage on Perception checks that rely on smell."
+				},
+				{
+					"name": "Pack Tactics",
+					"desc": "The giant rat has advantage on attack rolls against a creature if at least one of the rats allies is within 5 feet of the creature and not incapacitated."
+				}
+			],
+			"spell_list": [],
+			"page_no": 449,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "menagerie",
+			"document__title": "Level Up Advanced 5e Monstrous Menagerie",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://www.levelup5e.com"
+		},
+		{
+			"slug": "giant-weasel-a5e",
+			"desc": "",
+			"name": "Giant Weasel",
+			"size": "Medium",
+			"type": "Beast",
+			"subtype": "",
+			"group": null,
+			"alignment": "",
+			"armor_class": 12,
+			"armor_desc": "",
+			"hit_points": 9,
+			"hit_dice": "2d8",
+			"speed": {
+				"walk": 40
+			},
+			"strength": 10,
+			"dexterity": 14,
+			"constitution": 10,
+			"intelligence": 4,
+			"wisdom": 12,
+			"charisma": 4,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "darkvision 60 ft., passive Perception 13",
+			"languages": "",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Bite",
+					"desc": "Melee Weapon Attack: +4 to hit  reach 5 ft.  one target. Hit: 4 (1d4+2) piercing damage  or 7 (2d4+2) piercing damage against a creature the weasel is grappling."
+				},
+				{
+					"name": "Grab",
+					"desc": "Melee Weapon Attack: +4 to hit  reach 5 ft.  one target. Hit: The target is grappled (escape DC 12)."
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Keen Hearing and Smell",
+					"desc": "The weasel has advantage on Perception checks that rely on hearing and smell."
+				}
+			],
+			"spell_list": [],
+			"page_no": 451,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "menagerie",
+			"document__title": "Level Up Advanced 5e Monstrous Menagerie",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://www.levelup5e.com"
+		},
+		{
+			"slug": "guard-a5e",
+			"desc": "",
+			"name": "Guard",
+			"size": "Medium",
+			"type": "Humanoid",
+			"subtype": "",
+			"group": null,
+			"alignment": "",
+			"armor_class": 15,
+			"armor_desc": "",
+			"hit_points": 11,
+			"hit_dice": "2d8+2",
+			"speed": {
+				"walk": 30
+			},
+			"strength": 10,
+			"dexterity": 12,
+			"constitution": 12,
+			"intelligence": 10,
+			"wisdom": 10,
+			"charisma": 10,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "passive Perception 12",
+			"languages": "any one",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Spear",
+					"desc": "Melee or Ranged Weapon Attack: +2 to hit  reach 5 ft. or range 20/60 ft.  one target. Hit: 3 (1d6) piercing damage."
+				},
+				{
+					"name": "Guards patrol city gates or accompany caravans",
+					"desc": "Most guards are not as well trained or equipped as army soldiers  but their presence can deter bandits and opportunistic monsters."
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": null,
+			"spell_list": [],
+			"page_no": 492,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "menagerie",
+			"document__title": "Level Up Advanced 5e Monstrous Menagerie",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://www.levelup5e.com"
+		},
+		{
+			"slug": "kobold-a5e",
+			"desc": "",
+			"name": "Kobold",
+			"size": "Small",
+			"type": "Humanoid",
+			"subtype": "",
+			"group": null,
+			"alignment": "",
+			"armor_class": 12,
+			"armor_desc": "",
+			"hit_points": 7,
+			"hit_dice": "3d6-3",
+			"speed": {
+				"walk": 30
+			},
+			"strength": 6,
+			"dexterity": 14,
+			"constitution": 8,
+			"intelligence": 10,
+			"wisdom": 8,
+			"charisma": 10,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "darkvision 60 ft., passive Perception 9",
+			"languages": "Common, Draconic",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Shiv",
+					"desc": "Melee Weapon Attack: +4 to hit  reach 5 ft.  one target. Hit: 3 (1d3 + 2) piercing damage."
+				},
+				{
+					"name": "Sling",
+					"desc": "Ranged Weapon Attack: +4 to hit  range 30/120 ft.  one target. Hit: 4 (1d4 + 2) bludgeoning damage."
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Pack Tactics",
+					"desc": "The kobold has advantage on attack rolls against a creature if at least one of the kobolds allies is within 5 feet of the creature and not incapacitated."
+				},
+				{
+					"name": "Sunlight Sensitivity",
+					"desc": "While in sunlight, the kobold has disadvantage on attack rolls, as well as on Perception checks that rely on sight."
+				}
+			],
+			"spell_list": [],
+			"page_no": 297,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "menagerie",
+			"document__title": "Level Up Advanced 5e Monstrous Menagerie",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://www.levelup5e.com"
+		},
+		{
+			"slug": "lemure-a5e",
+			"desc": "",
+			"name": "Lemure",
+			"size": "Medium",
+			"type": "Fiend",
+			"subtype": "",
+			"group": null,
+			"alignment": "",
+			"armor_class": 7,
+			"armor_desc": "",
+			"hit_points": 13,
+			"hit_dice": "3d8",
+			"speed": {
+				"walk": 15
+			},
+			"strength": 10,
+			"dexterity": 4,
+			"constitution": 10,
+			"intelligence": 1,
+			"wisdom": 10,
+			"charisma": 2,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "cold",
+			"damage_immunities": "fire, poison",
+			"condition_immunities": "poisoned",
+			"senses": "darkvision 120 ft., passive Perception 10",
+			"languages": "understands Infernal but can't speak",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Fist",
+					"desc": "Melee Weapon Attack: +2 to hit  reach 5 ft.  one target. Hit: 2 (1d4) bludgeoning damage."
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Devils Sight",
+					"desc": "The lemures darkvision penetrates magical darkness."
+				},
+				{
+					"name": "Eerie Groan",
+					"desc": "While the lemure can see a non-devil within 100 feet, it emits a groan that is audible within 300 feet."
+				},
+				{
+					"name": "Lawful Evil",
+					"desc": "The lemure radiates a Lawful and Evil aura."
+				}
+			],
+			"spell_list": [],
+			"page_no": 86,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "menagerie",
+			"document__title": "Level Up Advanced 5e Monstrous Menagerie",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://www.levelup5e.com"
+		},
+		{
+			"slug": "mastiff-a5e",
+			"desc": "",
+			"name": "Mastiff",
+			"size": "Medium",
+			"type": "Beast",
+			"subtype": "",
+			"group": null,
+			"alignment": "",
+			"armor_class": 12,
+			"armor_desc": "",
+			"hit_points": 9,
+			"hit_dice": "2d8",
+			"speed": {
+				"walk": 40
+			},
+			"strength": 12,
+			"dexterity": 14,
+			"constitution": 10,
+			"intelligence": 3,
+			"wisdom": 12,
+			"charisma": 6,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "passive Perception 13",
+			"languages": "",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Bite",
+					"desc": "Melee Weapon Attack: +3 to hit  reach 5 ft.  one target. Hit: 3 (1d4+1) piercing damage. If the target is a creature  it makes a DC 11 Strength saving throw  falling prone on a failure."
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Keen Hearing and Smell",
+					"desc": "The mastiff has advantage on Perception checks that rely on hearing and smell."
+				}
+			],
+			"spell_list": [],
+			"page_no": 456,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "menagerie",
+			"document__title": "Level Up Advanced 5e Monstrous Menagerie",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://www.levelup5e.com"
+		},
+		{
+			"slug": "merfolk-a5e",
+			"desc": "",
+			"name": "Merfolk",
+			"size": "Medium",
+			"type": "Humanoid",
+			"subtype": "",
+			"group": null,
+			"alignment": "",
+			"armor_class": 11,
+			"armor_desc": "",
+			"hit_points": 11,
+			"hit_dice": "2d8+2",
+			"speed": {
+				"walk": 10,
+				"swim": 40
+			},
+			"strength": 10,
+			"dexterity": 12,
+			"constitution": 12,
+			"intelligence": 10,
+			"wisdom": 10,
+			"charisma": 10,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "darkvision 30 ft., passive Perception 12",
+			"languages": "Aquan, Common",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Trident",
+					"desc": "Melee or Ranged Weapon Attack: +2 to hit  reach 5 ft. or range 20/60 ft.  one target. Hit: 4 (1d8) piercing damage if used with two hands to make a melee attack  or 3 (1d6) piercing damage if thrown."
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Amphibious",
+					"desc": "The merfolk can breathe air and water."
+				}
+			],
+			"spell_list": [],
+			"page_no": 329,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "menagerie",
+			"document__title": "Level Up Advanced 5e Monstrous Menagerie",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://www.levelup5e.com"
+		},
+		{
+			"slug": "mule-a5e",
+			"desc": "",
+			"name": "Mule",
+			"size": "Medium",
+			"type": "Beast",
+			"subtype": "",
+			"group": null,
+			"alignment": "",
+			"armor_class": 10,
+			"armor_desc": "",
+			"hit_points": 11,
+			"hit_dice": "2d8+2",
+			"speed": {
+				"walk": 40
+			},
+			"strength": 12,
+			"dexterity": 10,
+			"constitution": 12,
+			"intelligence": 2,
+			"wisdom": 10,
+			"charisma": 4,
+			"strength_save": 3,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "passive Perception 10",
+			"languages": "",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Hooves",
+					"desc": "Melee Weapon Attack: +3 to hit  reach 5 ft.  one target. Hit: 3 (1d4+1) bludgeoning damage."
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Beast of Burden",
+					"desc": "The mule is considered Large when calculating its carrying capacity."
+				}
+			],
+			"spell_list": [],
+			"page_no": 455,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "menagerie",
+			"document__title": "Level Up Advanced 5e Monstrous Menagerie",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://www.levelup5e.com"
+		},
+		{
+			"slug": "pirate-a5e",
+			"desc": "",
+			"name": "Pirate",
+			"size": "Medium",
+			"type": "Humanoid",
+			"subtype": "",
+			"group": null,
+			"alignment": "",
+			"armor_class": 12,
+			"armor_desc": "",
+			"hit_points": 9,
+			"hit_dice": "2d8",
+			"speed": {
+				"walk": 30
+			},
+			"strength": 12,
+			"dexterity": 10,
+			"constitution": 10,
+			"intelligence": 10,
+			"wisdom": 10,
+			"charisma": 10,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "passive Perception 10",
+			"languages": "any one",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Scimitar",
+					"desc": "Melee Weapon Attack: +3 to hit  reach 5 ft.  one target. Hit: 4 (1d6 + 1) slashing damage."
+				},
+				{
+					"name": "Light Crossbow",
+					"desc": "Ranged Weapon Attack: +2 to hit  range 80/320 ft.  one target. Hit: 4 (1d8) piercing damage."
+				},
+				{
+					"name": "Pirates rob merchant ships on the high seas and in coastal waters",
+					"desc": "Pirate statistics can also be used to represent armed sailors."
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": null,
+			"spell_list": [],
+			"page_no": 470,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "menagerie",
+			"document__title": "Level Up Advanced 5e Monstrous Menagerie",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://www.levelup5e.com"
+		},
+		{
+			"slug": "poisonous-snake-a5e",
+			"desc": "",
+			"name": "Poisonous Snake",
+			"size": "Tiny",
+			"type": "Beast",
+			"subtype": "",
+			"group": null,
+			"alignment": "",
+			"armor_class": 12,
+			"armor_desc": "",
+			"hit_points": 2,
+			"hit_dice": "1d4",
+			"speed": {
+				"walk": 30,
+				"swim": 30
+			},
+			"strength": 2,
+			"dexterity": 14,
+			"constitution": 10,
+			"intelligence": 2,
+			"wisdom": 10,
+			"charisma": 4,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "blindsight 10 ft., passive Perception 10",
+			"languages": "",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Bite",
+					"desc": "Melee Weapon Attack: +4 to hit  reach 5 ft.  one target. Hit: 1 piercing damage and the target makes a DC 10 Constitution saving throw  taking 5 (2d4) poison damage on a failure or half damage on a success."
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": null,
+			"spell_list": [],
+			"page_no": 456,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "menagerie",
+			"document__title": "Level Up Advanced 5e Monstrous Menagerie",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://www.levelup5e.com"
+		},
+		{
+			"slug": "pony-a5e",
+			"desc": "",
+			"name": "Pony",
+			"size": "Medium",
+			"type": "Beast",
+			"subtype": "",
+			"group": null,
+			"alignment": "",
+			"armor_class": 10,
+			"armor_desc": "",
+			"hit_points": 11,
+			"hit_dice": "2d8+2",
+			"speed": {
+				"walk": 40
+			},
+			"strength": 14,
+			"dexterity": 10,
+			"constitution": 12,
+			"intelligence": 2,
+			"wisdom": 10,
+			"charisma": 6,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "passive Perception 10",
+			"languages": "",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Hooves",
+					"desc": "Melee Weapon Attack: +2 to hit  reach 5 ft.  one target. Hit: 2 (1d4) bludgeoning damage."
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": null,
+			"spell_list": [],
+			"page_no": 457,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "menagerie",
+			"document__title": "Level Up Advanced 5e Monstrous Menagerie",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://www.levelup5e.com"
+		},
+		{
+			"slug": "stirge-a5e",
+			"desc": "",
+			"name": "Stirge",
+			"size": "Tiny",
+			"type": "Beast",
+			"subtype": "",
+			"group": null,
+			"alignment": "",
+			"armor_class": 13,
+			"armor_desc": "",
+			"hit_points": 2,
+			"hit_dice": "1d4",
+			"speed": {
+				"walk": 10,
+				"fly": 40
+			},
+			"strength": 4,
+			"dexterity": 16,
+			"constitution": 10,
+			"intelligence": 2,
+			"wisdom": 8,
+			"charisma": 4,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "darkvision 60 ft., passive Perception 9",
+			"languages": "",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Proboscis",
+					"desc": "Melee Weapon Attack: +5 to hit  reach 5 ft.  one creature. Hit: 1 piercing damage  and the stirge attaches to the target. A creature can use an action to detach it  and it can detach itself as a bonus action."
+				},
+				{
+					"name": "Blood Drain",
+					"desc": "The stirge drains blood from the creature it is attached to. The creature loses 4 (1d8) hit points. After the stirge has drained 8 hit points  it detaches itself and can't use Blood Drain again until it finishes a rest."
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": null,
+			"spell_list": [],
+			"page_no": 400,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "menagerie",
+			"document__title": "Level Up Advanced 5e Monstrous Menagerie",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://www.levelup5e.com"
+		},
+		{
+			"slug": "stout-halfling-guard-a5e",
+			"desc": "",
+			"name": "Stout Halfling Guard",
+			"size": "Small",
+			"type": "Humanoid",
+			"subtype": "",
+			"group": null,
+			"alignment": "",
+			"armor_class": 15,
+			"armor_desc": "",
+			"hit_points": 11,
+			"hit_dice": "2d8+2",
+			"speed": {
+				"walk": 30
+			},
+			"strength": 10,
+			"dexterity": 12,
+			"constitution": 12,
+			"intelligence": 10,
+			"wisdom": 10,
+			"charisma": 10,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "passive Perception 14",
+			"languages": "any one",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Spear",
+					"desc": "Melee or Ranged Weapon Attack: +2 to hit  reach 5 ft. or range 20/60 ft.  one target. Hit: 3 (1d6) piercing damage."
+				},
+				{
+					"name": "Though stout halfling communities rarely muster armies, they are served well by alert sentries who can battle fiercely in a pinch",
+					"desc": ""
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": null,
+			"spell_list": [],
+			"page_no": 492,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "menagerie",
+			"document__title": "Level Up Advanced 5e Monstrous Menagerie",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://www.levelup5e.com"
+		},
+		{
+			"slug": "warrior-a5e",
+			"desc": "",
+			"name": "Warrior",
+			"size": "Medium",
+			"type": "Humanoid",
+			"subtype": "",
+			"group": null,
+			"alignment": "",
+			"armor_class": 13,
+			"armor_desc": "",
+			"hit_points": 11,
+			"hit_dice": "2d8+2",
+			"speed": {
+				"walk": 30
+			},
+			"strength": 12,
+			"dexterity": 12,
+			"constitution": 12,
+			"intelligence": 10,
+			"wisdom": 14,
+			"charisma": 10,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": null,
+			"skills": {},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "",
+			"condition_immunities": "",
+			"senses": "passive Perception 14",
+			"languages": "any one",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Spear",
+					"desc": "Melee or Ranged Weapon Attack: +3 to hit  reach 5 ft. or range 20/60 ft.  one target. Hit: 4 (1d6 + 1) piercing damage."
+				},
+				{
+					"name": "Warriors are combatants who fight in light armor",
+					"desc": "They excel in hit-and-run raids as opposed to pitched battles. Often  warriors are not full-time soldiers. Among tribal and nomadic groups  every able-bodied hunter or herder might be expected to fight in defense of the group. In agricultural societies  farmers might band together in warrior militias."
+				}
+			],
+			"bonus_actions": null,
+			"reactions": null,
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": null,
+			"spell_list": [],
+			"page_no": 498,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "menagerie",
+			"document__title": "Level Up Advanced 5e Monstrous Menagerie",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://www.levelup5e.com"
+		},
+		{
+			"slug": "climbing-vine",
+			"desc": "",
+			"name": "Climbing Vine",
+			"size": "Medium",
+			"type": "Plant",
+			"subtype": "",
+			"group": null,
+			"alignment": "unaligned",
+			"armor_class": 11,
+			"armor_desc": "natural armor",
+			"hit_points": 13,
+			"hit_dice": "2d8+4",
+			"speed": {
+				"walk": 10,
+				"climb": 10
+			},
+			"strength": 13,
+			"dexterity": 7,
+			"constitution": 15,
+			"intelligence": 1,
+			"wisdom": 7,
+			"charisma": 1,
+			"strength_save": null,
+			"dexterity_save": null,
+			"constitution_save": null,
+			"intelligence_save": null,
+			"wisdom_save": null,
+			"charisma_save": null,
+			"perception": -2,
+			"skills": {
+				"perception": -2
+			},
+			"damage_vulnerabilities": "",
+			"damage_resistances": "",
+			"damage_immunities": "psychic",
+			"condition_immunities": "blinded, charmed, deafened, exhaustion, frightened, prone",
+			"senses": "blindsight 20', passive Perception 8",
+			"languages": "—",
+			"challenge_rating": "1/8",
+			"cr": 0.125,
+			"actions": [
+				{
+					"name": "Dewvine",
+					"desc": "Melee Weapon Attack: +3 to hit, 5 ft., one creature,. The target is grappled (escape DC 11). The climbing vine has two attacking vines each of which can grapple only one creature."
+				},
+				{
+					"name": "Squeeze",
+					"desc": "Squeezes creatures in its grasp. Each creature grappled by the climbing vine must make DC 11 Str save or take 5 (2d4) bludgeoning damage."
+				}
+			],
+			"bonus_actions": null,
+			"reactions": [
+				{
+					"name": "Grasping Retaliation",
+					"desc": "When a creature hits the climbing vine with melee attack while within 5 ft. of the vine the vine can make one Dewvine attack vs. it."
+				}
+			],
+			"legendary_desc": "",
+			"legendary_actions": null,
+			"special_abilities": [
+				{
+					"name": "Digestive Dew",
+					"desc": "A creature that starts its turned grappled by the climbing vine takes 2 (1d4) acid."
+				},
+				{
+					"name": "Flexible Form",
+					"desc": "A climbing vine can move through a space as narrow as 6 inches wide with o squeezing."
+				}
+			],
+			"spell_list": [],
+			"page_no": 85,
+			"environments": [],
+			"img_main": null,
+			"document__slug": "tob3",
+			"document__title": "Tome of Beasts 3",
+			"document__license_url": "http://open5e.com/legal",
+			"document__url": "https://koboldpress.com/kpstore/product/tome-of-beasts-2-for-5th-edition/"
+		}
+	]
+}

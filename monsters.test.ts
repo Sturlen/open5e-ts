@@ -9,6 +9,7 @@ import findOne from "./fixtures/findOne.json"
 import findTwenty from "./fixtures/find20.json"
 import findFifty from "./fixtures/find50.json"
 import findDragons from "./fixtures/find-dragons.json"
+import find18CR from "./fixtures/find-cr-one-eigth.json"
 import empty from "./fixtures/empty.json"
 
 const MONSTER_PATH = "/monsters/"
@@ -36,6 +37,7 @@ beforeAll(() => {
         .get(`${MONSTER_ENDPOINT}?limit=20`, findTwenty)
         .get(`${MONSTER_ENDPOINT}?limit=50`, findFifty)
         .get(`${MONSTER_ENDPOINT}`, findFifty)
+        .get(`${MONSTER_ENDPOINT}?limit=100&cr=0.125`, find18CR)
         .mock()
         .catch({ status: 400 })
 })
@@ -131,5 +133,15 @@ describe("findMany", () => {
         const monsters = await api.monsters.findMany({ search: "dragon" })
 
         expect(monsters[0].name).toBe("Adult Black Dragon")
+    })
+
+    it("Can filter by challenge rating.", async () => {
+        const api = Open5eAPI(ENDPOINT)
+        const one_eight_cr = await api.monsters.findMany({
+            limit: 100,
+            challenge_rating: 1 / 8,
+        })
+        expect(one_eight_cr[0].name).toBe("Bandit")
+        expect(one_eight_cr.length).toBe(57)
     })
 })

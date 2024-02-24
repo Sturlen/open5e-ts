@@ -138,6 +138,8 @@ type MonsterFindManyOptions = {
     limit?: number
     /** Filter to items that contain the search string. */
     search?: string
+    /** Filter to items with a challenge rating equal to this value. Supports fractions e.g. `1/8` */
+    challenge_rating?: number
 }
 
 const ResponseLimitSchema = z.number().int().min(1).max(5000).default(50)
@@ -149,7 +151,7 @@ type GenerateFetchUrl = (
 
 const generateFetchUrl: GenerateFetchUrl = (
     baseUrl,
-    { document__slug, limit, search }
+    { document__slug, limit, search, challenge_rating }
 ) => {
     const url = new URL(baseUrl)
     const params = url.searchParams
@@ -158,6 +160,9 @@ const generateFetchUrl: GenerateFetchUrl = (
 
     if (search) {
         params.append("search", search)
+    }
+    if (challenge_rating) {
+        params.append("cr", challenge_rating.toString())
     }
 
     if (document__slug) {
