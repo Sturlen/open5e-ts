@@ -208,15 +208,23 @@ const FETCH_OPTIONS: RequestInit = {
     redirect: "follow",
 } as const
 
-export function MonsterEndpoint(baseUrl: string) {
+/** Common endpoint funcionality */
+export function endpoint<T>(
+    baseUrl: string,
+    pathname: string,
+    schema: z.ZodType<T>,
+) {
+    const EndpointSchema = z.object({
+        results: z.array(schema),
+    })
     return {
-        get: async (slug: string): Promise<Monster | undefined> => {
+        get: async (slug: string): Promise<T | undefined> => {
             if (!slug) {
                 throw new Error("Slug is required.")
             }
-            const pathname = `/monsters/${slug}`
+            const endpoint = `${pathname}${slug}`
             const url = new URL(baseUrl)
-            url.pathname = pathname
+            url.pathname = endpoint
             const res = await fetch(url, FETCH_OPTIONS)
 
             if (!res.ok && res.status === 404) {
@@ -228,56 +236,26 @@ export function MonsterEndpoint(baseUrl: string) {
 
             const res_json = await res.json()
 
-            return MonsterSchema.parse(res_json)
+            return schema.parse(res_json)
         },
         findMany: async (
             options: MonsterFindManyOptions = {},
-        ): Promise<Monster[]> => {
-            const pathname = `/monsters/`
+        ): Promise<T[]> => {
             const url = new URL(baseUrl)
             url.pathname = pathname
             const full_url = generateFetchUrl(url, options)
 
             const res = await fetch(full_url, FETCH_OPTIONS)
             const res_json = await res.json()
-            return MonsterEndpointSchema.parse(res_json).results
+            return EndpointSchema.parse(res_json).results
         },
     }
 }
 
+export function MonsterEndpoint(baseUrl: string) {
+    return endpoint(baseUrl, "/monsters/", MonsterSchema)
+}
+
 export function ClassEndpoint(baseUrl: string) {
-    return {
-        get: async (slug: string): Promise<Class5e | undefined> => {
-            if (!slug) {
-                throw new Error("Slug is required.")
-            }
-            const pathname = `/classes/${slug}`
-            const url = new URL(baseUrl)
-            url.pathname = pathname
-            const res = await fetch(url, FETCH_OPTIONS)
-
-            if (!res.ok && res.status === 404) {
-                return undefined
-            }
-            if (!res.ok) {
-                throw new Error(`Failed to fetch '${slug}' Code: ${res.status}`)
-            }
-
-            const res_json = await res.json()
-
-            return ClassSchema.parse(res_json)
-        },
-        findMany: async (
-            options: MonsterFindManyOptions = {},
-        ): Promise<Class5e[]> => {
-            const pathname = `/classes/`
-            const url = new URL(baseUrl)
-            url.pathname = pathname
-            const full_url = generateFetchUrl(url, options)
-
-            const res = await fetch(full_url, FETCH_OPTIONS)
-            const res_json = await res.json()
-            return ClassesEndpointSchema.parse(res_json).results
-        },
-    }
+    return endpoint(baseUrl, "/classes/", ClassSchema)
 }

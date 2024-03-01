@@ -1,12 +1,12 @@
-import { MonsterEndpoint, ClassEndpoint } from "./monsters"
+import { MonsterSchema, ClassSchema, endpoint } from "./monsters"
 
 const DEFAULT_BASE_URL = "https://api.open5e.com"
 
 function Open5eAPI(baseUrl = DEFAULT_BASE_URL) {
-    const monsters = MonsterEndpoint(baseUrl)
-    const classes = ClassEndpoint(baseUrl)
-
-    return { monsters, classes }
+    return {
+        monsters: endpoint(baseUrl, "/monsters/", MonsterSchema),
+        classes: endpoint(baseUrl, "/classes/", ClassSchema),
+    }
 }
 
 export default Open5eAPI
