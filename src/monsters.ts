@@ -183,7 +183,7 @@ const FETCH_OPTIONS: RequestInit = {
 
 export function MonsterEndpoint(baseUrl: string) {
     return {
-        get: async (slug: string): Promise<Monster> => {
+        get: async (slug: string): Promise<Monster | undefined> => {
             if (!slug) {
                 throw new Error("Slug is required.")
             }
@@ -193,7 +193,7 @@ export function MonsterEndpoint(baseUrl: string) {
             const res = await fetch(url, FETCH_OPTIONS)
 
             if (!res.ok && res.status === 404) {
-                throw new Error(`Monster with slug '${slug}' was not found.`)
+                return undefined
             }
             if (!res.ok) {
                 throw new Error(`Failed to fetch '${slug}' Code: ${res.status}`)

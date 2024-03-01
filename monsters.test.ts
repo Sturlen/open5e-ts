@@ -58,13 +58,13 @@ describe("Get", () => {
     it("Gets a monster by it's slug", async () => {
         const mon = await api.monsters.get("aboleth")
 
-        expect(mon.name).toBe("Aboleth")
+        expect(mon?.name).toBe("Aboleth")
     })
 
-    it("Throws if a monster is not found", async () => {
-        expect(() => api.monsters.get("not-a-monster")).rejects.toThrow(
-            "Monster with slug 'not-a-monster' was not found.",
-        )
+    it("Return undefined if not found", async () => {
+        const mon = await api.monsters.get("not-a-monster")
+
+        expect(mon).toBe(undefined)
     })
 
     it("Throws if slug is empty", async () => {
