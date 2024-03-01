@@ -183,7 +183,7 @@ const FETCH_OPTIONS: RequestInit = {
 
 export function MonsterEndpoint(baseUrl: string) {
     return {
-        findOne: async (slug: string): Promise<Monster> => {
+        get: async (slug: string): Promise<Monster> => {
             if (!slug) {
                 throw new Error("Slug is required.")
             }

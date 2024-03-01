@@ -54,23 +54,21 @@ afterAll(() => {
     fetchMock.restore()
 })
 
-describe("findOne", () => {
+describe("Get", () => {
     it("Gets a monster by it's slug", async () => {
-        const mon = await api.monsters.findOne("aboleth")
+        const mon = await api.monsters.get("aboleth")
 
         expect(mon.name).toBe("Aboleth")
     })
 
     it("Throws if a monster is not found", async () => {
-        expect(() => api.monsters.findOne("not-a-monster")).rejects.toThrow(
+        expect(() => api.monsters.get("not-a-monster")).rejects.toThrow(
             "Monster with slug 'not-a-monster' was not found.",
         )
     })
 
     it("Throws if slug is empty", async () => {
-        expect(() => api.monsters.findOne("")).rejects.toThrow(
-            "Slug is required.",
-        )
+        expect(() => api.monsters.get("")).rejects.toThrow("Slug is required.")
     })
 })
 
