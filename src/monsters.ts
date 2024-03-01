@@ -1,5 +1,16 @@
 import { z } from "zod"
 
+export const GameObject = z.object({
+    slug: z.string(),
+    name: z.string(),
+    desc: z.string(),
+
+    document__slug: z.string(),
+    document__title: z.string(),
+    document__license_url: z.string(),
+    document__url: z.string(),
+})
+
 const SpeedSchema = z.object({
     walk: z.number().nullish(),
     swim: z.number().nullish(),
@@ -9,9 +20,7 @@ const SpeedSchema = z.object({
     hover: z.boolean().nullish(),
 })
 
-export const MonsterSchema = z.object({
-    slug: z.string(),
-    name: z.string(),
+export const MonsterSchema = GameObject.extend({
     size: z.string(),
     type: z.string(),
     subtype: z.string().nullish(),
@@ -100,16 +109,34 @@ export const MonsterSchema = z.object({
         ),
     spell_list: z.array(z.string()),
     page_no: z.number().nullish(),
-    document__license_url: z.string(),
-    document__slug: z.string(),
-    document__title: z.string(),
-    document__url: z.string(),
 
     img: z.string().optional(),
 })
 
+export const ClassSchema = GameObject.extend({
+    hit_dice: z.string(),
+    hp_at_1st_level: z.string(),
+    hp_at_higher_levels: z.string(),
+    prof_armor: z.string(),
+    prof_weapons: z.string(),
+    prof_tools: z.string(),
+    prof_saving_throws: z.string(),
+    prof_skills: z.string(),
+    equipment: z.string(),
+    table: z.string(),
+    spellcasting_ability: z.string(),
+    subtypes_name: z.string(),
+    archetypes: z.array(GameObject),
+})
+
+export type Class5e = z.infer<typeof ClassSchema>
+
 const MonsterEndpointSchema = z.object({
     results: z.array(MonsterSchema),
+})
+
+const ClassesEndpointSchema = z.object({
+    results: z.array(ClassSchema),
 })
 
 export interface Monster extends z.infer<typeof MonsterSchema> {}
@@ -214,6 +241,43 @@ export function MonsterEndpoint(baseUrl: string) {
             const res = await fetch(full_url, FETCH_OPTIONS)
             const res_json = await res.json()
             return MonsterEndpointSchema.parse(res_json).results
+        },
+    }
+}
+
+export function ClassEndpoint(baseUrl: string) {
+    return {
+        get: async (slug: string): Promise<Class5e | undefined> => {
+            if (!slug) {
+                throw new Error("Slug is required.")
+            }
+            const pathname = `/classes/${slug}`
+            const url = new URL(baseUrl)
+            url.pathname = pathname
+            const res = await fetch(url, FETCH_OPTIONS)
+
+            if (!res.ok && res.status === 404) {
+                return undefined
+            }
+            if (!res.ok) {
+                throw new Error(`Failed to fetch '${slug}' Code: ${res.status}`)
+            }
+
+            const res_json = await res.json()
+
+            return ClassSchema.parse(res_json)
+        },
+        findMany: async (
+            options: MonsterFindManyOptions = {},
+        ): Promise<Class5e[]> => {
+            const pathname = `/classes/`
+            const url = new URL(baseUrl)
+            url.pathname = pathname
+            const full_url = generateFetchUrl(url, options)
+
+            const res = await fetch(full_url, FETCH_OPTIONS)
+            const res_json = await res.json()
+            return ClassesEndpointSchema.parse(res_json).results
         },
     }
 }
