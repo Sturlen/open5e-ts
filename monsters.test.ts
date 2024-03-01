@@ -6,16 +6,16 @@ import fs from "fs"
 const aboleth = JSON.parse(fs.readFileSync("./fixtures/aboleth.json", "utf-8"))
 const cc = JSON.parse(fs.readFileSync("./fixtures/cc-limit-50.json", "utf-8"))
 const tob2andtob3 = JSON.parse(
-    fs.readFileSync("./fixtures/tob-and-tob3.json", "utf-8")
+    fs.readFileSync("./fixtures/tob-and-tob3.json", "utf-8"),
 )
 const findOne = JSON.parse(fs.readFileSync("./fixtures/findOne.json", "utf-8"))
 const findTwenty = fs.readFileSync("./fixtures/find20.json", "utf-8")
 const findFifty = JSON.parse(fs.readFileSync("./fixtures/find50.json", "utf-8"))
 const findDragons = JSON.parse(
-    fs.readFileSync("./fixtures/find-dragons.json", "utf-8")
+    fs.readFileSync("./fixtures/find-dragons.json", "utf-8"),
 )
 const find18CR = JSON.parse(
-    fs.readFileSync("./fixtures/find-cr-one-eigth.json", "utf-8")
+    fs.readFileSync("./fixtures/find-cr-one-eigth.json", "utf-8"),
 )
 const empty = JSON.parse(fs.readFileSync("./fixtures/empty.json", "utf-8"))
 
@@ -33,12 +33,12 @@ beforeAll(() => {
         })
         .get(
             `${MONSTER_ENDPOINT}?limit=50&document__slug__in=not-a-document`,
-            empty
+            empty,
         )
         .get(`${MONSTER_ENDPOINT}?limit=50&document__slug__in=cc`, cc)
         .get(
             `${MONSTER_ENDPOINT}?limit=800&document__slug__in=tob2%2Ctob3`,
-            tob2andtob3
+            tob2andtob3,
         )
         .get(`${MONSTER_ENDPOINT}?limit=50&search=dragon`, findDragons)
         .get(`${MONSTER_ENDPOINT}?limit=1`, findOne)
@@ -63,13 +63,13 @@ describe("findOne", () => {
 
     it("Throws if a monster is not found", async () => {
         expect(() => api.monsters.findOne("not-a-monster")).rejects.toThrow(
-            "Monster with slug 'not-a-monster' was not found."
+            "Monster with slug 'not-a-monster' was not found.",
         )
     })
 
     it("Throws if slug is empty", async () => {
         expect(() => api.monsters.findOne("")).rejects.toThrow(
-            "Slug is required."
+            "Slug is required.",
         )
     })
 })
@@ -106,17 +106,17 @@ describe("findMany", () => {
 
         const number_of_monsters = mons.length
         const number_of_a_monsters = mons.filter(
-            (mon) => mon.document__slug === "tob2"
+            (mon) => mon.document__slug === "tob2",
         ).length
         const number_of_b_monsters = mons.filter(
-            (mon) => mon.document__slug === "tob3"
+            (mon) => mon.document__slug === "tob3",
         ).length
 
         expect(mons.length).toBeGreaterThan(0)
         expect(number_of_a_monsters).toBeGreaterThan(0)
         expect(number_of_b_monsters).toBeGreaterThan(0)
         expect(number_of_monsters).toBe(
-            number_of_a_monsters + number_of_b_monsters
+            number_of_a_monsters + number_of_b_monsters,
         )
     })
 

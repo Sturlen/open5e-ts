@@ -54,8 +54,8 @@ export const MonsterSchema = z.object({
                     desc: z.string(),
                     damage_dice: z.string().nullish(),
                     attack_bonues: z.string().nullish(),
-                })
-            )
+                }),
+            ),
         )
         .transform((m) => (Array.isArray(m) ? m : [])),
     reactions: z
@@ -68,8 +68,8 @@ export const MonsterSchema = z.object({
                     desc: z.string(),
                     damage_dice: z.string().nullish(),
                     attack_bonues: z.string().nullish(),
-                })
-            )
+                }),
+            ),
         ),
     legendary_desc: z.string(),
     legendary_actions: z
@@ -82,8 +82,8 @@ export const MonsterSchema = z.object({
                     desc: z.string(),
                     damage_dice: z.string().nullish(),
                     attack_bonues: z.string().nullish(),
-                })
-            )
+                }),
+            ),
         ),
     special_abilities: z
         .string()
@@ -95,8 +95,8 @@ export const MonsterSchema = z.object({
                     desc: z.string(),
                     damage_dice: z.string().nullish(),
                     attack_bonues: z.string().nullish(),
-                })
-            )
+                }),
+            ),
         ),
     spell_list: z.array(z.string()),
     page_no: z.number().nullish(),
@@ -146,12 +146,12 @@ const ResponseLimitSchema = z.number().int().min(1).max(5000).default(50)
 
 type GenerateFetchUrl = (
     baseUrl: string | URL,
-    options: MonsterFindManyOptions
+    options: MonsterFindManyOptions,
 ) => URL
 
 const generateFetchUrl: GenerateFetchUrl = (
     baseUrl,
-    { document__slug, limit, search, challenge_rating }
+    { document__slug, limit, search, challenge_rating },
 ) => {
     const url = new URL(baseUrl)
     const params = url.searchParams
@@ -170,7 +170,7 @@ const generateFetchUrl: GenerateFetchUrl = (
             "document__slug__in",
             Array.isArray(document__slug)
                 ? document__slug.join(",")
-                : document__slug
+                : document__slug,
         )
     }
     return url
@@ -204,7 +204,7 @@ export function MonsterEndpoint(baseUrl: string) {
             return MonsterSchema.parse(res_json)
         },
         findMany: async (
-            options: MonsterFindManyOptions = {}
+            options: MonsterFindManyOptions = {},
         ): Promise<Monster[]> => {
             const pathname = `/monsters/`
             const url = new URL(baseUrl)
