@@ -7,6 +7,7 @@ const barbarian = JSON.parse(
     fs.readFileSync("./fixtures/barbarian.json", "utf-8"),
 )
 const classes = JSON.parse(fs.readFileSync("./fixtures/classes.json", "utf-8"))
+const races = JSON.parse(fs.readFileSync("./fixtures/races.json", "utf-8"))
 
 const MONSTER_PATH = "/classes/"
 const HOST = "https://api.example.com"
@@ -21,6 +22,7 @@ beforeAll(() => {
             body: "Not Found",
         })
         .get(`${ENDPOINT}?limit=50`, classes)
+        .get(`${HOST}/races/?limit=50`, races)
         .mock()
         .catch({ status: 400 })
 })
@@ -53,4 +55,16 @@ describe("findMany", () => {
 
         expect(mons.length).toBe(12)
     })
+
+    // TODO: class specific query tests. should not able to filter by challenge rating for classes
+})
+
+describe("findMany races", () => {
+    it("Parses using schema", async () => {
+        const mons = await api.races.findMany()
+
+        expect(mons.length).toBeGreaterThan(0)
+    })
+
+    // TODO: use vitest mock and just check the url insated of the response
 })

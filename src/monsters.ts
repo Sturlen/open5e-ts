@@ -7,7 +7,7 @@ export const GameObject = z.object({
 
     document__slug: z.string(),
     document__title: z.string(),
-    document__license_url: z.string(),
+    document__license_url: z.string().nullish(),
     document__url: z.string(),
 })
 
@@ -113,6 +113,9 @@ export const MonsterSchema = GameObject.extend({
     img: z.string().optional(),
 })
 
+export const SubclassSchema = GameObject
+export type Subclass = z.infer<typeof SubclassSchema>
+
 export const ClassSchema = GameObject.extend({
     hit_dice: z.string(),
     hp_at_1st_level: z.string(),
@@ -129,15 +132,32 @@ export const ClassSchema = GameObject.extend({
     archetypes: z.array(GameObject),
 })
 
+export const SubraceSchema = GameObject.extend({
+    asi: z.array(
+        z.object({ attributes: z.array(z.string()), value: z.number() }),
+    ),
+    traits: z.string(),
+    asi_desc: z.string(),
+})
+
+export const RaceSchema = GameObject.extend({
+    asi_desc: z.string(),
+    asi: z.array(
+        z.object({ attributes: z.array(z.string()), value: z.number() }),
+    ),
+    age: z.string(),
+    alignment: z.string(),
+    size: z.string(),
+    size_raw: z.string(),
+    speed: z.object({ walk: z.number() }),
+    speed_desc: z.string(),
+    languages: z.string(),
+    vision: z.string(),
+    traits: z.string(),
+    subraces: z.array(SubraceSchema),
+})
+
 export type Class5e = z.infer<typeof ClassSchema>
-
-const MonsterEndpointSchema = z.object({
-    results: z.array(MonsterSchema),
-})
-
-const ClassesEndpointSchema = z.object({
-    results: z.array(ClassSchema),
-})
 
 export interface Monster extends z.infer<typeof MonsterSchema> {}
 
@@ -157,6 +177,16 @@ const document_slugs = [
     "vom",
     "toh",
 ] as const
+
+const DocumentNames = {
+    Open5e: "o5e",
+    "WotC SRD": "wotc-srd",
+    "Tome of Beasts": "tob",
+    "Creature Codex": "cc",
+    "Tome of Beasts 2": "tob2",
+    "Deep Magic": "dmag",
+    "Warlock Magazine": "warlock",
+} as const
 
 type MonsterFindManyOptions = {
     /** Limit query to one or more sources. By default all sources are used. */
@@ -250,12 +280,4 @@ export function endpoint<T>(
             return EndpointSchema.parse(res_json).results
         },
     }
-}
-
-export function MonsterEndpoint(baseUrl: string) {
-    return endpoint(baseUrl, "/monsters/", MonsterSchema)
-}
-
-export function ClassEndpoint(baseUrl: string) {
-    return endpoint(baseUrl, "/classes/", ClassSchema)
 }
