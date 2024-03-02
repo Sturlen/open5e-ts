@@ -206,35 +206,39 @@ type GenerateFetchUrl = (
     options: MonsterFindManyOptions,
 ) => URL
 
+function buildQueryParams(
+    params: Record<string, string | number | string[] | undefined>,
+) {
+    const url = new URLSearchParams()
+    for (const [key, value] of Object.entries(params)) {
+        if (Array.isArray(value)) {
+            url.append(key, value.join(","))
+        } else if (value === undefined) {
+        } else {
+            url.append(key, value.toString())
+        }
+    }
+    return url
+}
+
 const generateFetchUrl: GenerateFetchUrl = (
     baseUrl,
     { document__slug, limit, search, challenge_rating },
 ) => {
     const url = new URL(baseUrl)
-    const params = url.searchParams
 
-    params.append("limit", ResponseLimitSchema.parse(limit).toString())
+    url.search = buildQueryParams({
+        limit: ResponseLimitSchema.parse(limit),
+        search,
+        cr: challenge_rating,
+        document__slug__in: document__slug,
+    }).toString()
 
-    if (search) {
-        params.append("search", search)
-    }
-    if (challenge_rating) {
-        params.append("cr", challenge_rating.toString())
-    }
-
-    if (document__slug) {
-        params.append(
-            "document__slug__in",
-            Array.isArray(document__slug)
-                ? document__slug.join(",")
-                : document__slug,
-        )
-    }
     return url
 }
 
 const FETCH_OPTIONS: RequestInit = {
-    headers: { Accept: "application/json", SDK: "@sturlen/Open5e" },
+    headers: { Accept: "application/json" },
     redirect: "follow",
 } as const
 
