@@ -240,7 +240,6 @@ const generateFetchUrl: GenerateFetchUrl = (
 const FETCH_OPTIONS: RequestInit = {
     headers: {
         Accept: "application/json",
-        "Cache-Control": "public, max-age=3600, s-max-age=3600",
     },
     redirect: "follow",
 } as const
