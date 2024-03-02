@@ -188,16 +188,24 @@ const DocumentNames = {
     "Warlock Magazine": "warlock",
 } as const
 
-type MonsterFindManyOptions = {
+type GameObjectOptions = {
     /** Limit query to one or more sources. By default all sources are used. */
     document__slug?: string | string[]
     /** Max number of items to fetch. */
     limit?: number
     /** Filter to items that contain the search string in the name or description. */
     search?: string
+}
+
+type MonsterFindManyOptions = GameObjectOptions & {
     /** Filter to items with a challenge rating equal to this value. Supports fractions e.g. `1/8` */
     challenge_rating?: number
-}
+} & {}
+
+type MonsterFindManyOptions = GameObjectOptions & {
+    /** Filter to items with a challenge rating equal to this value. Supports fractions e.g. `1/8` */
+    challenge_rating?: number
+} & {}
 
 const ResponseLimitSchema = z.number().int().min(1).max(5000).default(50)
 
@@ -221,17 +229,24 @@ function buildQueryParams(
     return url
 }
 
-const generateFetchUrl: GenerateFetchUrl = (
-    baseUrl,
-    { document__slug, limit, search, challenge_rating },
-) => {
-    const url = new URL(baseUrl)
+type URLBuilder<O extends GameObjectOptions> = (
+    base: URL,
+    pathname: string,
+    options: O | undefined,
+) => URL
 
+export const monsterQuery: URLBuilder<MonsterFindManyOptions> = (
+    base,
+    pathname,
+    options = {},
+) => {
+    const url = new URL(base)
+    url.pathname = pathname
     url.search = buildQueryParams({
-        limit: ResponseLimitSchema.parse(limit),
-        search,
-        cr: challenge_rating,
-        document__slug__in: document__slug,
+        limit: ResponseLimitSchema.parse(options.limit),
+        search: options.search,
+        cr: options.challenge_rating,
+        document__slug__in: options.document__slug,
     }).toString()
 
     return url
@@ -249,10 +264,11 @@ export const EndpointResultSchema = z.object({
 })
 
 /** Common endpoint funcionality */
-export function endpoint<T>(
+export function endpoint<T, Options extends GameObjectOptions>(
     baseUrl: string,
     pathname: string,
     schema: z.ZodType<T>,
+    buildURL: URLBuilder<Options>,
 ) {
     return {
         get: async (slug: string): Promise<T | undefined> => {
@@ -275,12 +291,9 @@ export function endpoint<T>(
 
             return schema.parse(res_json)
         },
-        findMany: async (
-            options: MonsterFindManyOptions = {},
-        ): Promise<T[]> => {
+        findMany: async (options?: Options): Promise<T[]> => {
             const url = new URL(baseUrl)
-            url.pathname = pathname
-            const full_url = generateFetchUrl(url, options)
+            const full_url = buildURL(url, pathname, options)
 
             const res = await fetch(full_url, FETCH_OPTIONS)
             const res_json = await res.json()
