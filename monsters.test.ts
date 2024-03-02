@@ -20,50 +20,7 @@ const MONSTER_ENDPOINT = `${ENDPOINT}${MONSTER_PATH}`
 const api = Open5eAPI(ENDPOINT)
 
 beforeAll(() => {
-    fetchMock
-        .get(
-            `${MONSTER_ENDPOINT}aboleth`,
-            // @ts-expect-error
-            monsters.results.find((m) => m.slug === "aboleth"),
-        )
-        .get(`${MONSTER_ENDPOINT}not-a-monster`, {
-            status: 404,
-            body: "Not Found",
-        })
-        .get(
-            `${MONSTER_ENDPOINT}?limit=50&document__slug__in=not-a-document`,
-            empty,
-        )
-        .get(`${MONSTER_ENDPOINT}?limit=50&document__slug__in=cc`, {
-            results: monsters.results.filter((m) => m.document__slug === "cc"),
-        })
-        .get(`${MONSTER_ENDPOINT}?limit=800&document__slug__in=tob2%2Ctob3`, {
-            results: monsters.results.filter(
-                (m) =>
-                    m.document__slug === "tob2" || m.document__slug === "tob3",
-            ),
-        })
-        .get(`${MONSTER_ENDPOINT}?limit=50&search=dragon`, {
-            results: monsters.results.filter(
-                (m) =>
-                    m.name.toLowerCase().includes("dragon") ||
-                    m.desc.toLowerCase().includes("dragon"),
-            ),
-        })
-        .get(`${MONSTER_ENDPOINT}?limit=1`, {
-            results: monsters.results.slice(0, 1),
-        })
-        .get(`${MONSTER_ENDPOINT}?limit=20`, {
-            results: monsters.results.slice(0, 20),
-        })
-        .get(`${MONSTER_ENDPOINT}?limit=50`, {
-            results: monsters.results.slice(0, 50),
-        })
-        .get(`${MONSTER_ENDPOINT}?limit=50&cr=0.125`, {
-            results: monsters.results.filter((m) => m.cr === 1 / 8),
-        })
-        .mock()
-        .catch({ status: 400 })
+    fetchMock.mock()
 })
 
 afterAll(() => {
@@ -72,12 +29,20 @@ afterAll(() => {
 
 describe("Get", () => {
     it("Gets a monster by it's slug", async () => {
+        fetchMock.once(
+            `${MONSTER_ENDPOINT}aboleth`,
+            monsters.results.find((m) => m.slug === "aboleth") ?? "",
+        )
         const mon = await api.monsters.get("aboleth")
 
         expect(mon?.name).toBe("Aboleth")
     })
 
     it("Return undefined if not found", async () => {
+        fetchMock.once(`${MONSTER_ENDPOINT}not-a-monster`, {
+            status: 404,
+            body: "Not Found",
+        })
         const mon = await api.monsters.get("not-a-monster")
 
         expect(mon).toBe(undefined)
@@ -90,12 +55,20 @@ describe("Get", () => {
 
 describe("findMany", () => {
     it("Fetches 50 monsters by default", async () => {
+        fetchMock.once(`${MONSTER_ENDPOINT}?limit=50`, {
+            results: monsters.results.slice(0, 50),
+        })
+
         const mons = await api.monsters.findMany()
 
         expect(mons.length).toBe(50)
     })
 
     it("If no monsters are found, return an empty list", async () => {
+        fetchMock.once(
+            `${MONSTER_ENDPOINT}?limit=50&document__slug__in=not-a-document`,
+            empty,
+        )
         const mons = await api.monsters.findMany({
             document__slug: "not-a-document",
         })
@@ -104,6 +77,9 @@ describe("findMany", () => {
     })
 
     it("Can filter by a document slug", async () => {
+        fetchMock.once(`${MONSTER_ENDPOINT}?limit=50&document__slug__in=cc`, {
+            results: monsters.results.filter((m) => m.document__slug === "cc"),
+        })
         const mons = await api.monsters.findMany({ document__slug: "cc" })
 
         expect(mons.length).toBeGreaterThan(0)
@@ -113,6 +89,16 @@ describe("findMany", () => {
     })
 
     it("Can filter by multiple document slugs", async () => {
+        fetchMock.once(
+            `${MONSTER_ENDPOINT}?limit=800&document__slug__in=tob2%2Ctob3`,
+            {
+                results: monsters.results.filter(
+                    (m) =>
+                        m.document__slug === "tob2" ||
+                        m.document__slug === "tob3",
+                ),
+            },
+        )
         const mons = await api.monsters.findMany({
             limit: 800,
             document__slug: ["tob2", "tob3"],
@@ -135,7 +121,13 @@ describe("findMany", () => {
     })
 
     it("Can limit how many monsters are returned", async () => {
+        fetchMock.once(`${MONSTER_ENDPOINT}?limit=1`, {
+            results: monsters.results.slice(0, 1),
+        })
         const one = await api.monsters.findMany({ limit: 1 })
+        fetchMock.once(`${MONSTER_ENDPOINT}?limit=20`, {
+            results: monsters.results.slice(0, 20),
+        })
         const twenty = await api.monsters.findMany({ limit: 20 })
 
         expect(one.length).toBe(1)
@@ -143,11 +135,21 @@ describe("findMany", () => {
     })
 
     it("Can filter by a string. This can be in the name as well as other fields", async () => {
-        const monsters = await api.monsters.findMany({ search: "dragon" })
-        expect(monsters.length).toBe(243)
+        fetchMock.once(`${MONSTER_ENDPOINT}?limit=50&search=dragon`, {
+            results: monsters.results.filter(
+                (m) =>
+                    m.name.toLowerCase().includes("dragon") ||
+                    m.desc.toLowerCase().includes("dragon"),
+            ),
+        })
+        const mons = await api.monsters.findMany({ search: "dragon" })
+        expect(mons.length).toBe(243)
     })
 
     it("Can filter by challenge rating.", async () => {
+        fetchMock.once(`${MONSTER_ENDPOINT}?limit=50&cr=0.125`, {
+            results: monsters.results.filter((m) => m.cr === 1 / 8),
+        })
         const one_eight_cr = await api.monsters.findMany({
             challenge_rating: 1 / 8,
         })
