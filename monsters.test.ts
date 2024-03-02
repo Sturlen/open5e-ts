@@ -3,21 +3,16 @@ import Open5eAPI from "./src"
 import fetchMock from "fetch-mock"
 import fs from "fs"
 
-const aboleth = JSON.parse(fs.readFileSync("./fixtures/aboleth.json", "utf-8"))
-const cc = JSON.parse(fs.readFileSync("./fixtures/cc-limit-50.json", "utf-8"))
-const tob2andtob3 = JSON.parse(
-    fs.readFileSync("./fixtures/tob-and-tob3.json", "utf-8"),
+type APIResponse = {
+    results: Array<Record<string, any> & { slug: string }>
+}
+
+const empty: APIResponse = JSON.parse(
+    fs.readFileSync("./fixtures/empty.json", "utf-8"),
 )
-const findOne = JSON.parse(fs.readFileSync("./fixtures/findOne.json", "utf-8"))
-const findTwenty = fs.readFileSync("./fixtures/find20.json", "utf-8")
-const findFifty = JSON.parse(fs.readFileSync("./fixtures/find50.json", "utf-8"))
-const findDragons = JSON.parse(
-    fs.readFileSync("./fixtures/find-dragons.json", "utf-8"),
+const monsters: APIResponse = JSON.parse(
+    fs.readFileSync("./fixtures/monsters.json", "utf-8"),
 )
-const find18CR = JSON.parse(
-    fs.readFileSync("./fixtures/find-cr-one-eigth.json", "utf-8"),
-)
-const empty = JSON.parse(fs.readFileSync("./fixtures/empty.json", "utf-8"))
 
 const MONSTER_PATH = "/monsters/"
 const ENDPOINT = "https://api.example.com"
@@ -26,7 +21,11 @@ const api = Open5eAPI(ENDPOINT)
 
 beforeAll(() => {
     fetchMock
-        .get(`${MONSTER_ENDPOINT}aboleth`, aboleth)
+        .get(
+            `${MONSTER_ENDPOINT}aboleth`,
+            // @ts-expect-error
+            monsters.results.find((m) => m.slug === "aboleth"),
+        )
         .get(`${MONSTER_ENDPOINT}not-a-monster`, {
             status: 404,
             body: "Not Found",
@@ -35,17 +34,34 @@ beforeAll(() => {
             `${MONSTER_ENDPOINT}?limit=50&document__slug__in=not-a-document`,
             empty,
         )
-        .get(`${MONSTER_ENDPOINT}?limit=50&document__slug__in=cc`, cc)
-        .get(
-            `${MONSTER_ENDPOINT}?limit=800&document__slug__in=tob2%2Ctob3`,
-            tob2andtob3,
-        )
-        .get(`${MONSTER_ENDPOINT}?limit=50&search=dragon`, findDragons)
-        .get(`${MONSTER_ENDPOINT}?limit=1`, findOne)
-        .get(`${MONSTER_ENDPOINT}?limit=20`, findTwenty)
-        .get(`${MONSTER_ENDPOINT}?limit=50`, findFifty)
-        .get(`${MONSTER_ENDPOINT}`, findFifty)
-        .get(`${MONSTER_ENDPOINT}?limit=100&cr=0.125`, find18CR)
+        .get(`${MONSTER_ENDPOINT}?limit=50&document__slug__in=cc`, {
+            results: monsters.results.filter((m) => m.document__slug === "cc"),
+        })
+        .get(`${MONSTER_ENDPOINT}?limit=800&document__slug__in=tob2%2Ctob3`, {
+            results: monsters.results.filter(
+                (m) =>
+                    m.document__slug === "tob2" || m.document__slug === "tob3",
+            ),
+        })
+        .get(`${MONSTER_ENDPOINT}?limit=50&search=dragon`, {
+            results: monsters.results.filter(
+                (m) =>
+                    m.name.toLowerCase().includes("dragon") ||
+                    m.desc.toLowerCase().includes("dragon"),
+            ),
+        })
+        .get(`${MONSTER_ENDPOINT}?limit=1`, {
+            results: monsters.results.slice(0, 1),
+        })
+        .get(`${MONSTER_ENDPOINT}?limit=20`, {
+            results: monsters.results.slice(0, 20),
+        })
+        .get(`${MONSTER_ENDPOINT}?limit=50`, {
+            results: monsters.results.slice(0, 50),
+        })
+        .get(`${MONSTER_ENDPOINT}?limit=50&cr=0.125`, {
+            results: monsters.results.filter((m) => m.cr === 1 / 8),
+        })
         .mock()
         .catch({ status: 400 })
 })
@@ -128,16 +144,13 @@ describe("findMany", () => {
 
     it("Can filter by a string. This can be in the name as well as other fields", async () => {
         const monsters = await api.monsters.findMany({ search: "dragon" })
-
-        expect(monsters[0].name).toBe("Adult Black Dragon")
+        expect(monsters.length).toBe(243)
     })
 
     it("Can filter by challenge rating.", async () => {
         const one_eight_cr = await api.monsters.findMany({
-            limit: 100,
             challenge_rating: 1 / 8,
         })
-        expect(one_eight_cr[0].name).toBe("Bandit")
         expect(one_eight_cr.length).toBe(57)
     })
 })

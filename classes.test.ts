@@ -3,9 +3,6 @@ import Open5eAPI from "./src"
 import fetchMock from "fetch-mock"
 import fs from "fs"
 
-const barbarian = JSON.parse(
-    fs.readFileSync("./fixtures/barbarian.json", "utf-8"),
-)
 const classes = JSON.parse(fs.readFileSync("./fixtures/classes.json", "utf-8"))
 const races = JSON.parse(fs.readFileSync("./fixtures/races.json", "utf-8"))
 
@@ -16,7 +13,10 @@ const api = Open5eAPI(HOST)
 
 beforeAll(() => {
     fetchMock
-        .get(`${ENDPOINT}barbarian`, barbarian)
+        .get(
+            `${ENDPOINT}barbarian`,
+            classes.results.find((c: any) => c.slug === "barbarian"),
+        )
         .get(`${ENDPOINT}not-a-class`, {
             status: 404,
             body: "Not Found",

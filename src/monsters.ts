@@ -193,7 +193,7 @@ type MonsterFindManyOptions = {
     document__slug?: string | string[]
     /** Max number of items to fetch. */
     limit?: number
-    /** Filter to items that contain the search string. */
+    /** Filter to items that contain the search string in the name or description. */
     search?: string
     /** Filter to items with a challenge rating equal to this value. Supports fractions e.g. `1/8` */
     challenge_rating?: number
@@ -238,15 +238,16 @@ const FETCH_OPTIONS: RequestInit = {
     redirect: "follow",
 } as const
 
+export const EndpointResultSchema = z.object({
+    results: z.array(z.object({}).passthrough()),
+})
+
 /** Common endpoint funcionality */
 export function endpoint<T>(
     baseUrl: string,
     pathname: string,
     schema: z.ZodType<T>,
 ) {
-    const EndpointSchema = z.object({
-        results: z.array(schema),
-    })
     return {
         get: async (slug: string): Promise<T | undefined> => {
             if (!slug) {
@@ -277,7 +278,9 @@ export function endpoint<T>(
 
             const res = await fetch(full_url, FETCH_OPTIONS)
             const res_json = await res.json()
-            return EndpointSchema.parse(res_json).results
+            const results = EndpointResultSchema.parse(res_json).results
+
+            return z.array(schema).parse(results)
         },
     }
 }
