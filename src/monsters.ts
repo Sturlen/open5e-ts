@@ -112,6 +112,7 @@ export const MonsterSchema = GameObject.extend({
 
     img: z.string().optional(),
 })
+export type Monster = z.infer<typeof MonsterSchema>
 
 export const SubclassSchema = GameObject
 export type Subclass = z.infer<typeof SubclassSchema>
@@ -131,6 +132,7 @@ export const ClassSchema = GameObject.extend({
     subtypes_name: z.string(),
     archetypes: z.array(GameObject),
 })
+export type Class5e = z.infer<typeof ClassSchema>
 
 export const SubraceSchema = GameObject.extend({
     asi: z.array(
@@ -139,6 +141,7 @@ export const SubraceSchema = GameObject.extend({
     traits: z.string(),
     asi_desc: z.string(),
 })
+export type Subrace = z.infer<typeof SubraceSchema>
 
 export const RaceSchema = GameObject.extend({
     asi_desc: z.string(),
@@ -156,10 +159,7 @@ export const RaceSchema = GameObject.extend({
     traits: z.string(),
     subraces: z.array(SubraceSchema),
 })
-
-export type Class5e = z.infer<typeof ClassSchema>
-
-export interface Monster extends z.infer<typeof MonsterSchema> {}
+export type Race = z.infer<typeof RaceSchema>
 
 const document_slugs = [
     "o5e",
@@ -202,17 +202,7 @@ type MonsterFindManyOptions = GameObjectOptions & {
     challenge_rating?: number
 } & {}
 
-type MonsterFindManyOptions = GameObjectOptions & {
-    /** Filter to items with a challenge rating equal to this value. Supports fractions e.g. `1/8` */
-    challenge_rating?: number
-} & {}
-
 const ResponseLimitSchema = z.number().int().min(1).max(5000).default(50)
-
-type GenerateFetchUrl = (
-    baseUrl: string | URL,
-    options: MonsterFindManyOptions,
-) => URL
 
 function buildQueryParams(
     params: Record<string, string | number | string[] | undefined>,
