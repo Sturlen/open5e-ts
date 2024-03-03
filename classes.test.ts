@@ -5,6 +5,7 @@ import fs from "fs"
 
 const classes = JSON.parse(fs.readFileSync("./fixtures/classes.json", "utf-8"))
 const races = JSON.parse(fs.readFileSync("./fixtures/races.json", "utf-8"))
+const spells = JSON.parse(fs.readFileSync("./fixtures/spells.json", "utf-8"))
 
 const MONSTER_PATH = "/classes/"
 const HOST = "https://api.example.com"
@@ -23,6 +24,9 @@ beforeAll(() => {
         })
         .get(`${ENDPOINT}?limit=50`, classes)
         .get(`${HOST}/races/?limit=50`, races)
+        .get(`${HOST}/spells/?limit=5000`, {
+            results: spells.results,
+        })
         .mock()
         .catch({ status: 400 })
 })
@@ -67,4 +71,12 @@ describe("findMany races", () => {
     })
 
     // TODO: use vitest mock and just check the url insated of the response
+})
+
+describe("findMany spells", () => {
+    it("Parses using schema", async () => {
+        const mons = await api.spells.findMany({ limit: 5000 })
+
+        expect(mons.length).toBeGreaterThan(0)
+    })
 })
