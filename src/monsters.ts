@@ -230,6 +230,11 @@ type MonsterFindManyOptions = GameObjectOptions & {
     challenge_rating?: number
 } & {}
 
+type SpellFindManyOptions = GameObjectOptions & {
+    /** Filter by spell level. 0 means cantrips, 1 means level-1 spells , etc. */
+    spell_level?: number
+} & {}
+
 const ResponseLimitSchema = z.number().int().min(1).max(5000).default(50)
 
 function buildQueryParams(
@@ -264,6 +269,23 @@ export const monsterQuery: URLBuilder<MonsterFindManyOptions> = (
         limit: ResponseLimitSchema.parse(options.limit),
         search: options.search,
         cr: options.challenge_rating,
+        document__slug__in: options.document__slug,
+    }).toString()
+
+    return url
+}
+
+export const spellQuery: URLBuilder<SpellFindManyOptions> = (
+    base,
+    pathname,
+    options = {},
+) => {
+    const url = new URL(base)
+    url.pathname = pathname
+    url.search = buildQueryParams({
+        limit: ResponseLimitSchema.parse(options.limit),
+        search: options.search,
+        level_int: options.spell_level,
         document__slug__in: options.document__slug,
     }).toString()
 

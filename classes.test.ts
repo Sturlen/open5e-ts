@@ -27,6 +27,9 @@ beforeAll(() => {
         .get(`${HOST}/spells/?limit=5000`, {
             results: spells.results,
         })
+        .get(`${HOST}/spells/?limit=50&level_int=0`, {
+            results: spells.results.filter((s: any) => s.level_int === 0),
+        })
         .mock()
         .catch({ status: 400 })
 })
@@ -78,5 +81,11 @@ describe("findMany spells", () => {
         const mons = await api.spells.findMany({ limit: 5000 })
 
         expect(mons.length).toBeGreaterThan(0)
+    })
+
+    it("Get all cantrips", async () => {
+        const mons = await api.spells.findMany({ spell_level: 0 })
+
+        expect(mons.length).toBe(94)
     })
 })
