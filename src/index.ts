@@ -8,7 +8,7 @@ import {
 
 const DEFAULT_BASE_URL = "https://api.open5e.com"
 
-function Open5eAPI(baseUrl = DEFAULT_BASE_URL) {
+export function Open5e(baseUrl = DEFAULT_BASE_URL) {
     return {
         monsters: endpoint(baseUrl, "/monsters/", MonsterSchema, monsterQuery),
         classes: endpoint(baseUrl, "/classes/", ClassSchema, monsterQuery),
@@ -16,4 +16,4 @@ function Open5eAPI(baseUrl = DEFAULT_BASE_URL) {
     }
 }
 
-export default Open5eAPI
+export default Open5e

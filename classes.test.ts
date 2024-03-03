@@ -1,5 +1,5 @@
 import { afterAll, beforeAll, describe, expect, it } from "vitest"
-import Open5eAPI from "./src"
+import { Open5e } from "./src"
 import fetchMock from "fetch-mock"
 import fs from "fs"
 
@@ -9,7 +9,7 @@ const races = JSON.parse(fs.readFileSync("./fixtures/races.json", "utf-8"))
 const MONSTER_PATH = "/classes/"
 const HOST = "https://api.example.com"
 const ENDPOINT = `${HOST}${MONSTER_PATH}`
-const api = Open5eAPI(HOST)
+const api = Open5e(HOST)
 
 beforeAll(() => {
     fetchMock

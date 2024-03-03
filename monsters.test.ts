@@ -1,5 +1,5 @@
 import { expect, it, beforeAll, afterAll, describe } from "vitest"
-import Open5eAPI from "./src"
+import { Open5e } from "./src"
 import fetchMock from "fetch-mock"
 import fs from "fs"
 
@@ -17,7 +17,7 @@ const monsters: APIResponse = JSON.parse(
 const MONSTER_PATH = "/monsters/"
 const ENDPOINT = "https://api.example.com"
 const MONSTER_ENDPOINT = `${ENDPOINT}${MONSTER_PATH}`
-const api = Open5eAPI(ENDPOINT)
+const api = Open5e(ENDPOINT)
 
 beforeAll(() => {
     fetchMock.mock()
