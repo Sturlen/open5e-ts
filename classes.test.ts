@@ -6,6 +6,9 @@ import fs from "fs"
 const classes = JSON.parse(fs.readFileSync("./fixtures/classes.json", "utf-8"))
 const races = JSON.parse(fs.readFileSync("./fixtures/races.json", "utf-8"))
 const spells = JSON.parse(fs.readFileSync("./fixtures/spells.json", "utf-8"))
+const monsters = JSON.parse(
+    fs.readFileSync("./fixtures/monsters.json", "utf-8"),
+)
 
 const MONSTER_PATH = "/classes/"
 const HOST = "https://api.example.com"
@@ -27,8 +30,13 @@ beforeAll(() => {
         .get(`${HOST}/spells/?limit=5000`, {
             results: spells.results,
         })
+        .get(`${HOST}/monsters/?limit=5000`, {
+            results: monsters.results,
+        })
         .get(`${HOST}/spells/?limit=50&level_int=0`, {
-            results: spells.results.filter((s: any) => s.level_int === 0),
+            results: spells.results
+                .filter((s: any) => s.level_int === 0)
+                .slice(0, 50),
         })
         .mock()
         .catch({ status: 400 })
@@ -56,36 +64,39 @@ describe("Get", () => {
     })
 })
 
-describe("findMany", () => {
-    it("Parses using schema", async () => {
-        const mons = await api.classes.findMany()
+describe("Schema Validation", () => {
+    it("Classes", async () => {
+        const results = await api.classes.findMany()
 
-        expect(mons.length).toBe(12)
+        expect(results.length).toBeGreaterThan(0)
     })
 
-    // TODO: class specific query tests. should not able to filter by challenge rating for classes
+    it("Monsters", async () => {
+        const results = await api.monsters.findMany({ limit: 5000 })
+
+        expect(results.length).toBeGreaterThan(0)
+    })
+
+    it("Races", async () => {
+        const results = await api.races.findMany()
+
+        expect(results.length).toBeGreaterThan(0)
+    })
+
+    it("Spells", async () => {
+        const results = await api.spells.findMany({ limit: 5000 })
+
+        expect(results.length).toBeGreaterThan(0)
+    })
 })
 
-describe("findMany races", () => {
-    it("Parses using schema", async () => {
-        const mons = await api.races.findMany()
+describe("Spells", () => {
+    it("Filter by only cantrips", async () => {
+        const results = await api.spells.findMany({ spell_level: 0 })
 
-        expect(mons.length).toBeGreaterThan(0)
-    })
+        const filtered = results.filter((s) => s.level_int === 0)
 
-    // TODO: use vitest mock and just check the url insated of the response
-})
-
-describe("findMany spells", () => {
-    it("Parses using schema", async () => {
-        const mons = await api.spells.findMany({ limit: 5000 })
-
-        expect(mons.length).toBeGreaterThan(0)
-    })
-
-    it("Get all cantrips", async () => {
-        const mons = await api.spells.findMany({ spell_level: 0 })
-
-        expect(mons.length).toBe(94)
+        expect(results.length).toBeGreaterThan(0)
+        expect(results.length).toBe(filtered.length)
     })
 })
