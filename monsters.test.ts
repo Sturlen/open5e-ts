@@ -13,10 +13,21 @@ const empty: APIResponse = JSON.parse(
 const monsters: APIResponse = JSON.parse(
     fs.readFileSync("./fixtures/monsters.json", "utf-8"),
 )
+const classes: APIResponse = JSON.parse(
+    fs.readFileSync("./fixtures/classes.json", "utf-8"),
+)
+const races: APIResponse = JSON.parse(
+    fs.readFileSync("./fixtures/races.json", "utf-8"),
+)
+const spells: APIResponse = JSON.parse(
+    fs.readFileSync("./fixtures/spells.json", "utf-8"),
+)
 
-const MONSTER_PATH = "/monsters/"
 const ENDPOINT = "https://api.example.com"
-const MONSTER_ENDPOINT = `${ENDPOINT}${MONSTER_PATH}`
+const MONSTER_ENDPOINT = `${ENDPOINT}/monsters/`
+const CLASS_ENDPOINT = `${ENDPOINT}/classes/`
+const RACE_ENDPOINT = `${ENDPOINT}/races/`
+const SPELL_ENDPOINT = `${ENDPOINT}/spells/`
 const api = Open5e(ENDPOINT)
 
 beforeAll(() => {
@@ -59,9 +70,9 @@ describe("findMany", () => {
             results: monsters.results.slice(0, 50),
         })
 
-        const mons = await api.monsters.findMany()
+        const results = await api.monsters.findMany()
 
-        expect(mons.length).toBe(50)
+        expect(results.length).toBe(50)
     })
 
     it("If no monsters are found, return an empty list", async () => {
@@ -69,6 +80,7 @@ describe("findMany", () => {
             `${MONSTER_ENDPOINT}?limit=50&document__slug__in=not-a-document`,
             empty,
         )
+
         const mons = await api.monsters.findMany({
             document__slug: "not-a-document",
         })
@@ -154,5 +166,92 @@ describe("findMany", () => {
             challenge_rating: 1 / 8,
         })
         expect(one_eight_cr.length).toBe(57)
+    })
+})
+
+beforeAll(() => {
+    fetchMock
+        .get(
+            `${CLASS_ENDPOINT}barbarian`,
+            // @ts-ignore
+            classes.results.find((c) => c.slug === "barbarian"),
+        )
+        .get(`${CLASS_ENDPOINT}not-a-class`, {
+            status: 404,
+            body: "Not Found",
+        })
+        .get(`${CLASS_ENDPOINT}?limit=50`, classes)
+        .get(`${ENDPOINT}/races/?limit=50`, races)
+        .get(`${ENDPOINT}/spells/?limit=5000`, {
+            results: spells.results,
+        })
+        .get(`${ENDPOINT}/monsters/?limit=5000`, {
+            results: monsters.results,
+        })
+        .get(`${ENDPOINT}/spells/?limit=50&level_int=0`, {
+            results: spells.results
+                .filter((s: any) => s.level_int === 0)
+                .slice(0, 50),
+        })
+        .mock()
+        .catch({ status: 400 })
+})
+
+afterAll(() => {
+    fetchMock.restore()
+})
+
+describe("Get", () => {
+    it("Gets a class by it's slug", async () => {
+        const cls = await api.classes.get("barbarian")
+
+        expect(cls?.name).toBe("Barbarian")
+    })
+
+    it("Return undefined if not found", async () => {
+        const cls = await api.classes.get("not-a-class")
+
+        expect(cls).toBe(undefined)
+    })
+
+    it("Throws if slug is empty", async () => {
+        expect(() => api.classes.get("")).rejects.toThrow("Slug is required.")
+    })
+})
+
+describe("Schema Validation", () => {
+    it("Classes", async () => {
+        const results = await api.classes.findMany()
+
+        expect(results.length).toBeGreaterThan(0)
+    })
+
+    it("Monsters", async () => {
+        const results = await api.monsters.findMany({ limit: 5000 })
+
+        expect(results.length).toBeGreaterThan(0)
+    })
+
+    it("Races", async () => {
+        const results = await api.races.findMany()
+
+        expect(results.length).toBeGreaterThan(0)
+    })
+
+    it("Spells", async () => {
+        const results = await api.spells.findMany({ limit: 5000 })
+
+        expect(results.length).toBeGreaterThan(0)
+    })
+})
+
+describe("Spells", () => {
+    it("Filter by only cantrips", async () => {
+        const results = await api.spells.findMany({ spell_level: 0 })
+
+        const filtered = results.filter((s) => s.level_int === 0)
+
+        expect(results.length).toBeGreaterThan(0)
+        expect(results.length).toBe(filtered.length)
     })
 })
