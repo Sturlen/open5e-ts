@@ -30,15 +30,35 @@ const RACE_ENDPOINT = `${ENDPOINT}/races/`
 const SPELL_ENDPOINT = `${ENDPOINT}/spells/`
 const api = Open5e(ENDPOINT)
 
-afterEach(() => {
+beforeAll(() => {
+    fetchMock.mock()
+})
+
+afterAll(() => {
     fetchMock.restore()
 })
 
+afterEach(() => {
+    fetchMock.reset()
+    fetchMock.mock()
+})
+
+describe("The API object", () => {
+    it("Can be created with a custom base URL", () => {
+        fetchMock.once("*", monsters)
+
+        Open5e("https://your.domain.com/").monsters.findMany()
+
+        expect(fetchMock.called(`begin:https://your.domain.com/`)).toBe(true)
+    })
+})
+
 describe("Get", () => {
-    it("Gets a monster by it's slug", async () => {
+    it("Gets an object by it's slug", async () => {
         fetchMock.once(
-            `${MONSTER_ENDPOINT}aboleth`,
-            monsters.results.find((m) => m.slug === "aboleth") ?? "",
+            `path:/monsters/aboleth`,
+            // @ts-ignore
+            monsters.results.find((m) => m.slug === "aboleth"),
         )
         const mon = await api.monsters.get("aboleth")
 
@@ -62,49 +82,65 @@ describe("Get", () => {
 
 describe("findMany", () => {
     it("Fetches 50 monsters by default", async () => {
-        fetchMock.once(`${MONSTER_ENDPOINT}?limit=50`, monsters)
+        fetchMock.once(`path:/monsters/`, monsters)
 
         await api.monsters.findMany()
+
+        expect(fetchMock.called(`${MONSTER_ENDPOINT}?limit=50`)).toBe(true)
     })
 
     it("Can filter by a document slug", async () => {
-        fetchMock.once(
-            `${MONSTER_ENDPOINT}?limit=50&document__slug__in=cc`,
-            monsters,
-        )
+        fetchMock.once(`path:/monsters/`, monsters)
         await api.monsters.findMany({ document__slug: "cc" })
+
+        expect(
+            fetchMock.called(
+                `${MONSTER_ENDPOINT}?limit=50&document__slug__in=cc`,
+            ),
+        ).toBe(true)
     })
 
     it("Can filter by multiple document slugs", async () => {
-        fetchMock.once(
-            `${MONSTER_ENDPOINT}?limit=800&document__slug__in=tob2%2Ctob3`,
-            monsters,
-        )
+        fetchMock.once(`path:/monsters/`, monsters)
         await api.monsters.findMany({
             limit: 800,
             document__slug: ["tob2", "tob3"],
         })
+
+        expect(
+            fetchMock.called(
+                `${MONSTER_ENDPOINT}?limit=800&document__slug__in=tob2%2Ctob3`,
+            ),
+        ).toBe(true)
     })
 
     it("Can limit how many monsters are returned", async () => {
-        fetchMock.once(`${MONSTER_ENDPOINT}?limit=1`, monsters)
-        await api.monsters.findMany({ limit: 1 })
-
-        fetchMock.once(`${MONSTER_ENDPOINT}?limit=20`, monsters)
+        fetchMock.once(`path:/monsters/`, monsters)
         await api.monsters.findMany({ limit: 20 })
+
+        expect(fetchMock.called(`${MONSTER_ENDPOINT}?limit=20`)).toBe(true)
     })
 
     it("Can filter by a string. This can be in the name as well as other fields", async () => {
-        fetchMock.once(`${MONSTER_ENDPOINT}?limit=50&search=dragon`, monsters)
+        fetchMock.once(`path:/monsters/`, monsters)
 
         await api.monsters.findMany({ search: "dragon" })
+
+        expect(
+            fetchMock.called(`${MONSTER_ENDPOINT}?limit=50&search=dragon`),
+        ).toBe(true)
     })
 
     it("Can filter by challenge rating.", async () => {
-        fetchMock.once(`${MONSTER_ENDPOINT}?limit=50&cr=0.125`, monsters)
+        fetchMock.once(`path:/monsters/`, monsters)
+
         await api.monsters.findMany({
             challenge_rating: 1 / 8,
         })
+
+        expect(fetchMock.called(`${MONSTER_ENDPOINT}?limit=50&cr=0.125`)).toBe(
+            true,
+        )
     })
 })
 
@@ -117,6 +153,8 @@ describe("Get", () => {
         )
 
         await api.classes.get("barbarian")
+
+        expect(fetchMock.called(`${CLASS_ENDPOINT}barbarian`)).toBe(true)
     })
 
     it("Return undefined if not found", async () => {
@@ -192,8 +230,4 @@ describe("Spells", () => {
             true,
         )
     })
-})
-
-afterAll(() => {
-    fetchMock.restore()
 })
