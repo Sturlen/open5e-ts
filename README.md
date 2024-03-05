@@ -15,11 +15,8 @@ pnpm install @sturlen/open5e
 ```ts
 import { Open5e } from "@sturlen/open5e"
 
-// Initialize
-const api = Open5e()
-
 // Query
-const dragons = await api.monsters.findMany({
+const dragons = await Open5e.monsters.findMany({
     limit: 50,
     document__slug: "tob",
     search: "dragon",
@@ -27,6 +24,10 @@ const dragons = await api.monsters.findMany({
 
 // Use
 dragons.forEach((monster) => console.log(monster.name))
+
+// You can access the schemas and use them separately
+Ope5e.monsters.schema.parse(YourObject)
+
 ```
 
 # References
