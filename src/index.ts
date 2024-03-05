@@ -8,15 +8,34 @@ import {
     spellQuery,
 } from "./monsters"
 
-const DEFAULT_BASE_URL = "https://api.open5e.com"
+export const DEFAULT_OPEN5E_API_URL = "https://api.open5e.com"
 
-export function Open5e(baseUrl = DEFAULT_BASE_URL) {
-    return {
-        monsters: endpoint(baseUrl, "/monsters/", MonsterSchema, monsterQuery),
-        classes: endpoint(baseUrl, "/classes/", ClassSchema, monsterQuery),
-        races: endpoint(baseUrl, "/races/", RaceSchema, monsterQuery),
-        spells: endpoint(baseUrl, "/spells/", SpellSchema, spellQuery),
-    }
-}
+const classes = endpoint(
+    DEFAULT_OPEN5E_API_URL,
+    "/classes/",
+    ClassSchema,
+    monsterQuery,
+)
 
-export default Open5e
+const monsters = endpoint(
+    DEFAULT_OPEN5E_API_URL,
+    "/monsters/",
+    MonsterSchema,
+    monsterQuery,
+)
+
+const races = endpoint(
+    DEFAULT_OPEN5E_API_URL,
+    "/races/",
+    RaceSchema,
+    monsterQuery,
+)
+
+const spells = endpoint(
+    DEFAULT_OPEN5E_API_URL,
+    "/spells/",
+    SpellSchema,
+    spellQuery,
+)
+
+export const Open5e = { classes, monsters, spells, races }

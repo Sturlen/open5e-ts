@@ -23,12 +23,12 @@ const spells: APIResponse = JSON.parse(
     fs.readFileSync("./fixtures/spells.json", "utf-8"),
 )
 
-const ENDPOINT = "https://api.example.com"
+const ENDPOINT = "https://api.open5e.com"
 const MONSTER_ENDPOINT = `${ENDPOINT}/monsters/`
 const CLASS_ENDPOINT = `${ENDPOINT}/classes/`
 const RACE_ENDPOINT = `${ENDPOINT}/races/`
 const SPELL_ENDPOINT = `${ENDPOINT}/spells/`
-const api = Open5e(ENDPOINT)
+const api = Open5e
 
 beforeAll(() => {
     fetchMock.mock()
@@ -41,16 +41,6 @@ afterAll(() => {
 afterEach(() => {
     fetchMock.reset()
     fetchMock.mock()
-})
-
-describe("The API object", () => {
-    it("Can be created with a custom base URL", () => {
-        fetchMock.once("*", monsters)
-
-        Open5e("https://your.domain.com/").monsters.findMany()
-
-        expect(fetchMock.called(`begin:https://your.domain.com/`)).toBe(true)
-    })
 })
 
 describe("Get", () => {
@@ -77,6 +67,14 @@ describe("Get", () => {
 
     it("Throws if slug is empty", async () => {
         expect(() => api.monsters.get("")).rejects.toThrow("Slug is required.")
+    })
+
+    it("Supports a custom api URL", () => {
+        fetchMock.once("*", monsters.results[0])
+
+        Open5e.monsters.get("aboleth", { api_url: "https://your.domain.com/" })
+
+        expect(fetchMock.called(`begin:https://your.domain.com/`)).toBe(true)
     })
 })
 
@@ -141,6 +139,14 @@ describe("findMany", () => {
         expect(fetchMock.called(`${MONSTER_ENDPOINT}?limit=50&cr=0.125`)).toBe(
             true,
         )
+    })
+
+    it("Supports a custom API url", async () => {
+        fetchMock.once("*", monsters)
+
+        await api.monsters.findMany({ api_url: "https://my.api.com" })
+
+        expect(fetchMock.called("begin:https://my.api.com")).toBe(true)
     })
 })
 

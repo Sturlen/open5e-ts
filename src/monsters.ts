@@ -223,6 +223,8 @@ type GameObjectOptions = {
     limit?: number
     /** Filter to items that contain the search string in the name or description. */
     search?: string
+    /** Override the base URL for the API. */
+    api_url?: string | URL
 }
 
 type MonsterFindManyOptions = GameObjectOptions & {
@@ -311,12 +313,15 @@ export function endpoint<T, Options extends GameObjectOptions>(
     buildURL: URLBuilder<Options>,
 ) {
     return {
-        get: async (slug: string): Promise<T | undefined> => {
+        get: async (
+            slug: string,
+            options: { api_url?: string | URL } = {},
+        ): Promise<T | undefined> => {
             if (!slug) {
                 throw new Error("Slug is required.")
             }
             const endpoint = `${pathname}${slug}`
-            const url = new URL(baseUrl)
+            const url = new URL(options.api_url ?? baseUrl)
             url.pathname = endpoint
             const res = await fetch(url, FETCH_OPTIONS)
 
@@ -332,7 +337,7 @@ export function endpoint<T, Options extends GameObjectOptions>(
             return schema.parse(res_json)
         },
         findMany: async (options?: Options): Promise<T[]> => {
-            const url = new URL(baseUrl)
+            const url = new URL(options?.api_url ?? baseUrl)
             const full_url = buildURL(url, pathname, options)
 
             const res = await fetch(full_url, FETCH_OPTIONS)
