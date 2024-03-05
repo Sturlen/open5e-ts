@@ -45,18 +45,14 @@ afterEach(() => {
 
 describe("Get", () => {
     it("Gets an object by it's slug", async () => {
-        fetchMock.once(
-            `path:/monsters/aboleth`,
-            // @ts-ignore
-            monsters.results.find((m) => m.slug === "aboleth"),
-        )
-        const mon = await api.monsters.get("aboleth")
+        fetchMock.once("*", monsters.results[0])
+        await api.monsters.get("aboleth")
 
-        expect(mon?.name).toBe("Aboleth")
+        expect(fetchMock.lastCall()?.[0]).toBe(`${MONSTER_ENDPOINT}aboleth`)
     })
 
     it("Return undefined if not found", async () => {
-        fetchMock.once(`${MONSTER_ENDPOINT}not-a-monster`, {
+        fetchMock.once("*", {
             status: 404,
             body: "Not Found",
         })
@@ -74,53 +70,52 @@ describe("Get", () => {
 
         Open5e.monsters.get("aboleth", { api_url: "https://your.domain.com/" })
 
-        expect(fetchMock.called(`begin:https://your.domain.com/`)).toBe(true)
+        expect(
+            fetchMock.lastCall()?.[0].startsWith("https://your.domain.com/"),
+        ).toBe(true)
     })
 })
 
 describe("findMany", () => {
-    it("Fetches 50 monsters by default", async () => {
-        fetchMock.once(`path:/monsters/`, monsters)
+    it("Fetches 50 objects by default", async () => {
+        fetchMock.once("*", monsters)
 
         await api.monsters.findMany()
 
-        expect(fetchMock.called(`${MONSTER_ENDPOINT}?limit=50`)).toBe(true)
+        expect(fetchMock.lastCall()?.[0]).toBe(`${MONSTER_ENDPOINT}?limit=50`)
     })
 
     it("Can filter by a document slug", async () => {
-        fetchMock.once(`path:/monsters/`, monsters)
+        fetchMock.once("*", monsters)
         await api.monsters.findMany({ document__slug: "cc" })
 
-        expect(
-            fetchMock.called(
-                `${MONSTER_ENDPOINT}?limit=50&document__slug__in=cc`,
-            ),
-        ).toBe(true)
+        expect(fetchMock.lastCall()?.[0]).toBe(
+            `${MONSTER_ENDPOINT}?limit=50&document__slug__in=cc`,
+        )
     })
 
     it("Can filter by multiple document slugs", async () => {
-        fetchMock.once(`path:/monsters/`, monsters)
+        fetchMock.once("*", monsters)
         await api.monsters.findMany({
             limit: 800,
             document__slug: ["tob2", "tob3"],
         })
 
-        expect(
-            fetchMock.called(
-                `${MONSTER_ENDPOINT}?limit=800&document__slug__in=tob2%2Ctob3`,
-            ),
-        ).toBe(true)
+        expect(fetchMock.lastCall()?.[0]).toBe(
+            `${MONSTER_ENDPOINT}?limit=800&document__slug__in=tob2%2Ctob3`,
+        )
     })
 
-    it("Can limit how many monsters are returned", async () => {
-        fetchMock.once(`path:/monsters/`, monsters)
+    it("Can limit how many objects are returned", async () => {
+        fetchMock.once("*", monsters)
+
         await api.monsters.findMany({ limit: 20 })
 
-        expect(fetchMock.called(`${MONSTER_ENDPOINT}?limit=20`)).toBe(true)
+        expect(fetchMock.lastCall()?.[0]).toBe(`${MONSTER_ENDPOINT}?limit=20`)
     })
 
-    it("Can filter by a string. This can be in the name as well as other fields", async () => {
-        fetchMock.once(`path:/monsters/`, monsters)
+    it("Can filter by a search string.", async () => {
+        fetchMock.once("*", monsters)
 
         await api.monsters.findMany({ search: "dragon" })
 
@@ -129,34 +124,47 @@ describe("findMany", () => {
         ).toBe(true)
     })
 
-    it("Can filter by challenge rating.", async () => {
-        fetchMock.once(`path:/monsters/`, monsters)
-
-        await api.monsters.findMany({
-            challenge_rating: 1 / 8,
-        })
-
-        expect(fetchMock.called(`${MONSTER_ENDPOINT}?limit=50&cr=0.125`)).toBe(
-            true,
-        )
-    })
-
     it("Supports a custom API url", async () => {
         fetchMock.once("*", monsters)
 
         await api.monsters.findMany({ api_url: "https://my.api.com" })
 
-        expect(fetchMock.called("begin:https://my.api.com")).toBe(true)
+        expect(fetchMock.lastCall()?.[0].startsWith("https://my.api.com")).toBe(
+            true,
+        )
+    })
+
+    it("Will throw if endpoint returns wrong data", async () => {
+        fetchMock.once(`path:/spells/`, { results: [{ garbage: "rubbish" }] })
+
+        expect(() => api.spells.findMany()).rejects.toThrow()
+        expect(fetchMock.lastCall()?.[0]).toBe(`${SPELL_ENDPOINT}?limit=50`)
+    })
+
+    it("Returns an empty list if nothing matches", async () => {
+        fetchMock.once("*", empty)
+
+        const mons = await api.monsters.findMany({
+            document__slug: "not-a-document",
+        })
+
+        expect(fetchMock.lastCall()?.[0]).toBe(
+            `${MONSTER_ENDPOINT}?limit=50&document__slug__in=not-a-document`,
+        )
+        expect(mons.length).toBe(0)
+    })
+
+    it("Each endpoint has a schema", () => {
+        expect(api.classes.schema).toBeDefined()
+        expect(api.monsters.schema).toBeDefined()
+        expect(api.races.schema).toBeDefined()
+        expect(api.spells.schema).toBeDefined()
     })
 })
 
 describe("Get", () => {
     it("Gets a class by it's slug", async () => {
-        fetchMock.once(
-            `path:/classes/barbarian`,
-            // @ts-ignore
-            classes.results.find((c) => c.slug === "barbarian"),
-        )
+        fetchMock.once("*", classes.results[0])
 
         await api.classes.get("barbarian")
 
@@ -164,10 +172,11 @@ describe("Get", () => {
     })
 
     it("Return undefined if not found", async () => {
-        fetchMock.once(`${CLASS_ENDPOINT}not-a-class`, {
+        fetchMock.once("*", {
             status: 404,
             body: "Not Found",
         })
+
         const cls = await api.classes.get("not-a-class")
 
         expect(cls).toBe(undefined)
@@ -180,69 +189,60 @@ describe("Get", () => {
 
 describe("Schema Validation", () => {
     it("Classes", async () => {
-        fetchMock.once(`path:/classes/`, classes)
-        const results = await api.classes.findMany()
+        fetchMock.once("*", classes)
 
-        api.classes.schema
+        const results = await api.classes.findMany()
 
         expect(results.length).toBeGreaterThan(0)
     })
 
     it("Monsters", async () => {
-        fetchMock.once(`path:/monsters/`, monsters)
+        fetchMock.once("*", monsters)
+
         const results = await api.monsters.findMany()
 
         expect(results.length).toBeGreaterThan(0)
     })
 
     it("Races", async () => {
-        fetchMock.once(`path:/races/`, races)
+        fetchMock.once("*", races)
+
         const results = await api.races.findMany()
 
         expect(results.length).toBeGreaterThan(0)
     })
 
     it("Spells", async () => {
-        fetchMock.once(`path:/spells/`, spells)
+        fetchMock.once("*", spells)
+
         const results = await api.spells.findMany()
 
         expect(results.length).toBeGreaterThan(0)
-    })
-
-    it("Will throw if endpoint returns wrong data", async () => {
-        fetchMock.once(`path:/spells/`, { results: [{ garbage: "rubbish" }] })
-        expect(() => api.spells.findMany()).rejects.toThrow()
-    })
-
-    it("Returns an empty list if nothing matches", async () => {
-        fetchMock.once(
-            `${MONSTER_ENDPOINT}?limit=50&document__slug__in=not-a-document`,
-            empty,
-        )
-
-        const mons = await api.monsters.findMany({
-            document__slug: "not-a-document",
-        })
-
-        expect(mons.length).toBe(0)
-    })
-
-    it("Each endpoint has a schema", () => {
-        expect(api.classes.schema).toBeDefined()
-        expect(api.monsters.schema).toBeDefined()
-        expect(api.races.schema).toBeDefined()
-        expect(api.spells.schema).toBeDefined()
     })
 })
 
 describe("Spells", () => {
     it("Filter by only cantrips", async () => {
-        fetchMock.once(`path:/spells/`, spells)
+        fetchMock.once("*", spells)
 
         await api.spells.findMany({ spell_level: 0 })
 
-        expect(fetchMock.called(`${SPELL_ENDPOINT}?limit=50&level_int=0`)).toBe(
-            true,
+        expect(fetchMock.lastCall()?.[0]).toBe(
+            `${SPELL_ENDPOINT}?limit=50&level_int=0`,
+        )
+    })
+})
+
+describe("Monsters", () => {
+    it("Can filter by challenge rating.", async () => {
+        fetchMock.once("*", monsters)
+
+        await api.monsters.findMany({
+            challenge_rating: 1 / 8,
+        })
+
+        expect(fetchMock.lastCall()?.[0]).toBe(
+            `${MONSTER_ENDPOINT}?limit=50&cr=0.125`,
         )
     })
 })
