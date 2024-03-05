@@ -2,6 +2,7 @@ import { expect, it, beforeAll, afterAll, describe, afterEach } from "vitest"
 import { Open5e } from "./src"
 import fetchMock from "fetch-mock"
 import fs from "fs"
+import { Documents } from "./src/monsters"
 
 type APIResponse = {
     results: Array<Record<string, any> & { slug: string }>
@@ -98,7 +99,10 @@ describe("findMany", () => {
         fetchMock.once("*", monsters)
         await api.monsters.findMany({
             limit: 800,
-            document__slug: ["tob2", "tob3"],
+            document__slug: [
+                Documents["Tome of Beasts 2"],
+                Documents["Tome of Beasts 3"],
+            ],
         })
 
         expect(fetchMock.lastCall()?.[0]).toBe(
@@ -145,6 +149,7 @@ describe("findMany", () => {
         fetchMock.once("*", empty)
 
         const mons = await api.monsters.findMany({
+            // @ts-expect-error
             document__slug: "not-a-document",
         })
 

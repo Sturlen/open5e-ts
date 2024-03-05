@@ -189,7 +189,7 @@ export const SpellSchema = GameObject.extend({
 
 export type Spell = z.infer<typeof SpellSchema>
 
-const document_slugs = [
+const DOCUMENT_SLUGS = [
     "o5e",
     "wotc-srd",
     "tob",
@@ -204,21 +204,55 @@ const document_slugs = [
     "warlock",
     "vom",
     "toh",
+    "taldorei",
+    "blackflag",
 ] as const
 
-const DocumentNames = {
-    Open5e: "o5e",
-    "WotC SRD": "wotc-srd",
+type DocumentSlug = (typeof DOCUMENT_SLUGS)[number]
+
+const DOCUMENT_NAMES = [
+    "Open5e Original Content",
+    "5e Core Rules",
+    "Tome of Beasts",
+    "Creature Codex",
+    "Tome of Beasts 2",
+    "Tome of Beasts 3",
+    "Kobold Press",
+    "Monster Menagerie",
+    "Level Up Advanced 5e",
+    "Deep Magic",
+    "Depp Magic Extended",
+    "Vault of Magic",
+    "Tome of Heroes",
+    "Warlock Archives",
+    "Tal’Dorei",
+    "Black Flag",
+] as const
+
+type DocumentName = (typeof DOCUMENT_NAMES)[number]
+
+export const Documents: Record<DocumentName, DocumentSlug> = {
+    "Open5e Original Content": "o5e",
+    "5e Core Rules": "wotc-srd",
     "Tome of Beasts": "tob",
     "Creature Codex": "cc",
     "Tome of Beasts 2": "tob2",
+    "Tome of Beasts 3": "tob3",
+    "Kobold Press": "kp",
+    "Monster Menagerie": "menagerie",
+    "Level Up Advanced 5e": "a5e",
     "Deep Magic": "dmag",
-    "Warlock Magazine": "warlock",
-} as const
+    "Depp Magic Extended": "dmag-e",
+    "Vault of Magic": "vom",
+    "Tome of Heroes": "toh",
+    "Warlock Archives": "warlock",
+    "Tal’Dorei": "taldorei",
+    "Black Flag": "blackflag",
+}
 
 type GameObjectOptions = {
     /** Limit query to one or more sources. By default all sources are used. */
-    document__slug?: string | string[]
+    document__slug?: DocumentSlug | DocumentSlug[]
     /** Max number of items to fetch. */
     limit?: number
     /** Filter to items that contain the search string in the name or description. */
