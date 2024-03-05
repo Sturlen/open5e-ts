@@ -341,5 +341,6 @@ export function endpoint<T, Options extends GameObjectOptions>(
 
             return z.array(schema).parse(results)
         },
+        schema,
     }
 }

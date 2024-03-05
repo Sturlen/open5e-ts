@@ -177,6 +177,8 @@ describe("Schema Validation", () => {
         fetchMock.once(`path:/classes/`, classes)
         const results = await api.classes.findMany()
 
+        api.classes.schema
+
         expect(results.length).toBeGreaterThan(0)
     })
 
@@ -217,6 +219,13 @@ describe("Schema Validation", () => {
         })
 
         expect(mons.length).toBe(0)
+    })
+
+    it("Each endpoint has a schema", () => {
+        expect(api.classes.schema).toBeDefined()
+        expect(api.monsters.schema).toBeDefined()
+        expect(api.races.schema).toBeDefined()
+        expect(api.spells.schema).toBeDefined()
     })
 })
 
