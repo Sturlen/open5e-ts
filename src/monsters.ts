@@ -255,6 +255,8 @@ type GameObjectOptions = {
     document__slug?: DocumentSlug | DocumentSlug[]
     /** Max number of items to fetch. */
     limit?: number
+    /** Used together with limit for pagination. First page is 1 and is returned by default. */
+    page?: number
     /** Filter to items that contain the search string in the name or description. */
     search?: string
     /** Override the base URL for the API. */
@@ -303,6 +305,7 @@ export const monsterQuery: URLBuilder<MonsterFindManyOptions> = (
     url.pathname = pathname
     url.search = buildQueryParams({
         limit: ResponseLimitSchema.parse(options.limit),
+        page: z.number().int().positive().optional().parse(options.page),
         search: options.search,
         cr: options.challenge_rating,
         document__slug__in: options.document__slug,
@@ -320,6 +323,7 @@ export const spellQuery: URLBuilder<SpellFindManyOptions> = (
     url.pathname = pathname
     url.search = buildQueryParams({
         limit: ResponseLimitSchema.parse(options.limit),
+        page: z.number().int().positive().optional().parse(options.page),
         search: options.search,
         level_int: options.spell_level,
         document__slug__in: options.document__slug,

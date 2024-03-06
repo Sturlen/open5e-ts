@@ -118,6 +118,16 @@ describe("findMany", () => {
         expect(fetchMock.lastCall()?.[0]).toBe(`${MONSTER_ENDPOINT}?limit=20`)
     })
 
+    it("Can choose which page is returned", async () => {
+        fetchMock.once("*", monsters)
+
+        await api.monsters.findMany({ page: 2 })
+
+        expect(fetchMock.lastCall()?.[0]).toBe(
+            `${MONSTER_ENDPOINT}?limit=50&page=2`,
+        )
+    })
+
     it("Can filter by a search string.", async () => {
         fetchMock.once("*", monsters)
 
