@@ -1,5 +1,4 @@
 import {
-    MonsterSchema,
     ClassSchema,
     endpoint,
     RaceSchema,
@@ -7,6 +6,7 @@ import {
     SpellSchema,
     spellQuery,
 } from "./monsters"
+import { MonsterSchema } from "./schema/monster"
 
 export const DEFAULT_OPEN5E_API_URL = "https://api.open5e.com"
 
