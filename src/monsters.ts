@@ -84,10 +84,10 @@ export const MonsterSchema = GameObject.extend({
     .extend(AbilitScores)
     .extend(AbilitySaves)
 
-export type Monster = z.output<typeof MonsterSchema>
+export type Monster5e = z.output<typeof MonsterSchema>
 
 export const SubclassSchema = GameObject
-export type Subclass = z.infer<typeof SubclassSchema>
+export type Subclass5e = z.output<typeof SubclassSchema>
 
 export const ClassSchema = GameObject.extend({
     hit_dice: z.string(),
@@ -104,7 +104,7 @@ export const ClassSchema = GameObject.extend({
     subtypes_name: z.string(),
     archetypes: z.array(GameObject),
 })
-export type Class5e = z.infer<typeof ClassSchema>
+export type Class5e = z.output<typeof ClassSchema>
 
 export const SubraceSchema = GameObject.extend({
     asi: z.array(
@@ -113,7 +113,7 @@ export const SubraceSchema = GameObject.extend({
     traits: z.string(),
     asi_desc: z.string(),
 })
-export type Subrace = z.infer<typeof SubraceSchema>
+export type Subrace5e = z.output<typeof SubraceSchema>
 
 export const RaceSchema = GameObject.extend({
     asi_desc: z.string(),
@@ -131,7 +131,7 @@ export const RaceSchema = GameObject.extend({
     traits: z.string(),
     subraces: z.array(SubraceSchema),
 })
-export type Race = z.infer<typeof RaceSchema>
+export type Race5e = z.output<typeof RaceSchema>
 
 export const SpellSchema = GameObject.extend({
     higher_level: z.string().nullish(),
@@ -159,7 +159,7 @@ export const SpellSchema = GameObject.extend({
     classes: z.array(z.string()).nullish(),
 })
 
-export type Spell = z.infer<typeof SpellSchema>
+export type Spell5e = z.output<typeof SpellSchema>
 
 const DOCUMENT_SLUGS = [
     "o5e",
@@ -316,17 +316,15 @@ export const EndpointResultSchema = z.object({
 })
 
 /** Common endpoint funcionality */
-export function endpoint<T, Options extends GameObjectOptions>(
-    baseUrl: string,
-    pathname: string,
-    schema: z.ZodType<T>,
-    buildURL: URLBuilder<Options>,
-) {
+export function endpoint<
+    T extends z.ZodTypeAny,
+    Options extends GameObjectOptions,
+>(baseUrl: string, pathname: string, schema: T, buildURL: URLBuilder<Options>) {
     return {
         get: async (
             slug: string,
             options: { api_url?: string | URL } = {},
-        ): Promise<T | undefined> => {
+        ): Promise<z.output<T> | undefined> => {
             if (!slug) {
                 throw new Error("Slug is required.")
             }
@@ -346,7 +344,7 @@ export function endpoint<T, Options extends GameObjectOptions>(
 
             return schema.parse(res_json)
         },
-        findMany: async (options?: Options): Promise<T[]> => {
+        findMany: async (options?: Options): Promise<z.output<T>[]> => {
             const url = new URL(options?.api_url ?? baseUrl)
             const full_url = buildURL(url, pathname, options)
 
