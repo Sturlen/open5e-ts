@@ -1,4 +1,4 @@
-import { z } from "zod"
+import { ZodError, z } from "zod"
 
 export const GameObject = z.object({
     slug: z.string(),
@@ -352,7 +352,20 @@ export function endpoint<
             const res_json = await res.json()
             const results = EndpointResultSchema.parse(res_json).results
 
-            return z.array(schema).parse(results)
+            return results.map((r: any, i) => {
+                try {
+                    return schema.parse(r)
+                } catch (error) {
+                    if (error instanceof ZodError) {
+                        throw new Error(
+                            `Error while parsing results[${i}]: ` +
+                                error.toString(),
+                        )
+                    } else {
+                        throw error
+                    }
+                }
+            })
         },
         schema,
     }
