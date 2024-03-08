@@ -20,6 +20,36 @@ const SpeedSchema = z.object({
     hover: z.boolean().nullish(),
 })
 
+const AbilitScores = {
+    strength: z.number().positive(),
+    dexterity: z.number().positive(),
+    constitution: z.number().positive(),
+    intelligence: z.number().positive(),
+    wisdom: z.number().positive(),
+    charisma: z.number().positive(),
+}
+
+const AbilitySaves = {
+    strength_save: z.number().nullish(),
+    dexterity_save: z.number().nullish(),
+    constitution_save: z.number().nullish(),
+    intelligence_save: z.number().nullish(),
+    wisdom_save: z.number().nullish(),
+    charisma_save: z.number().nullish(),
+}
+
+const Actions = z
+    .array(
+        z.object({
+            name: z.string(),
+            desc: z.string(),
+            damage_dice: z.string().nullish(),
+            attack_bonues: z.string().nullish(),
+        }),
+    )
+    .nullish()
+    .transform((val) => val ?? [])
+
 export const MonsterSchema = GameObject.extend({
     size: z.string(),
     type: z.string(),
@@ -31,18 +61,6 @@ export const MonsterSchema = GameObject.extend({
     hit_points: z.number(),
     hit_dice: z.string(),
     speed: SpeedSchema,
-    strength: z.number(),
-    dexterity: z.number(),
-    constitution: z.number(),
-    intelligence: z.number(),
-    wisdom: z.number(),
-    charisma: z.number(),
-    strength_save: z.number().nullish(),
-    dexterity_save: z.number().nullish(),
-    constitution_save: z.number().nullish(),
-    intelligence_save: z.number().nullish(),
-    wisdom_save: z.number().nullish(),
-    charisma_save: z.number().nullish(),
     perception: z.number().nullish(),
     skills: z.record(z.number()),
     damage_vulnerabilities: z.string().nullish(),
@@ -52,67 +70,21 @@ export const MonsterSchema = GameObject.extend({
     senses: z.string(),
     languages: z.string().nullish(),
     challenge_rating: z.string(),
-    cr: z.number(),
-    actions: z
-        .string()
-        .nullish()
-        .or(
-            z.array(
-                z.object({
-                    name: z.string(),
-                    desc: z.string(),
-                    damage_dice: z.string().nullish(),
-                    attack_bonues: z.string().nullish(),
-                }),
-            ),
-        )
-        .transform((m) => (Array.isArray(m) ? m : [])),
-    reactions: z
-        .string()
-        .nullish()
-        .or(
-            z.array(
-                z.object({
-                    name: z.string(),
-                    desc: z.string(),
-                    damage_dice: z.string().nullish(),
-                    attack_bonues: z.string().nullish(),
-                }),
-            ),
-        ),
+    cr: z.number().nonnegative(),
+    actions: Actions,
+    reactions: Actions,
     legendary_desc: z.string(),
-    legendary_actions: z
-        .string()
-        .nullish()
-        .or(
-            z.array(
-                z.object({
-                    name: z.string(),
-                    desc: z.string(),
-                    damage_dice: z.string().nullish(),
-                    attack_bonues: z.string().nullish(),
-                }),
-            ),
-        ),
-    special_abilities: z
-        .string()
-        .nullish()
-        .or(
-            z.array(
-                z.object({
-                    name: z.string(),
-                    desc: z.string(),
-                    damage_dice: z.string().nullish(),
-                    attack_bonues: z.string().nullish(),
-                }),
-            ),
-        ),
+    legendary_actions: Actions,
+    special_abilities: Actions,
     spell_list: z.array(z.string()),
     page_no: z.number().nullish(),
 
     img: z.string().optional(),
 })
-export type Monster = z.infer<typeof MonsterSchema>
+    .extend(AbilitScores)
+    .extend(AbilitySaves)
+
+export type Monster = z.output<typeof MonsterSchema>
 
 export const SubclassSchema = GameObject
 export type Subclass = z.infer<typeof SubclassSchema>
