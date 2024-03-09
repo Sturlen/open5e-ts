@@ -29,7 +29,7 @@ const MONSTER_ENDPOINT = `${ENDPOINT}/monsters/`
 const CLASS_ENDPOINT = `${ENDPOINT}/classes/`
 const RACE_ENDPOINT = `${ENDPOINT}/races/`
 const SPELL_ENDPOINT = `${ENDPOINT}/spells/`
-const api = Open5e
+const api = new Open5e()
 
 beforeAll(() => {
     fetchMock.mock()
@@ -69,7 +69,7 @@ describe("Get", () => {
     it("Supports a custom api URL", () => {
         fetchMock.once("*", monsters.results[0])
 
-        Open5e.monsters.get("aboleth", { api_url: "https://your.domain.com/" })
+        new Open5e("https://your.domain.com/").monsters.get("aboleth")
 
         expect(
             fetchMock.lastCall()?.[0].startsWith("https://your.domain.com/"),

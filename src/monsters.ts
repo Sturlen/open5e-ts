@@ -137,7 +137,7 @@ export const Documents: Record<DocumentName, DocumentSlug> = {
     "Black Flag": "blackflag",
 }
 
-type GameObjectOptions = {
+export type GameObjectOptions = {
     /** Limit query to one or more sources. By default all sources are used. */
     document__slug?: DocumentSlug | DocumentSlug[]
     /** Max number of items to fetch. */
@@ -150,12 +150,12 @@ type GameObjectOptions = {
     api_url?: string | URL
 }
 
-type MonsterFindManyOptions = GameObjectOptions & {
+export type MonsterFindManyOptions = GameObjectOptions & {
     /** Filter to items with a challenge rating equal to this value. Supports fractions e.g. `1/8` */
     challenge_rating?: number
 } & {}
 
-type SpellFindManyOptions = GameObjectOptions & {
+export type SpellFindManyOptions = GameObjectOptions & {
     /** Filter by spell level. 0 means cantrips, 1 means level-1 spells , etc. */
     spell_level?: number
 } & {}
@@ -230,21 +230,29 @@ export const EndpointResultSchema = z.object({
     results: z.array(z.object({}).passthrough()),
 })
 
+export interface Endpoint<T extends z.ZodTypeAny, O extends GameObjectOptions> {
+    get: (slug: string) => Promise<z.output<T> | undefined>
+    findMany: (options?: O) => Promise<z.output<T>[]>
+    schema: T
+}
+
 /** Common endpoint funcionality */
 export function endpoint<
     T extends z.ZodTypeAny,
     Options extends GameObjectOptions,
->(baseUrl: string, pathname: string, schema: T, buildURL: URLBuilder<Options>) {
+>(
+    baseUrl: string,
+    pathname: string,
+    schema: T,
+    buildURL: URLBuilder<Options>,
+): Endpoint<T, Options> {
     return {
-        get: async (
-            slug: string,
-            options: { api_url?: string | URL } = {},
-        ): Promise<z.output<T> | undefined> => {
+        get: async (slug: string): Promise<z.output<T> | undefined> => {
             if (!slug) {
                 throw new Error("Slug is required.")
             }
             const endpoint = `${pathname}${slug}`
-            const url = new URL(options.api_url ?? baseUrl)
+            const url = new URL(baseUrl)
             url.pathname = endpoint
             const res = await fetch(url, FETCH_OPTIONS)
 
