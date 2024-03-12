@@ -14,6 +14,9 @@ const empty: APIResponse = JSON.parse(
 const monsters: APIResponse = JSON.parse(
     fs.readFileSync("./fixtures/monsters.json", "utf-8"),
 )
+const magic_items: APIResponse = JSON.parse(
+    fs.readFileSync("./fixtures/magic_items.json", "utf-8"),
+)
 const classes: APIResponse = JSON.parse(
     fs.readFileSync("./fixtures/classes.json", "utf-8"),
 )
@@ -207,6 +210,18 @@ describe("Schema Validation", () => {
         fetchMock.once("*", classes)
 
         const results = await api.classes.findMany()
+
+        expect(results.length).toBeGreaterThan(0)
+    })
+
+    it("Magic Items", async () => {
+        fetchMock.once("*", magic_items)
+
+        const results = await api.magic_items.findMany()
+
+        expect(results[0].rarity).toBe("rare")
+        expect(results[0].requires_attunement).toBe(false)
+        expect(results[2].requires_attunement).toBe(true)
 
         expect(results.length).toBeGreaterThan(0)
     })

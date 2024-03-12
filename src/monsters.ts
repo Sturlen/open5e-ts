@@ -73,6 +73,25 @@ export const SpellSchema = GameObject.extend({
     circles: z.string(),
     classes: z.array(z.string()).nullish(),
 })
+const rarities = [
+    "common",
+    "uncommon",
+    "rare",
+    "very rare",
+    "legendary",
+] as const
+
+export const MagicItemSchema = GameObject.extend({
+    rarity: z.string().toLowerCase().pipe(z.enum(rarities)),
+    type: z
+        .string()
+        .describe(
+            "Usually a type of item, e.g. 'Wondrous Item', 'Potion', 'Armor'. but can be anything.",
+        ),
+    requires_attunement: z
+        .string()
+        .transform((val) => val === "requires attunement"),
+})
 
 export type Spell5e = z.output<typeof SpellSchema>
 
