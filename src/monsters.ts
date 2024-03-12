@@ -75,10 +75,22 @@ export const SpellSchema = GameObject.extend({
 })
 const rarities = [
     "common",
+    "common ",
     "uncommon",
     "rare",
     "very rare",
     "legendary",
+    "artifact",
+    "uncommon, rare, very rare",
+    "varies",
+    "rarity varies",
+    "uncommon (silver), very rare (gold)",
+    "uncommon (+1), rare (+2), or very rare (+3)",
+    "very rare or legendary",
+    "rarity by figurine",
+    "rare (silver or brass), very rare (bronze) or legendary (iron)",
+    "common (+1), uncommon (+2), rare (+3)",
+    "uncommon (least), rare (lesser), very rare (greater)",
 ] as const
 
 export const MagicItemSchema = GameObject.extend({
@@ -181,9 +193,9 @@ export type SpellFindManyOptions = GameObjectOptions & {
 
 const ResponseLimitSchema = z.number().int().min(1).max(5000).default(50)
 
-function buildQueryParams(
-    params: Record<string, string | number | string[] | undefined>,
-) {
+type QueryStringValues = Record<string, string | number | string[] | undefined>
+
+function buildQueryParams(params: QueryStringValues) {
     const url = new URLSearchParams()
     for (const [key, value] of Object.entries(params)) {
         if (Array.isArray(value)) {
@@ -202,22 +214,35 @@ type URLBuilder<O extends GameObjectOptions> = (
     options: O | undefined,
 ) => URL
 
+export const query = (
+    base: string | URL,
+    pathname: string,
+    commonOptions: GameObjectOptions,
+    endpointOptions: QueryStringValues,
+) => {
+    const { limit, page, search, document__slug } = commonOptions
+    const { ...specific } = endpointOptions
+    const url = new URL(base)
+    url.pathname = pathname
+    url.search = buildQueryParams({
+        limit: ResponseLimitSchema.parse(limit),
+        page: z.number().int().positive().optional().parse(page),
+        search: search,
+        document__slug__in: document__slug,
+        ...endpointOptions,
+    }).toString()
+
+    return url
+}
+
 export const monsterQuery: URLBuilder<MonsterFindManyOptions> = (
     base,
     pathname,
     options = {},
 ) => {
-    const url = new URL(base)
-    url.pathname = pathname
-    url.search = buildQueryParams({
-        limit: ResponseLimitSchema.parse(options.limit),
-        page: z.number().int().positive().optional().parse(options.page),
-        search: options.search,
+    return query(base, pathname, options, {
         cr: options.challenge_rating,
-        document__slug__in: options.document__slug,
-    }).toString()
-
-    return url
+    })
 }
 
 export const spellQuery: URLBuilder<SpellFindManyOptions> = (
@@ -225,17 +250,9 @@ export const spellQuery: URLBuilder<SpellFindManyOptions> = (
     pathname,
     options = {},
 ) => {
-    const url = new URL(base)
-    url.pathname = pathname
-    url.search = buildQueryParams({
-        limit: ResponseLimitSchema.parse(options.limit),
-        page: z.number().int().positive().optional().parse(options.page),
-        search: options.search,
+    return query(base, pathname, options, {
         level_int: options.spell_level,
-        document__slug__in: options.document__slug,
-    }).toString()
-
-    return url
+    })
 }
 
 const FETCH_OPTIONS: RequestInit = {
