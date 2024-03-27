@@ -18,7 +18,23 @@ export const ClassSchema = GameObject.extend({
     spellcasting_ability: z.string(),
     subtypes_name: z.string(),
     archetypes: z.array(GameObject),
-})
+}).transform(
+    ({
+        document__slug,
+        document__title,
+        document__url,
+        document__license_url,
+        ...rest
+    }) => ({
+        ...rest,
+        document: {
+            slug: document__slug,
+            title: document__title,
+            url: document__url,
+            license: document__license_url,
+        },
+    }),
+)
 export type Class5e = z.output<typeof ClassSchema>
 
 export const SubraceSchema = GameObject.extend({
@@ -27,7 +43,23 @@ export const SubraceSchema = GameObject.extend({
     ),
     traits: z.string(),
     asi_desc: z.string(),
-})
+}).transform(
+    ({
+        document__slug,
+        document__title,
+        document__url,
+        document__license_url,
+        ...rest
+    }) => ({
+        ...rest,
+        document: {
+            slug: document__slug,
+            title: document__title,
+            url: document__url,
+            license: document__license_url,
+        },
+    }),
+)
 export type Subrace5e = z.output<typeof SubraceSchema>
 
 export const RaceSchema = GameObject.extend({
@@ -45,7 +77,23 @@ export const RaceSchema = GameObject.extend({
     vision: z.string(),
     traits: z.string(),
     subraces: z.array(SubraceSchema),
-})
+}).transform(
+    ({
+        document__slug,
+        document__title,
+        document__url,
+        document__license_url,
+        ...rest
+    }) => ({
+        ...rest,
+        document: {
+            slug: document__slug,
+            title: document__title,
+            url: document__url,
+            license: document__license_url,
+        },
+    }),
+)
 export type Race5e = z.output<typeof RaceSchema>
 
 export const SpellSchema = GameObject.extend({
@@ -71,8 +119,25 @@ export const SpellSchema = GameObject.extend({
     dnd_class: z.string(),
     archetype: z.string(),
     circles: z.string(),
-    classes: z.array(z.string()).nullish(),
-})
+    spell_lists: z.array(z.string()).default([]),
+}).transform(
+    ({
+        requires_verbal_components,
+        requires_somatic_components,
+        requires_material_components,
+        components,
+        ...rest
+    }) => ({
+        ...rest,
+        components: {
+            V: requires_verbal_components,
+            S: requires_somatic_components,
+            M: requires_material_components,
+        },
+        components_string: components,
+    }),
+)
+
 const rarities = [
     "common",
     "common ",
@@ -103,7 +168,23 @@ export const MagicItemSchema = GameObject.extend({
     requires_attunement: z
         .string()
         .transform((val) => val === "requires attunement"),
-})
+}).transform(
+    ({
+        document__slug,
+        document__title,
+        document__url,
+        document__license_url,
+        ...rest
+    }) => ({
+        ...rest,
+        document: {
+            slug: document__slug,
+            title: document__title,
+            url: document__url,
+            license: document__license_url,
+        },
+    }),
+)
 
 export type Spell5e = z.output<typeof SpellSchema>
 

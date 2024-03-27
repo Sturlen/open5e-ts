@@ -73,5 +73,22 @@ export const MonsterSchema = GameObject.extend({
 })
     .extend(AbilitScores)
     .extend(AbilitySaves)
+    .transform(
+        ({
+            document__slug,
+            document__title,
+            document__url,
+            document__license_url,
+            ...rest
+        }) => ({
+            ...rest,
+            document: {
+                slug: document__slug,
+                title: document__title,
+                url: document__url,
+                license: document__license_url,
+            },
+        }),
+    )
 
 export type Monster5e = z.output<typeof MonsterSchema>

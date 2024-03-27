@@ -211,6 +211,8 @@ describe("Schema Validation", () => {
 
         const results = await api.classes.findMany()
 
+        expect(results[0].prof_armor).toBe("Light armor, medium armor, shields")
+
         expect(results.length).toBeGreaterThan(0)
     })
 
@@ -231,6 +233,10 @@ describe("Schema Validation", () => {
 
         const results = await api.monsters.findMany()
 
+        expect(results[0].challenge_rating).toBe("10")
+        expect(results[0].cr).toBe(10)
+        expect(results[0].document.title).toBe("5e Core Rules")
+
         expect(results.length).toBeGreaterThan(0)
     })
 
@@ -239,6 +245,9 @@ describe("Schema Validation", () => {
 
         const results = await api.races.findMany()
 
+        expect(results[0].name).toBe("Dwarf")
+        expect(results[0].size_raw).toBe("Medium")
+        expect(results[0].subraces[0].name).toBe("Hill Dwarf")
         expect(results.length).toBeGreaterThan(0)
     })
 
@@ -247,6 +256,14 @@ describe("Schema Validation", () => {
 
         const results = await api.spells.findMany()
 
+        expect(results[6].name).toBe("Acid Arrow")
+        expect(results[6].spell_level).toBe(2)
+        expect(results[6].spell_lists).toStrictEqual(["wizard", "druid"])
+        expect(results[6].components).toStrictEqual({
+            V: true,
+            S: true,
+            M: true,
+        })
         expect(results.length).toBeGreaterThan(0)
     })
 })
