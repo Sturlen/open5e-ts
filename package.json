@@ -1,8 +1,8 @@
 {
-    "name": "@sturlen/open5e",
-    "version": "1.0.0-6",
+    "name": "@sturlen/open5e-ts",
+    "version": "0.0.0",
     "license": "MIT",
-    "description": "Typesafe Ope5e API wrapper using Zod",
+    "description": "Typesafe Open5e API wrapper using Zod",
     "exports": {
         ".": {
             "types": "./dist/index.d.ts",
@@ -32,7 +32,8 @@
         "5e",
         "dnd",
         "open5e",
-        "zod"
+        "zod",
+        "vtt"
     ],
     "author": "Sturlen",
     "files": [
