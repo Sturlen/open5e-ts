@@ -3,17 +3,17 @@ Makes working with Open5e data in Typescript a breeze. All data is validated usi
 # Install
 
 ```sh
-npm install @sturlen/open5e
+npm install @sturlen/open5e-ts
 ```
 
 ```sh
-pnpm install @sturlen/open5e
+pnpm install @sturlen/open5e-ts
 ```
 
 # Usage
 
 ```ts
-import { Open5e } from "@sturlen/open5e"
+import { Open5e } from "@sturlen/open5e-ts"
 
 // Query
 const dragons = await Open5e.monsters.findMany({
