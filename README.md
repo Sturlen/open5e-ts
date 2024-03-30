@@ -22,7 +22,7 @@ pnpm install @sturlen/open5e-ts
 ```ts
 import { Open5e } from "@sturlen/open5e-ts"
 
-const api = new Open5()
+const api = new Open5e()
 
 // Query up to 50 dragons from the Tome of Beasts books.
 const dragons = await api.monsters.findMany({
