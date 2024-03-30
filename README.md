@@ -41,7 +41,7 @@ const spell = await api.spells.get("cure-wounds")
 console.log(spell.range) // Touch
 
 // You can access the Zod schemas and use them separately
-Ope5e.monsters.schema.parse(YourObject)
+api.monsters.schema.parse(YourObject)
 
 ```
 
