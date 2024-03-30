@@ -1,6 +1,6 @@
 {
     "name": "@sturlen/open5e-ts",
-    "version": "0.0.0",
+    "version": "1.0.0-0",
     "license": "MIT",
     "description": "Typesafe Open5e API wrapper using Zod",
     "exports": {
@@ -39,7 +39,7 @@
     "files": [
         "/dist"
     ],
-    "repository": "https://github.com/Sturlen/open5e-typesafe-api/",
+    "repository": "https://github.com/Sturlen/open5e-ts/",
     "devDependencies": {
         "@swc/core": "^1.3.104",
         "@types/jest": "^29.5.11",
