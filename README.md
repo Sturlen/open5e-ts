@@ -1,4 +1,11 @@
-Makes working with Open5e data in Typescript a breeze. All data is validated using Zod schemas, which gives you great autocomplete and runtime safety.
+Makes working with Open5e data in Typescript a breeze. All data is validated using Zod schemas, which gives high quality autocomplete your editor and full runtime safety. Usable on client and server.
+
+Supports the following API endpoints:
+- Monsters
+- Spells
+- Classes
+- Magic Items
+- Races
 
 # Install
 
@@ -15,17 +22,25 @@ pnpm install @sturlen/open5e-ts
 ```ts
 import { Open5e } from "@sturlen/open5e-ts"
 
-// Query
-const dragons = await Open5e.monsters.findMany({
+const api = new Open5()
+
+// Query up to 50 dragons from the Tome of Beasts books.
+const dragons = await api.monsters.findMany({
     limit: 50,
-    document__slug: "tob",
+    document__slug: ["tob", "tob2", "tob3"],
     search: "dragon",
 })
 
-// Use
-dragons.forEach((monster) => console.log(monster.name))
+// Use the result as you see fit
+dragons.forEach((monster) => console.log("Challenge: " + monster.challenge_rating))
 
-// You can access the schemas and use them separately
+
+// Get a specific item by it's id/slug
+const spell = await api.spells.get("cure-wounds")
+
+console.log(spell.range) // Touch
+
+// You can access the Zod schemas and use them separately
 Ope5e.monsters.schema.parse(YourObject)
 
 ```
