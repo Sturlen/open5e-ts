@@ -1,6 +1,6 @@
 {
     "name": "@sturlen/open5e-ts",
-    "version": "1.0.4",
+    "version": "1.1.0-0",
     "license": "MIT",
     "description": "Typesafe Open5e API wrapper using Zod",
     "exports": {
