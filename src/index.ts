@@ -12,6 +12,8 @@ import {
 } from "./monsters"
 import { MonsterSchema } from "./schema/monster"
 
+export type { Monster5e } from "./schema/monster"
+
 export const DEFAULT_OPEN5E_API_URL = "https://api.open5e.com"
 
 export class Open5e {
