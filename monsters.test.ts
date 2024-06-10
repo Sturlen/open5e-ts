@@ -3,6 +3,7 @@ import { Open5e } from "./src"
 import fetchMock from "fetch-mock"
 import fs from "fs"
 import { Documents } from "./src/monsters"
+import { exportMonsterToOpen5e, MonsterSchema } from "./src/schema/monster"
 
 type APIResponse = {
     results: Array<Record<string, any> & { slug: string }>
@@ -291,5 +292,16 @@ describe("Monsters", () => {
         expect(fetchMock.lastCall()?.[0]).toBe(
             `${MONSTER_ENDPOINT}?limit=50&cr=0.125`,
         )
+    })
+})
+
+describe("exportMonsterToOpen5e", () => {
+    it("prouduces an object that can be parsed successfully by our schema.", async () => {
+        fetchMock.once("*", monsters.results[0])
+
+        const result = await api.monsters.get("dragon")
+        if (!result) throw new Error("No result")
+
+        MonsterSchema.parse(exportMonsterToOpen5e(result))
     })
 })

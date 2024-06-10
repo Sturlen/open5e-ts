@@ -91,4 +91,24 @@ export const MonsterSchema = GameObject.extend({
         }),
     )
 
-export type Monster5e = z.output<typeof MonsterSchema>
+/** This is the type returned by the Open5e API. */
+export type RawMonster5e = z.input<typeof MonsterSchema>
+
+/** Parsed Monster.
+ * To export back to the Open5e format, use the function `exportMonsterToOpen5e`
+ * @see exportMonsterToOpen5e
+ */
+export interface Monster5e extends z.output<typeof MonsterSchema> {}
+
+export function exportMonsterToOpen5e({
+    document,
+    ...monster
+}: Monster5e): Record<string, any> {
+    return {
+        ...monster,
+        document__slug: document.slug,
+        document__title: document.title,
+        document__url: document.url,
+        document__license_url: document.license,
+    }
+}

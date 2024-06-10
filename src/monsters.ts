@@ -186,6 +186,8 @@ export const MagicItemSchema = GameObject.extend({
     }),
 )
 
+export type MagicItem5e = z.output<typeof MagicItemSchema>
+
 export type Spell5e = z.output<typeof SpellSchema>
 
 const DOCUMENT_SLUGS = [
@@ -347,24 +349,21 @@ export const EndpointResultSchema = z.object({
     results: z.array(z.object({}).passthrough()),
 })
 
-export interface Endpoint<T extends z.ZodTypeAny, O extends GameObjectOptions> {
-    get: (slug: string) => Promise<z.output<T> | undefined>
-    findMany: (options?: O) => Promise<z.output<T>[]>
-    schema: T
+export interface Endpoint<T, O extends GameObjectOptions> {
+    get: (slug: string) => Promise<T | undefined>
+    findMany: (options?: O) => Promise<T[]>
+    schema: z.ZodType<any>
 }
 
 /** Common endpoint funcionality */
-export function endpoint<
-    T extends z.ZodTypeAny,
-    Options extends GameObjectOptions,
->(
+export function endpoint<T, Options extends GameObjectOptions>(
     baseUrl: string,
     pathname: string,
-    schema: T,
+    schema: z.ZodTypeAny,
     buildURL: URLBuilder<Options>,
 ): Endpoint<T, Options> {
     return {
-        get: async (slug: string): Promise<z.output<T> | undefined> => {
+        get: async (slug: string) => {
             if (!slug) {
                 throw new Error("Slug is required.")
             }
@@ -384,7 +383,7 @@ export function endpoint<
 
             return schema.parse(res_json)
         },
-        findMany: async (options?: Options): Promise<z.output<T>[]> => {
+        findMany: async (options?: Options) => {
             const url = new URL(options?.api_url ?? baseUrl)
             const full_url = buildURL(url, pathname, options)
 

@@ -9,19 +9,27 @@ import {
     Endpoint,
     MonsterFindManyOptions,
     SpellFindManyOptions,
+    Class5e,
+    Race5e,
+    Spell5e,
+    MagicItem5e,
 } from "./monsters"
-import { MonsterSchema } from "./schema/monster"
+import {
+    Monster5e,
+    MonsterSchema,
+    exportMonsterToOpen5e,
+} from "./schema/monster"
 
-export type { Monster5e } from "./schema/monster"
+export { type Monster5e, MonsterSchema, exportMonsterToOpen5e }
 
 export const DEFAULT_OPEN5E_API_URL = "https://api.open5e.com"
 
 export class Open5e {
-    classes: Endpoint<typeof ClassSchema, MonsterFindManyOptions>
-    magic_items: Endpoint<typeof MagicItemSchema, MonsterFindManyOptions>
-    monsters: Endpoint<typeof MonsterSchema, MonsterFindManyOptions>
-    races: Endpoint<typeof RaceSchema, MonsterFindManyOptions>
-    spells: Endpoint<typeof SpellSchema, SpellFindManyOptions>
+    classes: Endpoint<Class5e, MonsterFindManyOptions>
+    magic_items: Endpoint<MagicItem5e, MonsterFindManyOptions>
+    monsters: Endpoint<Monster5e, MonsterFindManyOptions>
+    races: Endpoint<Race5e, MonsterFindManyOptions>
+    spells: Endpoint<Spell5e, SpellFindManyOptions>
 
     constructor(apiURL = DEFAULT_OPEN5E_API_URL) {
         this.classes = endpoint(apiURL, "/classes/", ClassSchema, monsterQuery)
